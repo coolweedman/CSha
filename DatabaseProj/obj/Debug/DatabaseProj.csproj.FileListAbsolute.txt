@@ -8,3 +8,14 @@ C:\Users\coolw\Documents\Proj\9. C#_Proj\DatabaseProj\obj\Debug\DatabaseProj.pdb
 C:\Users\coolw\Documents\Proj\9. C#_Proj\DatabaseProj\bin\Debug\System.Data.SQLite.dll
 C:\Users\coolw\Documents\Proj\9. C#_Proj\DatabaseProj\bin\Debug\System.Data.SQLite.pdb
 C:\Users\coolw\Documents\Proj\9. C#_Proj\DatabaseProj\obj\Debug\DatabaseProj.UI.DbWinBase.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.exe
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.pdb
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\bin\Debug\DatabaseProj.exe
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\bin\Debug\DatabaseProj.pdb
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\bin\Debug\System.Data.SQLite.dll
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\bin\Debug\System.Data.SQLite.pdb
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.csprojResolveAssemblyReference.cache
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.Properties.Resources.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.DbWinBase.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.csproj.GenerateResource.Cache
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardUserEdit.resources
