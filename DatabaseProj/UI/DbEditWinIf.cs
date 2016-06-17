@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace DatabaseProj.UI {
 
-    interface DbEditWinIf {
+    public interface DbEditWinIf {
         void dbUiInit ();
         void dbUi2Stru ();
         void dbStru2Ui ();

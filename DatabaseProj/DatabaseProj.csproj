@@ -71,6 +71,9 @@
     <Compile Include="UI\RegularCardUserUi.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="Code\Main\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
