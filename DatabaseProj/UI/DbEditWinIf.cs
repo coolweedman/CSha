@@ -10,8 +10,8 @@ namespace DatabaseProj.UI {
         void dbUi2Stru ();
         void dbStru2Ui ();
         void dbString2Ui (ref List<string> listRecord);
-        void dbString2Stru ();
-        void dbUiSHowDialog ();
+        void dbString2Stru (ref List<string> listRecord);
+        void dbUiShowDialog ();
 
         void dbUiUpdateModeSet ();
         void dbUiAddModeSet ();

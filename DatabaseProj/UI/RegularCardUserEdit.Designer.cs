@@ -36,17 +36,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.textBoxUserIdent = new System.Windows.Forms.TextBox();
+            this.textBoxUserPhone = new System.Windows.Forms.TextBox();
+            this.textBoxCarPlate = new System.Windows.Forms.TextBox();
+            this.textBoxCardNum = new System.Windows.Forms.TextBox();
+            this.dateTimePickerPayTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerValidTime = new System.Windows.Forms.DateTimePicker();
+            this.textBoxPayMoney = new System.Windows.Forms.TextBox();
+            this.comboBoxCardType = new System.Windows.Forms.ComboBox();
+            this.comboBoxCarType = new System.Windows.Forms.ComboBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -108,7 +108,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(331, 127);
+            this.label7.Location = new System.Drawing.Point(496, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 18);
             this.label7.TabIndex = 6;
@@ -117,7 +117,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(496, 127);
+            this.label8.Location = new System.Drawing.Point(331, 126);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 18);
             this.label8.TabIndex = 7;
@@ -150,84 +150,84 @@
             this.label11.TabIndex = 10;
             this.label11.Text = "有效期";
             // 
-            // textBox1
+            // textBoxId
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 28);
-            this.textBox1.TabIndex = 11;
+            this.textBoxId.Location = new System.Drawing.Point(28, 61);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(127, 28);
+            this.textBoxId.TabIndex = 11;
             // 
-            // textBox2
+            // textBoxUserName
             // 
-            this.textBox2.Location = new System.Drawing.Point(175, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 28);
-            this.textBox2.TabIndex = 12;
+            this.textBoxUserName.Location = new System.Drawing.Point(175, 60);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(145, 28);
+            this.textBoxUserName.TabIndex = 12;
             // 
-            // textBox3
+            // textBoxUserIdent
             // 
-            this.textBox3.Location = new System.Drawing.Point(334, 61);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 28);
-            this.textBox3.TabIndex = 13;
+            this.textBoxUserIdent.Location = new System.Drawing.Point(334, 61);
+            this.textBoxUserIdent.Name = "textBoxUserIdent";
+            this.textBoxUserIdent.Size = new System.Drawing.Size(140, 28);
+            this.textBoxUserIdent.TabIndex = 13;
             // 
-            // textBox4
+            // textBoxUserPhone
             // 
-            this.textBox4.Location = new System.Drawing.Point(499, 60);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(136, 28);
-            this.textBox4.TabIndex = 14;
+            this.textBoxUserPhone.Location = new System.Drawing.Point(499, 60);
+            this.textBoxUserPhone.Name = "textBoxUserPhone";
+            this.textBoxUserPhone.Size = new System.Drawing.Size(136, 28);
+            this.textBoxUserPhone.TabIndex = 14;
             // 
-            // textBox5
+            // textBoxCarPlate
             // 
-            this.textBox5.Location = new System.Drawing.Point(28, 169);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(127, 28);
-            this.textBox5.TabIndex = 15;
+            this.textBoxCarPlate.Location = new System.Drawing.Point(28, 169);
+            this.textBoxCarPlate.Name = "textBoxCarPlate";
+            this.textBoxCarPlate.Size = new System.Drawing.Size(127, 28);
+            this.textBoxCarPlate.TabIndex = 15;
             // 
-            // textBox6
+            // textBoxCardNum
             // 
-            this.textBox6.Location = new System.Drawing.Point(175, 168);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 28);
-            this.textBox6.TabIndex = 16;
+            this.textBoxCardNum.Location = new System.Drawing.Point(175, 168);
+            this.textBoxCardNum.Name = "textBoxCardNum";
+            this.textBoxCardNum.Size = new System.Drawing.Size(145, 28);
+            this.textBoxCardNum.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // dateTimePickerPayTime
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(28, 268);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePicker1.TabIndex = 19;
+            this.dateTimePickerPayTime.Location = new System.Drawing.Point(28, 268);
+            this.dateTimePickerPayTime.Name = "dateTimePickerPayTime";
+            this.dateTimePickerPayTime.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePickerPayTime.TabIndex = 19;
             // 
-            // dateTimePicker2
+            // dateTimePickerValidTime
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(435, 268);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePicker2.TabIndex = 20;
+            this.dateTimePickerValidTime.Location = new System.Drawing.Point(435, 268);
+            this.dateTimePickerValidTime.Name = "dateTimePickerValidTime";
+            this.dateTimePickerValidTime.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePickerValidTime.TabIndex = 20;
             // 
-            // textBox9
+            // textBoxPayMoney
             // 
-            this.textBox9.Location = new System.Drawing.Point(284, 268);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 28);
-            this.textBox9.TabIndex = 21;
+            this.textBoxPayMoney.Location = new System.Drawing.Point(284, 268);
+            this.textBoxPayMoney.Name = "textBoxPayMoney";
+            this.textBoxPayMoney.Size = new System.Drawing.Size(100, 28);
+            this.textBoxPayMoney.TabIndex = 21;
             // 
-            // comboBox1
+            // comboBoxCardType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(334, 169);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 26);
-            this.comboBox1.TabIndex = 22;
+            this.comboBoxCardType.FormattingEnabled = true;
+            this.comboBoxCardType.Location = new System.Drawing.Point(334, 169);
+            this.comboBoxCardType.Name = "comboBoxCardType";
+            this.comboBoxCardType.Size = new System.Drawing.Size(140, 26);
+            this.comboBoxCardType.TabIndex = 22;
             // 
-            // comboBox2
+            // comboBoxCarType
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(499, 169);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(136, 26);
-            this.comboBox2.TabIndex = 23;
+            this.comboBoxCarType.FormattingEnabled = true;
+            this.comboBoxCarType.Location = new System.Drawing.Point(499, 169);
+            this.comboBoxCarType.Name = "comboBoxCarType";
+            this.comboBoxCarType.Size = new System.Drawing.Size(136, 26);
+            this.comboBoxCarType.TabIndex = 23;
             // 
             // buttonOk
             // 
@@ -237,6 +237,7 @@
             this.buttonOk.TabIndex = 24;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
@@ -247,6 +248,7 @@
             this.buttonCancel.TabIndex = 25;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // RegularCardUserEdit
             // 
@@ -258,17 +260,17 @@
             this.ControlBox = false;
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBoxCarType);
+            this.Controls.Add(this.comboBoxCardType);
+            this.Controls.Add(this.textBoxPayMoney);
+            this.Controls.Add(this.dateTimePickerValidTime);
+            this.Controls.Add(this.dateTimePickerPayTime);
+            this.Controls.Add(this.textBoxCardNum);
+            this.Controls.Add(this.textBoxCarPlate);
+            this.Controls.Add(this.textBoxUserPhone);
+            this.Controls.Add(this.textBoxUserIdent);
+            this.Controls.Add(this.textBoxUserName);
+            this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -300,17 +302,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.TextBox textBoxUserIdent;
+        private System.Windows.Forms.TextBox textBoxUserPhone;
+        private System.Windows.Forms.TextBox textBoxCarPlate;
+        private System.Windows.Forms.TextBox textBoxCardNum;
+        private System.Windows.Forms.DateTimePicker dateTimePickerPayTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerValidTime;
+        private System.Windows.Forms.TextBox textBoxPayMoney;
+        private System.Windows.Forms.ComboBox comboBoxCardType;
+        private System.Windows.Forms.ComboBox comboBoxCarType;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
     }

@@ -115,27 +115,9 @@ namespace DatabaseProj.Code.Database {
         }
         public override void dataBaseBaseDeRecordInsert ()
         {
-            hCmd.CommandText = "SELECT * FROM RegularCardUser WHERE CardNum=@CardNum";
-            hCmd.Parameters.Add( new SQLiteParameter( "CardNum", "TestCarNum" ) );
-            base.dataBaseBaseRecordRead();
-
-            if ( null == hReader ) {
-                CDebugPrint.dbgUserMsgPrint( "Database: Default record insert fail...");
-                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
-
-                return;
-            }
-
-            if ( !hReader.Read() ) {
-                hReader.Close();
-
-                SRegularCardUserStru sRegularCardUser = new SRegularCardUserStru( 1, "TestUserName", "TestUserIdent", "TestUserPhone", "粤A-88888", "TestCardNum", 0, 0, DateTime.Now, 100, DateTime.Parse("2020-1-1 23:59:59") );
-                object sObject = sRegularCardUser;
-                dataBaseBaseCommAdd( ref sObject );
-            } else {
-                hReader.Close();
-            }
-
+            SRegularCardUserStru sRegularCardUser = new SRegularCardUserStru( 1, "TestUserName", "TestUserIdent", "TestUserPhone", "粤A-88888", "TestCardNum", 0, 0, DateTime.Now, 100, DateTime.Parse( "2020-1-1 23:59:59" ) );
+            object sObject = sRegularCardUser;
+            dataBaseBaseCommAdd( ref sObject );
         }
 
         public override SQLiteDataReader dataBaseBaseCommRead ()
@@ -158,11 +140,11 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "UserPhone", sRcuStru.strUserPhone ) );
             hCmd.Parameters.Add( new SQLiteParameter( "CarPlate", sRcuStru.strCarPlate ) );
             hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sRcuStru.strCardNum ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "CardType", sRcuStru.iCardType ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "CarType", sRcuStru.iCarType ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sRcuStru.sPayTime.ToString( "yyyy/MM/dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "CardType", strRcuCardTypeDesc[sRcuStru.iCardType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "CarType", strRcuCarTypeDesc[sRcuStru.iCarType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sRcuStru.sPayTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", sRcuStru.dPayMoney ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sRcuStru.sVaildTime.ToString( "yyyy/MM/dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sRcuStru.sVaildTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
 
             return base.dataBaseBaseCommCmdExec();
         }

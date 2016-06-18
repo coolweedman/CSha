@@ -58,6 +58,7 @@
             this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = "添加";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonReFlash
             // 
@@ -67,6 +68,7 @@
             this.buttonReFlash.TabIndex = 2;
             this.buttonReFlash.Text = "刷新";
             this.buttonReFlash.UseVisualStyleBackColor = true;
+            this.buttonReFlash.Click += new System.EventHandler(this.buttonReFlash_Click);
             // 
             // buttonClose
             // 
@@ -77,6 +79,7 @@
             this.buttonClose.TabIndex = 3;
             this.buttonClose.Text = "关闭";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // statusStrip1
             // 
@@ -102,19 +105,21 @@
             this.编辑ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 64);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 97);
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.编辑ToolStripMenuItem.Text = "编辑";
+            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // DbWinBase
             // 

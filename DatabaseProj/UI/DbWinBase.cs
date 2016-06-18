@@ -71,5 +71,38 @@ namespace DatabaseProj.UI {
                 listStr.Add( dataGridViewDb.Rows[iDgvLeftSelectedRow].Cells[i].Value.ToString() );
             }
         }
+
+        public virtual void buttonAdd_Click (object sender, EventArgs e)
+        {
+            hDbEditWinIf.dbUiAddModeSet();
+            hDbEditWinIf.dbUiShowDialog();
+
+            if ( DialogResult.OK == hDbEditWinIf.dbFinishStatGet()) {
+                object sRecord = hDbEditWinIf.dbStruGet();
+                hDatabaseBase.dataBaseBaseCommAdd( ref sRecord );
+
+                dbDgvReFlash();
+            }
+        }
+
+        private void buttonReFlash_Click (object sender, EventArgs e)
+        {
+            dbDgvReFlash();
+        }
+
+        private void buttonClose_Click (object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void editToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+
+        }
     }
 }
