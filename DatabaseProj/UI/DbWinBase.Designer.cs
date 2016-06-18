@@ -48,6 +48,7 @@
             this.dataGridViewDb.RowTemplate.Height = 30;
             this.dataGridViewDb.Size = new System.Drawing.Size(749, 290);
             this.dataGridViewDb.TabIndex = 0;
+            this.dataGridViewDb.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDb_CellMouseDown);
             // 
             // buttonAdd
             // 
@@ -105,19 +106,19 @@
             this.编辑ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 97);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 64);
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
             this.编辑ToolStripMenuItem.Text = "编辑";
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 

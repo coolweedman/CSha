@@ -113,6 +113,7 @@ namespace DatabaseProj.Code.Database {
 
             base.dataBaseBaseTableCreate( strCreateTable );
         }
+
         public override void dataBaseBaseDeRecordInsert ()
         {
             SRegularCardUserStru sRegularCardUser = new SRegularCardUserStru( 1, "TestUserName", "TestUserIdent", "TestUserPhone", "粤A-88888", "TestCardNum", 0, 0, DateTime.Now, 100, DateTime.Parse( "2020-1-1 23:59:59" ) );
@@ -183,9 +184,9 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sRcuStru.strCardNum ) );
             hCmd.Parameters.Add( new SQLiteParameter( "CardType", sRcuStru.iCardType ) );
             hCmd.Parameters.Add( new SQLiteParameter( "CarType", sRcuStru.iCarType ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sRcuStru.sPayTime.ToString( "yyyy/MM/dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sRcuStru.sPayTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", sRcuStru.dPayMoney ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sRcuStru.sVaildTime.ToString( "yyyy/MM/dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sRcuStru.sVaildTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sRcuStru.iId ) );
 
             return base.dataBaseBaseCommCmdExec();

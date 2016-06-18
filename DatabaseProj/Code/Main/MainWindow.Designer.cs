@@ -28,6 +28,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regularCardUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regularCardPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regularCardUserToolStripMenuItem});
+            this.regularCardUserToolStripMenuItem,
+            this.regularCardPaymentToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
             this.viewToolStripMenuItem.Text = "View";
@@ -53,9 +55,16 @@
             // regularCardUserToolStripMenuItem
             // 
             this.regularCardUserToolStripMenuItem.Name = "regularCardUserToolStripMenuItem";
-            this.regularCardUserToolStripMenuItem.Size = new System.Drawing.Size(239, 30);
+            this.regularCardUserToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
             this.regularCardUserToolStripMenuItem.Text = "RegularCardUser";
             this.regularCardUserToolStripMenuItem.Click += new System.EventHandler(this.regularCardUserToolStripMenuItem_Click_1);
+            // 
+            // regularCardPaymentToolStripMenuItem
+            // 
+            this.regularCardPaymentToolStripMenuItem.Name = "regularCardPaymentToolStripMenuItem";
+            this.regularCardPaymentToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.regularCardPaymentToolStripMenuItem.Text = "RegularCardPayment";
+            this.regularCardPaymentToolStripMenuItem.Click += new System.EventHandler(this.regularCardPaymentToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -78,5 +87,6 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regularCardUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regularCardPaymentToolStripMenuItem;
     }
 }

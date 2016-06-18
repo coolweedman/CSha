@@ -43,7 +43,7 @@ namespace DatabaseProj.UI {
                 sRcuStru.dPayMoney = double.Parse( listRecord[i++] );
                 sRcuStru.sVaildTime = Convert.ToDateTime( listRecord[i++] );
             } catch ( Exception ex ) {
-                CDebugPrint.dbgUserMsgPrint( "Database: Read record fail..." );
+                CDebugPrint.dbgUserMsgPrint( "dbString2Stru..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
@@ -66,7 +66,7 @@ namespace DatabaseProj.UI {
                 textBoxPayMoney.Text = listRecord[i++];
                 dateTimePickerValidTime.Value = Convert.ToDateTime( listRecord[i++] );
             } catch ( Exception ex ) {
-                CDebugPrint.dbgUserMsgPrint( "Database: Read record fail..." );
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
@@ -107,7 +107,7 @@ namespace DatabaseProj.UI {
                 sRcuStru.dPayMoney = double.Parse( textBoxPayMoney.Text );
                 sRcuStru.sVaildTime = dateTimePickerValidTime.Value;
             } catch ( Exception ex ) {
-                CDebugPrint.dbgUserMsgPrint( "Database: Read record fail..." );
+                CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }

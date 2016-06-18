@@ -20,5 +20,11 @@ namespace DatabaseProj.Code.Main {
             RegularCardUserUi hRegularCardUserUi = new RegularCardUserUi();
             hRegularCardUserUi.Show();
         }
+
+        private void regularCardPaymentToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            RegularCardPaymentUi hRegularCardPayment = new RegularCardPaymentUi();
+            hRegularCardPayment.Show();
+        }
     }
 }
