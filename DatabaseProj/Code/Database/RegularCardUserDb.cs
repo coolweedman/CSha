@@ -196,5 +196,21 @@ namespace DatabaseProj.Code.Database {
         {
             return strRegularCardUserHeadDesc;
         }
+
+        public int rcuPaymentUpdate (int iId, DateTime sPayTime, double dPayMoney, DateTime sVaildTime)
+        {
+            hCmd.CommandText = "UPDATE RegularCardUser SET " +
+                               "PayTime=@PayTime, " +
+                               "PayMoney=@PayMoney, " +
+                               "VaildTime=@VaildTime " +
+                               "WHERE Id=@Id";
+
+            hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sPayTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", dPayMoney ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sVaildTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Id", iId ) );
+
+            return base.dataBaseBaseCommCmdExec();
+        }
     }
 }
