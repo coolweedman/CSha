@@ -42,23 +42,23 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxGarageNum = new System.Windows.Forms.TextBox();
+            this.textBoxSpaceNum = new System.Windows.Forms.TextBox();
+            this.textBoxCardNum = new System.Windows.Forms.TextBox();
+            this.textBoxAxisX = new System.Windows.Forms.TextBox();
+            this.textBoxAxisY = new System.Windows.Forms.TextBox();
+            this.textBoxRearrange1 = new System.Windows.Forms.TextBox();
+            this.textBoxRearrange2 = new System.Windows.Forms.TextBox();
+            this.comboBoxLockStat = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpaceType = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpacePosi = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpaceAera = new System.Windows.Forms.ComboBox();
+            this.textBoxAttr1 = new System.Windows.Forms.TextBox();
+            this.textBoxAttr2 = new System.Windows.Forms.TextBox();
+            this.textBoxAttr3 = new System.Windows.Forms.TextBox();
+            this.textBoxCarPlate = new System.Windows.Forms.TextBox();
+            this.textBoxPicPath = new System.Windows.Forms.TextBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -86,9 +86,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(404, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 18);
+            this.label3.Size = new System.Drawing.Size(62, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "车位";
+            this.label3.Text = "车位号";
             // 
             // label4
             // 
@@ -171,7 +171,6 @@
             this.label12.Size = new System.Drawing.Size(80, 18);
             this.label12.TabIndex = 11;
             this.label12.Text = "车位分区";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -218,128 +217,128 @@
             this.label17.TabIndex = 16;
             this.label17.Text = "车辆图片路径";
             // 
-            // textBox1
+            // textBoxId
             // 
-            this.textBox1.Location = new System.Drawing.Point(39, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 28);
-            this.textBox1.TabIndex = 17;
+            this.textBoxId.Location = new System.Drawing.Point(39, 64);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(100, 28);
+            this.textBoxId.TabIndex = 17;
             // 
-            // textBox2
+            // textBoxGarageNum
             // 
-            this.textBox2.Location = new System.Drawing.Point(221, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 28);
-            this.textBox2.TabIndex = 18;
+            this.textBoxGarageNum.Location = new System.Drawing.Point(221, 63);
+            this.textBoxGarageNum.Name = "textBoxGarageNum";
+            this.textBoxGarageNum.Size = new System.Drawing.Size(100, 28);
+            this.textBoxGarageNum.TabIndex = 18;
             // 
-            // textBox3
+            // textBoxSpaceNum
             // 
-            this.textBox3.Location = new System.Drawing.Point(407, 63);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 28);
-            this.textBox3.TabIndex = 19;
+            this.textBoxSpaceNum.Location = new System.Drawing.Point(407, 63);
+            this.textBoxSpaceNum.Name = "textBoxSpaceNum";
+            this.textBoxSpaceNum.Size = new System.Drawing.Size(100, 28);
+            this.textBoxSpaceNum.TabIndex = 19;
             // 
-            // textBox4
+            // textBoxCardNum
             // 
-            this.textBox4.Location = new System.Drawing.Point(569, 63);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 28);
-            this.textBox4.TabIndex = 20;
+            this.textBoxCardNum.Location = new System.Drawing.Point(569, 63);
+            this.textBoxCardNum.Name = "textBoxCardNum";
+            this.textBoxCardNum.Size = new System.Drawing.Size(100, 28);
+            this.textBoxCardNum.TabIndex = 20;
             // 
-            // textBox5
+            // textBoxAxisX
             // 
-            this.textBox5.Location = new System.Drawing.Point(41, 163);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 28);
-            this.textBox5.TabIndex = 21;
+            this.textBoxAxisX.Location = new System.Drawing.Point(41, 163);
+            this.textBoxAxisX.Name = "textBoxAxisX";
+            this.textBoxAxisX.Size = new System.Drawing.Size(100, 28);
+            this.textBoxAxisX.TabIndex = 21;
             // 
-            // textBox6
+            // textBoxAxisY
             // 
-            this.textBox6.Location = new System.Drawing.Point(221, 163);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 28);
-            this.textBox6.TabIndex = 22;
+            this.textBoxAxisY.Location = new System.Drawing.Point(221, 163);
+            this.textBoxAxisY.Name = "textBoxAxisY";
+            this.textBoxAxisY.Size = new System.Drawing.Size(100, 28);
+            this.textBoxAxisY.TabIndex = 22;
             // 
-            // textBox7
+            // textBoxRearrange1
             // 
-            this.textBox7.Location = new System.Drawing.Point(407, 162);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 28);
-            this.textBox7.TabIndex = 23;
+            this.textBoxRearrange1.Location = new System.Drawing.Point(407, 162);
+            this.textBoxRearrange1.Name = "textBoxRearrange1";
+            this.textBoxRearrange1.Size = new System.Drawing.Size(100, 28);
+            this.textBoxRearrange1.TabIndex = 23;
             // 
-            // textBox8
+            // textBoxRearrange2
             // 
-            this.textBox8.Location = new System.Drawing.Point(569, 163);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 28);
-            this.textBox8.TabIndex = 24;
+            this.textBoxRearrange2.Location = new System.Drawing.Point(569, 163);
+            this.textBoxRearrange2.Name = "textBoxRearrange2";
+            this.textBoxRearrange2.Size = new System.Drawing.Size(100, 28);
+            this.textBoxRearrange2.TabIndex = 24;
             // 
-            // comboBox1
+            // comboBoxLockStat
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(41, 254);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 25;
+            this.comboBoxLockStat.FormattingEnabled = true;
+            this.comboBoxLockStat.Location = new System.Drawing.Point(41, 254);
+            this.comboBoxLockStat.Name = "comboBoxLockStat";
+            this.comboBoxLockStat.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxLockStat.TabIndex = 25;
             // 
-            // comboBox2
+            // comboBoxSpaceType
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(221, 254);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 26);
-            this.comboBox2.TabIndex = 26;
+            this.comboBoxSpaceType.FormattingEnabled = true;
+            this.comboBoxSpaceType.Location = new System.Drawing.Point(221, 254);
+            this.comboBoxSpaceType.Name = "comboBoxSpaceType";
+            this.comboBoxSpaceType.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxSpaceType.TabIndex = 26;
             // 
-            // comboBox3
+            // comboBoxSpacePosi
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(407, 254);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 26);
-            this.comboBox3.TabIndex = 27;
+            this.comboBoxSpacePosi.FormattingEnabled = true;
+            this.comboBoxSpacePosi.Location = new System.Drawing.Point(407, 254);
+            this.comboBoxSpacePosi.Name = "comboBoxSpacePosi";
+            this.comboBoxSpacePosi.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxSpacePosi.TabIndex = 27;
             // 
-            // comboBox4
+            // comboBoxSpaceAera
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(569, 253);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 26);
-            this.comboBox4.TabIndex = 28;
+            this.comboBoxSpaceAera.FormattingEnabled = true;
+            this.comboBoxSpaceAera.Location = new System.Drawing.Point(569, 253);
+            this.comboBoxSpaceAera.Name = "comboBoxSpaceAera";
+            this.comboBoxSpaceAera.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxSpaceAera.TabIndex = 28;
             // 
-            // textBox9
+            // textBoxAttr1
             // 
-            this.textBox9.Location = new System.Drawing.Point(41, 361);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 28);
-            this.textBox9.TabIndex = 29;
+            this.textBoxAttr1.Location = new System.Drawing.Point(41, 361);
+            this.textBoxAttr1.Name = "textBoxAttr1";
+            this.textBoxAttr1.Size = new System.Drawing.Size(100, 28);
+            this.textBoxAttr1.TabIndex = 29;
             // 
-            // textBox10
+            // textBoxAttr2
             // 
-            this.textBox10.Location = new System.Drawing.Point(221, 360);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 28);
-            this.textBox10.TabIndex = 30;
+            this.textBoxAttr2.Location = new System.Drawing.Point(221, 360);
+            this.textBoxAttr2.Name = "textBoxAttr2";
+            this.textBoxAttr2.Size = new System.Drawing.Size(100, 28);
+            this.textBoxAttr2.TabIndex = 30;
             // 
-            // textBox11
+            // textBoxAttr3
             // 
-            this.textBox11.Location = new System.Drawing.Point(407, 361);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 28);
-            this.textBox11.TabIndex = 31;
+            this.textBoxAttr3.Location = new System.Drawing.Point(407, 361);
+            this.textBoxAttr3.Name = "textBoxAttr3";
+            this.textBoxAttr3.Size = new System.Drawing.Size(100, 28);
+            this.textBoxAttr3.TabIndex = 31;
             // 
-            // textBox12
+            // textBoxCarPlate
             // 
-            this.textBox12.Location = new System.Drawing.Point(569, 361);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 28);
-            this.textBox12.TabIndex = 32;
+            this.textBoxCarPlate.Location = new System.Drawing.Point(569, 361);
+            this.textBoxCarPlate.Name = "textBoxCarPlate";
+            this.textBoxCarPlate.Size = new System.Drawing.Size(100, 28);
+            this.textBoxCarPlate.TabIndex = 32;
             // 
-            // textBox13
+            // textBoxPicPath
             // 
-            this.textBox13.Location = new System.Drawing.Point(41, 470);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(280, 28);
-            this.textBox13.TabIndex = 33;
+            this.textBoxPicPath.Location = new System.Drawing.Point(41, 470);
+            this.textBoxPicPath.Name = "textBoxPicPath";
+            this.textBoxPicPath.Size = new System.Drawing.Size(280, 28);
+            this.textBoxPicPath.TabIndex = 33;
             // 
             // buttonOk
             // 
@@ -349,6 +348,7 @@
             this.buttonOk.TabIndex = 34;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
@@ -359,6 +359,7 @@
             this.buttonCancel.TabIndex = 35;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // ParkingSpaceEdit
             // 
@@ -370,23 +371,23 @@
             this.ControlBox = false;
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPicPath);
+            this.Controls.Add(this.textBoxCarPlate);
+            this.Controls.Add(this.textBoxAttr3);
+            this.Controls.Add(this.textBoxAttr2);
+            this.Controls.Add(this.textBoxAttr1);
+            this.Controls.Add(this.comboBoxSpaceAera);
+            this.Controls.Add(this.comboBoxSpacePosi);
+            this.Controls.Add(this.comboBoxSpaceType);
+            this.Controls.Add(this.comboBoxLockStat);
+            this.Controls.Add(this.textBoxRearrange2);
+            this.Controls.Add(this.textBoxRearrange1);
+            this.Controls.Add(this.textBoxAxisY);
+            this.Controls.Add(this.textBoxAxisX);
+            this.Controls.Add(this.textBoxCardNum);
+            this.Controls.Add(this.textBoxSpaceNum);
+            this.Controls.Add(this.textBoxGarageNum);
+            this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -430,23 +431,23 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.TextBox textBoxGarageNum;
+        private System.Windows.Forms.TextBox textBoxSpaceNum;
+        private System.Windows.Forms.TextBox textBoxCardNum;
+        private System.Windows.Forms.TextBox textBoxAxisX;
+        private System.Windows.Forms.TextBox textBoxAxisY;
+        private System.Windows.Forms.TextBox textBoxRearrange1;
+        private System.Windows.Forms.TextBox textBoxRearrange2;
+        private System.Windows.Forms.ComboBox comboBoxLockStat;
+        private System.Windows.Forms.ComboBox comboBoxSpaceType;
+        private System.Windows.Forms.ComboBox comboBoxSpacePosi;
+        private System.Windows.Forms.ComboBox comboBoxSpaceAera;
+        private System.Windows.Forms.TextBox textBoxAttr1;
+        private System.Windows.Forms.TextBox textBoxAttr2;
+        private System.Windows.Forms.TextBox textBoxAttr3;
+        private System.Windows.Forms.TextBox textBoxCarPlate;
+        private System.Windows.Forms.TextBox textBoxPicPath;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
     }

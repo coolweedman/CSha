@@ -5,7 +5,7 @@ using DatabaseProj.Code.Database;
 
 
 namespace DatabaseProj.UI {
-    class ParkingSpaceUi : DbWinBase {
+    public class ParkingSpaceUi : DbWinBase {
 
         CParkingSpaceDb hParingSpaceDb;
         ParkingSpaceEdit hParkingSpaceEdit;
@@ -13,8 +13,10 @@ namespace DatabaseProj.UI {
         public ParkingSpaceUi ()
         {
             hParingSpaceDb = new CParkingSpaceDb();
+            hParkingSpaceEdit = new ParkingSpaceEdit();
 
             hParingSpaceDb.dataBaseBaseDeRecordInsert();
+            dbWinBaseInit( hParingSpaceDb, hParkingSpaceEdit );
         }
     }
 }

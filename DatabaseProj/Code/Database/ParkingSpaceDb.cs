@@ -22,7 +22,7 @@ namespace DatabaseProj.Code.Database {
             public string strAttr1;
             public string strAttr2;
             public string strAttr3;
-            string strCarPlate;
+            public string strCarPlate;
             public string strPicPath;
 
             public SParkingSpaceStru (int Id, int GarageNum, int SpaceNum, string CardNum, double AxisX, double AxisY, int Rearrange1, int Rearrange2, int LockStat, int SpaceType, int SpacePosi, int SpaceArea, string Attr1, string Attr2, string Attr3, string CarPlate, string PicPath)
@@ -100,7 +100,7 @@ namespace DatabaseProj.Code.Database {
             "已预约",
         };
 
-        public static string[] strPsCarTypeDsec =
+        public static string[] strPsSpaceTypeDesc =
         {
             "大型车",
             "普通车型",
@@ -132,9 +132,9 @@ namespace DatabaseProj.Code.Database {
 
         public static Dictionary<string, int> dicPsCarType2Enum = new Dictionary<string, int>
         {
-            { strPsCarTypeDsec[0], 0 },
-            { strPsCarTypeDsec[1], 1 },
-            { strPsCarTypeDsec[2], 2 },
+            { strPsSpaceTypeDesc[0], 0 },
+            { strPsSpaceTypeDesc[1], 1 },
+            { strPsSpaceTypeDesc[2], 2 },
         };
 
         public static Dictionary<string, int> dicPsSpacePosi2Enum = new Dictionary<string, int>
@@ -176,7 +176,7 @@ namespace DatabaseProj.Code.Database {
                                     "SpaceAera  TEXT, " +
                                     "Attr1      TEXT, " +
                                     "Attr2      TEXT, " +
-                                    "Atti3      TEXT, " +
+                                    "Attr3      TEXT, " +
                                     "CarPlate   TEXT, " +
                                     "PicPath    TEXT)";
 
@@ -213,7 +213,7 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange1", sRcuStru.iRearrange1 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange2", sRcuStru.iRearrange2 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "LockStat", strPsLockStatDesc[sRcuStru.iLockStat] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", strPsCarTypeDsec[sRcuStru.iSpaceType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", strPsSpaceTypeDesc[sRcuStru.iSpaceType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpacePosi", strPsSpacePosiDesc[sRcuStru.iSpacePosi] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", strPsSpaceAreaDesc[sRcuStru.iSpaceAera] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr1", sRcuStru.strAttr1 ) );
@@ -249,7 +249,7 @@ namespace DatabaseProj.Code.Database {
                                "Rearrange2=@Rearrange2, " +
                                "LockStat=@LockStat, " +
                                "SpaceType=@SpaceType, " +
-                               "SpacePosi=@SpacePosi " +
+                               "SpacePosi=@SpacePosi, " +
                                "SpaceAera=@SpaceAera, " +
                                "Attr1=@Attr1, " +
                                "Attr2=@Attr2, " +
@@ -266,7 +266,7 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange1", sRcuStru.iRearrange1 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange2", sRcuStru.iRearrange2 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "LockStat", strPsLockStatDesc[sRcuStru.iLockStat] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", strPsCarTypeDsec[sRcuStru.iSpaceType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", strPsSpaceTypeDesc[sRcuStru.iSpaceType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpacePosi", strPsSpacePosiDesc[sRcuStru.iSpacePosi] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", strPsSpaceAreaDesc[sRcuStru.iSpaceAera] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr1", sRcuStru.strAttr1 ) );

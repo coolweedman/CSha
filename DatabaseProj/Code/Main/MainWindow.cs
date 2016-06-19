@@ -26,5 +26,11 @@ namespace DatabaseProj.Code.Main {
             RegularCardPaymentUi hRegularCardPayment = new RegularCardPaymentUi();
             hRegularCardPayment.Show();
         }
+
+        private void parkingSpaceToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            ParkingSpaceUi hParkingSpaceUi = new ParkingSpaceUi();
+            hParkingSpaceUi.Show();
+        }
     }
 }
