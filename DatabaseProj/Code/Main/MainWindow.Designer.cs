@@ -30,6 +30,7 @@
             this.regularCardUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regularCardPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parkingSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dBAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regularCardUserToolStripMenuItem,
             this.regularCardPaymentToolStripMenuItem,
-            this.parkingSpaceToolStripMenuItem});
+            this.parkingSpaceToolStripMenuItem,
+            this.dBAccountToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
             this.viewToolStripMenuItem.Text = "View";
@@ -75,6 +77,13 @@
             this.parkingSpaceToolStripMenuItem.Text = "ParkingSpace";
             this.parkingSpaceToolStripMenuItem.Click += new System.EventHandler(this.parkingSpaceToolStripMenuItem_Click);
             // 
+            // dBAccountToolStripMenuItem
+            // 
+            this.dBAccountToolStripMenuItem.Name = "dBAccountToolStripMenuItem";
+            this.dBAccountToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.dBAccountToolStripMenuItem.Text = "DBAccount";
+            this.dBAccountToolStripMenuItem.Click += new System.EventHandler(this.dBAccountToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -98,5 +107,6 @@
         private System.Windows.Forms.ToolStripMenuItem regularCardUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regularCardPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parkingSpaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dBAccountToolStripMenuItem;
     }
 }

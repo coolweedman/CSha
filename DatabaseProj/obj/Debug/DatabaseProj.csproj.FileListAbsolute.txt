@@ -22,3 +22,4 @@ C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\Data
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.Code.Main.MainWindow.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardPaymentEdit.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.ParkingSpaceEdit.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.DBAccountEdit.resources

@@ -23,7 +23,7 @@ namespace DatabaseProj.Code.Database {
         protected SQLiteCommand hCmd;
         protected SQLiteDataReader hReader;
         protected SQLiteConnection hConn;
-        
+
         public CDatebaseBase ()
         {
             if ( !Directory.Exists( strDatabaseDir ) ) {
@@ -32,7 +32,7 @@ namespace DatabaseProj.Code.Database {
 
             dataBasBaseConn();
         }
-        
+
         protected int dataBasBaseConn ()
         {
             try {
@@ -135,6 +135,27 @@ namespace DatabaseProj.Code.Database {
         public virtual string[] dataBaseBaseHeadDescGet ()
         {
             return null;
+        }
+
+        public virtual int dataBaseBaseCommTableClr ()
+        {
+            return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
+        }
+
+        public int dataBaseBaseTableClr (string strTable)
+        {
+            try {
+                hCmd.CommandText = "DELETE FROM " + strTable;
+
+                return hCmd.ExecuteNonQuery();
+
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "Database: Delete table fail..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+
+                return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
+            }
         }
     }
 }

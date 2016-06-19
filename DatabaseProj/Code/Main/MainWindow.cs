@@ -32,5 +32,11 @@ namespace DatabaseProj.Code.Main {
             ParkingSpaceUi hParkingSpaceUi = new ParkingSpaceUi();
             hParkingSpaceUi.Show();
         }
+
+        private void dBAccountToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            DBAccountUi hDBAccountUi = new DBAccountUi();
+            hDBAccountUi.Show();
+        }
     }
 }

@@ -115,5 +115,9 @@ namespace DatabaseProj.Code.Database {
             return strRegularCardPaymentHeadDesc;
         }
 
+        public override int dataBaseBaseCommTableClr ()
+        {
+            return base.dataBaseBaseTableClr( "RegularCardPayment" );
+        }
     }
 }

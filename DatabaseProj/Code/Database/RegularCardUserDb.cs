@@ -212,5 +212,10 @@ namespace DatabaseProj.Code.Database {
 
             return base.dataBaseBaseCommCmdExec();
         }
+
+        public override int dataBaseBaseCommTableClr ()
+        {
+            return base.dataBaseBaseTableClr( "RegularCardUser" );
+        }
     }
 }

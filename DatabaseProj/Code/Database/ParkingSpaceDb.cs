@@ -284,5 +284,49 @@ namespace DatabaseProj.Code.Database {
             return strParkingSpaceHeadDesc;
         }
 
+        public override int dataBaseBaseCommTableClr ()
+        {
+            return base.dataBaseBaseTableClr( "ParkingSpace" );
+        }
+
+        public bool dbParkingSpaceRead (ref List<SParkingSpaceStru> listParkingSpace)
+        {
+            dataBaseBaseCommRead();
+
+            if ( null == hReader ) {
+                return false;
+            }
+
+            listParkingSpace.Clear();
+
+            int i;
+            while (hReader.Read()) {
+                i = 0;
+
+                SParkingSpaceStru sStru = new SParkingSpaceStru();
+
+                sStru.iId = hReader.GetInt32( i++ );
+                sStru.iGarageNum = hReader.GetInt32( i++ );
+                sStru.iSpaceNum = hReader.GetInt32( i++ );
+                sStru.strCardNum = hReader.GetString( i++ );
+                sStru.dAxisX = hReader.GetDouble( i++ );
+                sStru.dAxisY = hReader.GetDouble( i++ );
+                sStru.iRearrange1 = hReader.GetInt32( i++ );
+                sStru.iRearrange2 = hReader.GetInt32( i++ );
+                sStru.iLockStat = dicPsLockStat2Enum[hReader.GetString( i++ )];
+                sStru.iSpaceType = dicPsCarType2Enum[hReader.GetString( i++ )];
+                sStru.iSpacePosi = dicPsSpacePosi2Enum[hReader.GetString( i++ )];
+                sStru.iSpaceAera = dicPsSpaceAera2Enum[hReader.GetString( i++ )];
+                sStru.strAttr1 = hReader.GetString( i++ );
+                sStru.strAttr2 = hReader.GetString( i++ );
+                sStru.strAttr3 = hReader.GetString( i++ );
+                sStru.strCarPlate = hReader.GetString( i++ );
+                sStru.strPicPath = hReader.GetString( i++ );
+
+                listParkingSpace.Add( sStru );
+            }
+
+            return true;
+        }
     }
 }
