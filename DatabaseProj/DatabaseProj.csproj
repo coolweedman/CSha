@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Code\Comm\RegExpr.cs" />
     <Compile Include="Code\Database\DatebaseBase.cs" />
+    <Compile Include="Code\Database\DBAccountDb.cs" />
     <Compile Include="Code\Database\ParkingSpaceDb.cs" />
     <Compile Include="Code\Database\RegularCardPayment.cs" />
     <Compile Include="Code\Database\RegularCardUserDb.cs" />
