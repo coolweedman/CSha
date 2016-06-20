@@ -97,7 +97,7 @@ namespace DatabaseProj.Code.Database {
         {
             "空闲",
             "停车中",
-            "已预约",
+            "锁定",
         };
 
         public static string[] strPsSpaceTypeDesc =
@@ -111,8 +111,6 @@ namespace DatabaseProj.Code.Database {
         {
             "前",
             "后",
-            "左",
-            "右",
         };
 
         public static string[] strPsSpaceAreaDesc =

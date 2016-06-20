@@ -95,11 +95,11 @@ namespace DatabaseProj.Code.Database {
 
         public void prTableCreate ()
         {
-            string strCreateTable = "CREATE TABLE IF NOT EXISTS ParkingSpace ( " +
+            string strCreateTable = "CREATE TABLE IF NOT EXISTS ParkingRecord ( " +
                                     "Id         INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                    "GarageNum  INT     FOREIGN KEY ParkingSpace(GarageNum), " +
-                                    "SpaceNum   INT     FOREIGN KEY ParkingSpace(SpaceNum), " +
-                                    "CardNum    TEXT    FOREIGN KEY RegularCardUser(CardNum), " +
+                                    "GarageNum  INT, " +
+                                    "SpaceNum   INT, " +
+                                    "CardNum    TEXT, " +
                                     "BillNum    TEXT, " +
                                     "BillTime   DATETIME, " +
                                     "CarInTime  DATETIME, " +
@@ -109,9 +109,14 @@ namespace DatabaseProj.Code.Database {
                                     "MoneyIn    REAL, " +
                                     "MoneyPay   REAL, " +
                                     "PayMode    TEXT, " +
-                                    "DBAId      INTEGER FOREIGN KEY DBAccount(Id), " +
-                                    "CardType   TEXT    FOREIGN KEY RegularCardUser(CardType), " +
-                                    "Remarks    TEXT)";
+                                    "DBAId      INTEGER, " +
+                                    "CardType   TEXT, " +
+                                    "Remarks    TEXT, " +
+                                    //"FOREIGN KEY(GarageNum) REFERENCES ParkingSpace(GarageNum) )";
+                                    "FOREIGN KEY(SpaceNum)  REFERENCES ParkingSpace(SpaceNum) ) ";
+                                    //"FOREIGN KEY(CardNum)   REFERENCES RegularCardUser(CardNum), " +
+                                    //"FOREIGN KEY(DBAId)     REFERENCES DBAccount(Id), " +
+                                    //"FOREIGN KEY(CardType)  REFERENCES RegularCardUser(CardType))";
 
             base.dataBaseBaseTableCreate( strCreateTable );
         }
@@ -125,7 +130,7 @@ namespace DatabaseProj.Code.Database {
 
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
-            hCmd.CommandText = "SELECT * FROM ParkingSpace";
+            hCmd.CommandText = "SELECT * FROM ParkingRecord";
             base.dataBaseBaseRecordRead();
 
             return hReader;
@@ -135,8 +140,8 @@ namespace DatabaseProj.Code.Database {
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
 
-            hCmd.CommandText = "INSERT INTO ParkingSpace(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAId, CardType, Remarks) " +
-                               "VALUES(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAId, CardType, Remarks)";
+            hCmd.CommandText = "INSERT INTO ParkingRecord(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAId, CardType, Remarks) " +
+                               "VALUES(@GarageNum, @SpaceNum, @CardNum, @BillNum, @BillTime, @CarInTime, @CarOutTime, @CarPlate, @PicPath, @MoneyIn, @MoneyPay, @PayMode, @DBAId, @CardType, @Remarks)";
 
             hCmd.Parameters.Add( new SQLiteParameter( "GarageNum", sParkingRecordStru.iGarageNum ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpaceNum", sParkingRecordStru.iSpaceNum ) );
@@ -161,7 +166,7 @@ namespace DatabaseProj.Code.Database {
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
 
-            hCmd.CommandText = "DELETE FROM ParkingSpace WHERE Id=@Id";
+            hCmd.CommandText = "DELETE FROM ParkingRecord WHERE Id=@Id";
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sParkingRecordStru.iId ) );
 
             return base.dataBaseBaseCommCmdExec();
@@ -171,7 +176,7 @@ namespace DatabaseProj.Code.Database {
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
 
-            hCmd.CommandText = "UPDATE ParkingSpace SET " +
+            hCmd.CommandText = "UPDATE ParkingRecord SET " +
                                "GarageNum=@GarageNum, " +
                                "SpaceNum=@SpaceNum, " +
                                "CardNum=@CardNum, " +
@@ -216,7 +221,7 @@ namespace DatabaseProj.Code.Database {
 
         public override int dataBaseBaseCommTableClr ()
         {
-            return base.dataBaseBaseTableClr( "ParkingSpace" );
+            return base.dataBaseBaseTableClr( "ParkingRecord" );
         }
 
     }

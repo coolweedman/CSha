@@ -15,6 +15,7 @@ namespace DatabaseProj.UI {
             hRegularCardPaymentEdit = new RegularCardPaymentEdit();
 
             hRegularCardPaymentDb.dataBaseBaseDeRecordInsert();
+            this.Text = "固定卡缴费记录";
 
             dbWinBaseInit( hRegularCardPaymentDb, hRegularCardPaymentEdit );
         }

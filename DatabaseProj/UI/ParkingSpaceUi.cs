@@ -16,6 +16,8 @@ namespace DatabaseProj.UI {
             hParkingSpaceEdit = new ParkingSpaceEdit();
 
             hParingSpaceDb.dataBaseBaseDeRecordInsert();
+            this.Text = "停车位数据库";
+
             dbWinBaseInit( hParingSpaceDb, hParkingSpaceEdit );
         }
     }

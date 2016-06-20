@@ -46,6 +46,7 @@
     <Compile Include="Code\Comm\RegExpr.cs" />
     <Compile Include="Code\Database\DatebaseBase.cs" />
     <Compile Include="Code\Database\DBAccountDb.cs" />
+    <Compile Include="Code\Database\DbBaseTable.cs" />
     <Compile Include="Code\Database\ParkingRecordDb.cs" />
     <Compile Include="Code\Database\ParkingSpaceDb.cs" />
     <Compile Include="Code\Database\RegularCardPayment.cs" />
@@ -74,6 +75,15 @@
     </Compile>
     <Compile Include="UI\DbWinBase.Designer.cs">
       <DependentUpon>DbWinBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParkingRecordQueryUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ParkingRecordQueryUi.Designer.cs">
+      <DependentUpon>ParkingRecordQueryUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParkingRecordUi.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ParkingSpaceEdit.cs">
       <SubType>Form</SubType>
@@ -119,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DbWinBase.resx">
       <DependentUpon>DbWinBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParkingRecordQueryUi.resx">
+      <DependentUpon>ParkingRecordQueryUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingSpaceEdit.resx">
       <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
