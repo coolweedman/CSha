@@ -93,64 +93,6 @@ namespace DatabaseProj.Code.Database {
             "图片路径",
         };
 
-        public static string[] strPsLockStatDesc =
-        {
-            "空闲",
-            "停车中",
-            "锁定",
-        };
-
-        public static string[] strPsSpaceTypeDesc =
-        {
-            "大型车",
-            "普通车型",
-            "小型车",
-        };
-
-        public static string[] strPsSpacePosiDesc =
-        {
-            "前",
-            "后",
-        };
-
-        public static string[] strPsSpaceAreaDesc =
-        {
-            "A区",
-            "B区",
-            "C区",
-            "D区",
-        };
-
-        public static Dictionary<string, int> dicPsLockStat2Enum = new Dictionary<string, int>
-        {
-            { strPsLockStatDesc[0], 0 },
-            { strPsLockStatDesc[1], 1 },
-            { strPsLockStatDesc[2], 2 },
-        };
-
-        public static Dictionary<string, int> dicPsCarType2Enum = new Dictionary<string, int>
-        {
-            { strPsSpaceTypeDesc[0], 0 },
-            { strPsSpaceTypeDesc[1], 1 },
-            { strPsSpaceTypeDesc[2], 2 },
-        };
-
-        public static Dictionary<string, int> dicPsSpacePosi2Enum = new Dictionary<string, int>
-        {
-            { strPsSpacePosiDesc[0], 0 },
-            { strPsSpacePosiDesc[1], 1 },
-            { strPsSpacePosiDesc[2], 2 },
-            { strPsSpacePosiDesc[3], 3 },
-        };
-
-        public static Dictionary<string, int> dicPsSpaceAera2Enum = new Dictionary<string, int>
-        {
-            { strPsSpaceAreaDesc[0], 0 },
-            { strPsSpaceAreaDesc[1], 1 },
-            { strPsSpaceAreaDesc[2], 2 },
-            { strPsSpaceAreaDesc[3], 3 },
-        };
-
         public CParkingSpaceDb ()
         {
             psTableCreate();
@@ -166,17 +108,23 @@ namespace DatabaseProj.Code.Database {
                                     "CardNum    TEXT, " +
                                     "AxisX      REAL, " +
                                     "AxisY      REAL, " +
-                                    "Rearrange1 INT, " +
-                                    "Rearrange2 INT, " +
+                                    "Rearrange1 INT     DEFAULT 0, " +
+                                    "Rearrange2 INT     DEFAULT 0, " +
                                     "LockStat   TEXT, " +
                                     "SpaceType  TEXT, " +
                                     "SpacePosi  TEXT, " +
                                     "SpaceAera  TEXT, " +
-                                    "Attr1      TEXT, " +
-                                    "Attr2      TEXT, " +
-                                    "Attr3      TEXT, " +
-                                    "CarPlate   TEXT, " +
-                                    "PicPath    TEXT)";
+                                    "Attr1      TEXT    DEFAULT '', " +
+                                    "Attr2      TEXT    DEFAULT '', " +
+                                    "Attr3      TEXT    DEFAULT '', " +
+                                    "CarPlate   TEXT    DEFAULT '', " +
+                                    "PicPath    TEXT    DEFAULT '', " +
+                                    "FOREIGN    KEY(GarageNum)  REFERENCES  BaseParkingSpaceGarageNum(ParkingSpaceGarageNum), " +
+                                    "FOREIGN    KEY(SpaceNum)   REFERENCES  BaseParkingSpaceNum(ParkingSpaceNum), " +
+                                    "FOREIGN    KEY(LockStat)   REFERENCES  BaseParkingSpaceLockStat(ParkingSpaceLockStat), " +
+                                    "FOREIGN    KEY(SpaceType)  REFERENCES  BaseParkingCarType(ParkingCarType), " +
+                                    "FOREIGN    KEY(SpacePosi)  REFERENCES  BaseParkingSpacePosi(ParkingSpacePosi) " +
+                                    ")";
 
             base.dataBaseBaseTableCreate( strCreateTable );
         }
@@ -210,10 +158,10 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "AxisY", sRcuStru.dAxisY ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange1", sRcuStru.iRearrange1 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange2", sRcuStru.iRearrange2 ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "LockStat", strPsLockStatDesc[sRcuStru.iLockStat] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", strPsSpaceTypeDesc[sRcuStru.iSpaceType] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpacePosi", strPsSpacePosiDesc[sRcuStru.iSpacePosi] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", strPsSpaceAreaDesc[sRcuStru.iSpaceAera] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "LockStat", CDbBaseTable.strDbBaseParkingSpaceLockStatDesc[sRcuStru.iLockStat] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", CDbBaseTable.strDbBaseParkingCarTypeDesc[sRcuStru.iSpaceType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpacePosi", CDbBaseTable.strDbBaseParkingSpacePosiDesc[sRcuStru.iSpacePosi] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", CDbBaseTable.strDbBaseParkingSpaceAeraDesc[sRcuStru.iSpaceAera] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr1", sRcuStru.strAttr1 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr2", sRcuStru.strAttr2 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr3", sRcuStru.strAttr3 ) );
@@ -263,10 +211,10 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "AxisY", sRcuStru.dAxisY ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange1", sRcuStru.iRearrange1 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Rearrange2", sRcuStru.iRearrange2 ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "LockStat", strPsLockStatDesc[sRcuStru.iLockStat] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", strPsSpaceTypeDesc[sRcuStru.iSpaceType] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpacePosi", strPsSpacePosiDesc[sRcuStru.iSpacePosi] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", strPsSpaceAreaDesc[sRcuStru.iSpaceAera] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "LockStat", CDbBaseTable.strDbBaseParkingSpaceLockStatDesc[sRcuStru.iLockStat] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", CDbBaseTable.strDbBaseParkingCarTypeDesc[sRcuStru.iSpaceType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpacePosi", CDbBaseTable.strDbBaseParkingSpacePosiDesc[sRcuStru.iSpacePosi] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", CDbBaseTable.strDbBaseParkingSpaceAeraDesc[sRcuStru.iSpaceAera] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr1", sRcuStru.strAttr1 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr2", sRcuStru.strAttr2 ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Attr3", sRcuStru.strAttr3 ) );
@@ -311,10 +259,10 @@ namespace DatabaseProj.Code.Database {
                 sStru.dAxisY = hReader.GetDouble( i++ );
                 sStru.iRearrange1 = hReader.GetInt32( i++ );
                 sStru.iRearrange2 = hReader.GetInt32( i++ );
-                sStru.iLockStat = dicPsLockStat2Enum[hReader.GetString( i++ )];
-                sStru.iSpaceType = dicPsCarType2Enum[hReader.GetString( i++ )];
-                sStru.iSpacePosi = dicPsSpacePosi2Enum[hReader.GetString( i++ )];
-                sStru.iSpaceAera = dicPsSpaceAera2Enum[hReader.GetString( i++ )];
+                sStru.iLockStat = CDbBaseTable.dicDbBaseParkingSpaceLockStatDesc[hReader.GetString( i++ )];
+                sStru.iSpaceType = CDbBaseTable.dicDbBaseParkingCarTypeDesc[hReader.GetString( i++ )];
+                sStru.iSpacePosi = CDbBaseTable.dicDbBaseParkingSpacePosiDesc[hReader.GetString( i++ )];
+                sStru.iSpaceAera = CDbBaseTable.dicDbBaseParkingSpaceAeraDesc[hReader.GetString( i++ )];
                 sStru.strAttr1 = hReader.GetString( i++ );
                 sStru.strAttr2 = hReader.GetString( i++ );
                 sStru.strAttr3 = hReader.GetString( i++ );

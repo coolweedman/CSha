@@ -40,10 +40,10 @@ namespace DatabaseProj.UI {
                 sPsStru.dAxisY = double.Parse( listRecord[i++] );
                 sPsStru.iRearrange1 = int.Parse( listRecord[i++] );
                 sPsStru.iRearrange2 = int.Parse( listRecord[i++] );
-                sPsStru.iLockStat = CParkingSpaceDb.dicPsLockStat2Enum[listRecord[i++]];
-                sPsStru.iSpaceType = CParkingSpaceDb.dicPsCarType2Enum[listRecord[i++]];
-                sPsStru.iSpacePosi = CParkingSpaceDb.dicPsSpacePosi2Enum[listRecord[i++]];
-                sPsStru.iSpaceAera = CParkingSpaceDb.dicPsSpaceAera2Enum[listRecord[i++]];
+                sPsStru.iLockStat = CDbBaseTable.dicDbBaseParkingSpaceLockStatDesc[listRecord[i++]];
+                sPsStru.iSpaceType = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
+                sPsStru.iSpacePosi = CDbBaseTable.dicDbBaseParkingSpacePosiDesc[listRecord[i++]];
+                sPsStru.iSpaceAera = CDbBaseTable.dicDbBaseParkingSpaceAeraDesc[listRecord[i++]];
                 sPsStru.strAttr1 = listRecord[i++];
                 sPsStru.strAttr2 = listRecord[i++];
                 sPsStru.strAttr3 = listRecord[i++];
@@ -68,10 +68,10 @@ namespace DatabaseProj.UI {
             textBoxAxisY.Text = listRecord[i++];
             textBoxRearrange1.Text = listRecord[i++];
             textBoxRearrange2.Text = listRecord[i++];
-            comboBoxLockStat.SelectedIndex = CParkingSpaceDb.dicPsLockStat2Enum[listRecord[i++]];
-            comboBoxSpaceType.SelectedIndex = CParkingSpaceDb.dicPsCarType2Enum[listRecord[i++]];
-            comboBoxSpacePosi.SelectedIndex = CParkingSpaceDb.dicPsSpacePosi2Enum[listRecord[i++]];
-            comboBoxSpaceAera.SelectedIndex = CParkingSpaceDb.dicPsSpaceAera2Enum[listRecord[i++]];
+            comboBoxLockStat.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpaceLockStatDesc[listRecord[i++]];
+            comboBoxSpaceType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
+            comboBoxSpacePosi.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpacePosiDesc[listRecord[i++]];
+            comboBoxSpaceAera.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpaceAeraDesc[listRecord[i++]];
             textBoxAttr1.Text = listRecord[i++];
             textBoxAttr2.Text = listRecord[i++];
             textBoxAttr3.Text = listRecord[i++];
@@ -141,17 +141,17 @@ namespace DatabaseProj.UI {
         {
             int i;
 
-            for ( i=0; i< CParkingSpaceDb.strPsLockStatDesc.Length; i++ ) {
-                comboBoxLockStat.Items.Add( CParkingSpaceDb.strPsLockStatDesc[i] );
+            for ( i=0; i< CDbBaseTable.strDbBaseParkingSpaceLockStatDesc.Length; i++ ) {
+                comboBoxLockStat.Items.Add( CDbBaseTable.strDbBaseParkingSpaceLockStatDesc[i] );
             }
-            for ( i=0; i< CParkingSpaceDb.strPsSpaceTypeDesc.Length; i++ ) {
-                comboBoxSpaceType.Items.Add( CParkingSpaceDb.strPsSpaceTypeDesc[i] );
+            for ( i=0; i< CDbBaseTable.strDbBaseParkingCarTypeDesc.Length; i++ ) {
+                comboBoxSpaceType.Items.Add( CDbBaseTable.strDbBaseParkingCarTypeDesc[i] );
             }
-            for ( i=0; i< CParkingSpaceDb.strPsSpacePosiDesc.Length; i++ ) {
-                comboBoxSpacePosi.Items.Add( CParkingSpaceDb.strPsSpacePosiDesc[i] );
+            for ( i=0; i< CDbBaseTable.strDbBaseParkingSpacePosiDesc.Length; i++ ) {
+                comboBoxSpacePosi.Items.Add( CDbBaseTable.strDbBaseParkingSpacePosiDesc[i] );
             }
-            for ( i=0; i< CParkingSpaceDb.strPsSpaceAreaDesc.Length; i++  ) {
-                comboBoxSpaceAera.Items.Add( CParkingSpaceDb.strPsSpaceAreaDesc[i] );
+            for ( i=0; i< CDbBaseTable.strDbBaseParkingSpaceAeraDesc.Length; i++  ) {
+                comboBoxSpaceAera.Items.Add( CDbBaseTable.strDbBaseParkingSpaceAeraDesc[i] );
             }
 
             textBoxId.Text = "0";

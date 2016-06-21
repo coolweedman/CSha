@@ -6,6 +6,9 @@ using System.Text;
 namespace DatabaseProj.Code.Database {
     public class CDBAccountDb : CDatebaseBase {
 
+        /// <summary>
+        /// 数据库管理员结构体
+        /// </summary>
         public struct SDBAccountStru {
             public int iId;
             public int iType;
@@ -41,6 +44,9 @@ namespace DatabaseProj.Code.Database {
             DBAAUTHORITY_READ,
         };
 
+        /// <summary>
+        /// 数据库管理员表头
+        /// </summary>
         public static string[] strDBAccountHeadDesc = {
             "ID",
             "类型",
@@ -51,56 +57,38 @@ namespace DatabaseProj.Code.Database {
             "工号",
         };
 
-        public static string[] strDBATypeDesc = {
-            "ROOT",
-            "ADMIN",
-            "普通用户",
-            "访客",
-        };
-
-        public static string[] strDBAAuthorityDesc = {
-            "ROOT",
-            "高",
-            "读写",
-            "只读",
-        };
-
-        public static Dictionary<string, int> dicDBAType2Enum = new Dictionary<string, int>
-        {
-            { strDBATypeDesc[0], 0 },
-            { strDBATypeDesc[1], 1 },
-            { strDBATypeDesc[2], 2 },
-            { strDBATypeDesc[3], 3 },
-        };
-
-        public static Dictionary<string, int> dicDBAAuthority2Enum = new Dictionary<string, int>
-        {
-            { strDBAAuthorityDesc[0], 0 },
-            { strDBAAuthorityDesc[1], 1 },
-            { strDBAAuthorityDesc[2], 2 },
-            { strDBAAuthorityDesc[3], 3 },
-        };
-
+        /// <summary>
+        /// 数据库管理员表 构造函数
+        /// 创建表, 使能外键
+        /// </summary>
         public CDBAccountDb ()
         {
             dbaTableCreate();
             base.sqlite3ForeignKeyEn();
         }
 
+        /// <summary>
+        /// 创建数据库管理员表
+        /// </summary>
         public void dbaTableCreate ()
         {
             string strCreateTable = "CREATE TABLE IF NOT EXISTS DBAccount ( " +
                                     "Id         INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                    "Type       TEXT, " +
+                                    "Type       TEXT    DEFAULT '访客', " +
                                     "Account    TEXT    UNIQUE  NOT NULL, " +
                                     "Password   TEXT, " +
-                                    "Authority  TEXT, " +
+                                    "Authority  TEXT    DEFAULT '只读', " +
                                     "Name       TEXT, " +
-                                    "JobNum     TEXT)";
+                                    "JobNum     TEXT, "+
+                                    "FOREIGN    KEY(Type)       REFERENCES BaseDBAType(DBAType), "+
+                                    "FOREIGN    KEY(Authority)  REFERENCES BaseDBAAuthority(Authority))";
 
             base.dataBaseBaseTableCreate( strCreateTable );
         }
 
+        /// <summary>
+        /// 添加默认数据库管理员
+        /// </summary>
         public override void dataBaseBaseDeRecordInsert ()
         {
             SDBAccountStru sDBAStru = new SDBAccountStru( 1, 0, "root", "123456", 0, "ROOT_USER", "ROOT_JOBNUM" );
@@ -108,6 +96,10 @@ namespace DatabaseProj.Code.Database {
             dataBaseBaseCommAdd( ref sObject );
         }
 
+        /// <summary>
+        /// 读取数据库管理员
+        /// </summary>
+        /// <returns>读取结果Reader</returns>
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM DBAccount";
@@ -116,6 +108,11 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 添加数据库管理员
+        /// </summary>
+        /// <param name="sRecord">数据库管理员结构体</param>
+        /// <returns>添加结果</returns>
         public override int dataBaseBaseCommAdd (ref object sRecord)
         {
             SDBAccountStru sDBAStru = (SDBAccountStru)sRecord;
@@ -123,16 +120,21 @@ namespace DatabaseProj.Code.Database {
             hCmd.CommandText = "INSERT INTO DBAccount(Type, Account, Password, Authority, Name, JobNum) " +
                                "VALUES(@Type, @Account, @Password, @Authority, @Name, @JobNum)";
 
-            hCmd.Parameters.Add( new SQLiteParameter( "Type", strDBATypeDesc[sDBAStru.iType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Type", CDbBaseTable.strDbBaseDBATypeDesc[sDBAStru.iType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Account", sDBAStru.strAccount ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Password", sDBAStru.strPassword ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "Authority", strDBAAuthorityDesc[sDBAStru.iAuthority] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Authority", CDbBaseTable.strDbBaseAuthorityDesc[sDBAStru.iAuthority] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Name", sDBAStru.strName ) );
             hCmd.Parameters.Add( new SQLiteParameter( "JobNum", sDBAStru.strJobNum ) );
 
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 删除数据库管理员
+        /// </summary>
+        /// <param name="sRecord">数据库管理员结构体</param>
+        /// <returns></returns>
         public override int dataBaseBaseCommDelete (ref object sRecord)
         {
             SDBAccountStru sDBAStru = (SDBAccountStru)sRecord;
@@ -143,6 +145,11 @@ namespace DatabaseProj.Code.Database {
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 更新数据库管理员
+        /// </summary>
+        /// <param name="sRecord">数据库管理员结构体</param>
+        /// <returns>更新结果</returns>
         public override int dataBaseBaseCommUpdate (ref object sRecord)
         {
             SDBAccountStru sDBAStru = (SDBAccountStru)sRecord;
@@ -156,10 +163,10 @@ namespace DatabaseProj.Code.Database {
                                "JobNum=@JobNum " +
                                "WHERE Id=@Id";
 
-            hCmd.Parameters.Add( new SQLiteParameter( "Type", strDBATypeDesc[sDBAStru.iType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Type", CDbBaseTable.strDbBaseDBATypeDesc[sDBAStru.iType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Account", sDBAStru.strAccount ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Password", sDBAStru.strPassword ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "Authority", strDBAAuthorityDesc[sDBAStru.iAuthority] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Authority", CDbBaseTable.strDbBaseAuthorityDesc[sDBAStru.iAuthority] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Name", sDBAStru.strName ) );
             hCmd.Parameters.Add( new SQLiteParameter( "JobNum", sDBAStru.strJobNum ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sDBAStru.iId ) );
@@ -167,29 +174,41 @@ namespace DatabaseProj.Code.Database {
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 获取数据库管理员表头描述
+        /// </summary>
+        /// <returns>表头</returns>
         public override string[] dataBaseBaseHeadDescGet ()
         {
             return strDBAccountHeadDesc;
         }
 
+        /// <summary>
+        /// 根据数据库管理员账号读取密码
+        /// </summary>
+        /// <param name="sStru">数据库管理员结构体</param>
+        /// <returns>读取结果</returns>
         public bool dbAccountRead (ref SDBAccountStru sStru)
         {
             hCmd.CommandText = "SELECT Type, Password, Authority, Name, JobNum FROM DBAccount WHERE Account=@Account";
-            base.dataBaseBaseRecordRead();
             hCmd.Parameters.Add( new SQLiteParameter( "Account", sStru.strAccount ) );
+            base.dataBaseBaseRecordRead();
 
             if ( null == hReader ) {
                 return false;
             }
 
+            hReader.Read();
             int i = 0;
-            sStru.iType = hReader.GetInt32( i++ );
+            sStru.iType = CDbBaseTable.dicDbBaseDBATypeDesc[hReader.GetString( i++ )];
             sStru.strPassword = hReader.GetString( i++ );
-            sStru.iAuthority = hReader.GetInt32( i++ );
+            sStru.iAuthority = CDbBaseTable.dicDbBaseAuthorityDesc[hReader.GetString( i++ )];
             sStru.strName = hReader.GetString( i++ );
             sStru.strJobNum = hReader.GetString( i++ );
 
-            return false;
+            hReader.Close();
+
+            return true;
         }
     }
 }

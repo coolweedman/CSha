@@ -15,7 +15,6 @@ namespace DatabaseProj.Code.Main {
         {
             InitializeComponent();
 
-            CDbBaseTable hDbBaseTable = new CDbBaseTable();
         }
 
         private void regularCardUserToolStripMenuItem_Click_1 (object sender, EventArgs e)
@@ -47,6 +46,21 @@ namespace DatabaseProj.Code.Main {
         {
             ParkingRecordUi hParkingRecordUi = new ParkingRecordUi();
             hParkingRecordUi.Show();
+        }
+
+        private void createDefaultTableToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CDbBaseTable hDbBaseTable = new CDbBaseTable();
+            CDBAccountDb hDBAccountDb = new CDBAccountDb();
+            hDBAccountDb.dataBaseBaseDeRecordInsert();
+
+            MessageBox.Show( "Default Table Created" );
+        }
+
+        private void logInToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            DBALogInUi hDbaLogInUi = new DBALogInUi();
+            hDbaLogInUi.Show();
         }
     }
 }

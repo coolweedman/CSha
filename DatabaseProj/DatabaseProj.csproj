@@ -69,6 +69,12 @@
     <Compile Include="UI\DBAccountUi.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\DBALogInUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DBALogInUi.Designer.cs">
+      <DependentUpon>DBALogInUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DbEditWinIf.cs" />
     <Compile Include="UI\DbWinBase.cs">
       <SubType>Form</SubType>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="UI\DBAccountEdit.resx">
       <DependentUpon>DBAccountEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DBALogInUi.resx">
+      <DependentUpon>DBALogInUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DbWinBase.resx">
       <DependentUpon>DbWinBase.cs</DependentUpon>
