@@ -191,13 +191,14 @@ namespace DatabaseProj.Code.Database {
         public bool dbAccountRead (ref SDBAccountStru sStru)
         {
             hCmd.CommandText = "SELECT Type, Password, Authority, Name, JobNum FROM DBAccount WHERE Account=@Account";
-            base.dataBaseBaseRecordRead();
             hCmd.Parameters.Add( new SQLiteParameter( "Account", sStru.strAccount ) );
+            base.dataBaseBaseRecordRead();
 
             if ( null == hReader ) {
                 return false;
             }
 
+            hReader.Read();
             int i = 0;
             sStru.iType = CDbBaseTable.dicDbBaseDBATypeDesc[hReader.GetString( i++ )];
             sStru.strPassword = hReader.GetString( i++ );

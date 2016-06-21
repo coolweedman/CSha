@@ -56,5 +56,11 @@ namespace DatabaseProj.Code.Main {
 
             MessageBox.Show( "Default Table Created" );
         }
+
+        private void logInToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            DBALogInUi hDbaLogInUi = new DBALogInUi();
+            hDbaLogInUi.Show();
+        }
     }
 }

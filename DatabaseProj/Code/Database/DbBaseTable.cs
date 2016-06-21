@@ -84,6 +84,22 @@ namespace DatabaseProj.Code.Database {
             { strDbBaseParkingSpacePosiDesc[0], 0 },
             { strDbBaseParkingSpacePosiDesc[1], 1 },
         };
+        public static string[] strDbBaseParkingSpaceAeraDesc = {
+            "A区",
+            "B区",
+            "C区",
+            "D区",
+        };
+        /// <summary>
+        /// 停车位区域描述
+        /// </summary>
+        public static Dictionary<string, int> dicDbBaseParkingSpaceAeraDesc = new Dictionary<string, int>
+        {
+            { strDbBaseParkingSpaceAeraDesc[0], 0 },
+            { strDbBaseParkingSpaceAeraDesc[1], 1 },
+            { strDbBaseParkingSpaceAeraDesc[2], 2 },
+            { strDbBaseParkingSpaceAeraDesc[3], 3 },
+        };
         /// <summary>
         /// 付款方式描述
         /// </summary>
@@ -142,9 +158,11 @@ namespace DatabaseProj.Code.Database {
             dbParkingSpacePosiTableInit();
             dbParkingSpaceGarageNumTableInit();
             dbParkingSpaceNumTableInit();
+            dbParkingSpaceAeraTableInit();
             dbPayModeTableInit();
             dbDBATypeableInit();
             dbDBAAuthorityTableInit();
+            dbRecentAccountTableCreate();
         }
 
         /// <summary>
@@ -286,7 +304,7 @@ namespace DatabaseProj.Code.Database {
             try {
                 strTableCreateCmd = "CREATE TABLE IF NOT EXISTS BaseParkingSpaceGarageNum (" +
                                     "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                    "ParkingSpaceGarageNum  TEXT    UNIQUE  NOT NULL)";
+                                    "ParkingSpaceGarageNum  INT     UNIQUE  NOT NULL)";
 
                 SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
                 base.dataBaseBaseTableCreate( strTableCreateCmd );
@@ -295,7 +313,7 @@ namespace DatabaseProj.Code.Database {
                 int iRef = 1;
                 for ( i = 0; i < iParkingSpaceGarageNumCnt; i++ ) {
                     hDbCmd.CommandText = "INSERT INTO BaseParkingSpaceGarageNum(ParkingSpaceGarageNum) VALUES(@ParkingSpaceGarageNum)";
-                    hDbCmd.Parameters.Add( new SQLiteParameter( "ParkingSpaceGarageNum", (iRef + i).ToString() ) );
+                    hDbCmd.Parameters.Add( new SQLiteParameter( "ParkingSpaceGarageNum", (iRef + i) ) );
                     hDbCmd.ExecuteNonQuery();
                 }
             } catch ( Exception ex ) {
@@ -313,7 +331,7 @@ namespace DatabaseProj.Code.Database {
             try {
                 strTableCreateCmd = "CREATE TABLE IF NOT EXISTS BaseParkingSpaceNum (" +
                                     "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                    "ParkingSpaceNum        TEXT    UNIQUE  NOT NULL)";
+                                    "ParkingSpaceNum        INT     UNIQUE  NOT NULL)";
 
                 SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
                 base.dataBaseBaseTableCreate( strTableCreateCmd );
@@ -322,7 +340,7 @@ namespace DatabaseProj.Code.Database {
                 int iRef = 1;
                 for ( i = 0; i < iParkingSpaceNumCnt; i++ ) {
                     hDbCmd.CommandText = "INSERT INTO BaseParkingSpaceNum(ParkingSpaceNum) VALUES(@ParkingSpaceNum)";
-                    hDbCmd.Parameters.Add( new SQLiteParameter( "ParkingSpaceNum", (iRef + i).ToString() ) );
+                    hDbCmd.Parameters.Add( new SQLiteParameter( "ParkingSpaceNum", (iRef + i) ) );
                     hDbCmd.ExecuteNonQuery();
                 }
             } catch ( Exception ex ) {
@@ -331,6 +349,30 @@ namespace DatabaseProj.Code.Database {
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
         }
+
+        public void dbParkingSpaceAeraTableInit ()
+        {
+            try {
+                strTableCreateCmd = "CREATE TABLE IF NOT EXISTS BaseParkingSpaceAera (" +
+                                    "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "ParkingSpaceAera       TEXT    UNIQUE  NOT NULL)";
+
+                SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
+                base.dataBaseBaseTableCreate( strTableCreateCmd );
+
+                int i;
+                for ( i = 0; i < strDbBaseParkingSpaceAeraDesc.Length; i++ ) {
+                    hDbCmd.CommandText = "INSERT INTO BaseParkingSpaceAera(ParkingSpaceAera) VALUES(@ParkingSpaceAera)";
+                    hDbCmd.Parameters.Add( new SQLiteParameter( "ParkingSpaceAera", strDbBaseParkingSpaceAeraDesc[i] ) );
+                    hDbCmd.ExecuteNonQuery();
+                }
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "Database: dbParkingSpaceAeraTableInit table fail..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
 
         /// <summary>
         /// 付款方式表
@@ -405,6 +447,25 @@ namespace DatabaseProj.Code.Database {
                 }
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "Database: dbDBAAuthorityTableInit table fail..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 数据库最近登录账号
+        /// </summary>
+        public void dbRecentAccountTableCreate ()
+        {
+            try {
+                strTableCreateCmd = "CREATE TABLE IF NOT EXISTS DBARecnetAccount (" +
+                                    "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "Account                TEXT    UNIQUE  NOT NULL)";
+
+                SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
+                base.dataBaseBaseTableCreate( strTableCreateCmd );
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "Database: dbRecentAccountTableCreate table fail..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }

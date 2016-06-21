@@ -34,6 +34,7 @@
             this.parkingRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDefaultTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +100,8 @@
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createDefaultTableToolStripMenuItem});
+            this.createDefaultTableToolStripMenuItem,
+            this.logInToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
             this.databaseToolStripMenuItem.Size = new System.Drawing.Size(103, 28);
             this.databaseToolStripMenuItem.Text = "Database";
@@ -110,6 +112,13 @@
             this.createDefaultTableToolStripMenuItem.Size = new System.Drawing.Size(259, 30);
             this.createDefaultTableToolStripMenuItem.Text = "CreateDefaultTable";
             this.createDefaultTableToolStripMenuItem.Click += new System.EventHandler(this.createDefaultTableToolStripMenuItem_Click);
+            // 
+            // logInToolStripMenuItem
+            // 
+            this.logInToolStripMenuItem.Name = "logInToolStripMenuItem";
+            this.logInToolStripMenuItem.Size = new System.Drawing.Size(259, 30);
+            this.logInToolStripMenuItem.Text = "LogIn";
+            this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -138,5 +147,6 @@
         private System.Windows.Forms.ToolStripMenuItem parkingRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDefaultTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logInToolStripMenuItem;
     }
 }
