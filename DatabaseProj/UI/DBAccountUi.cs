@@ -15,8 +15,6 @@ namespace DatabaseProj.UI {
             hDBAccountDb = new CDBAccountDb();
             hDBAccountEdit = new DBAccountEdit();
 
-            hDBAccountDb.dataBaseBaseDeRecordInsert();
-
             this.Text = "数据库管理员窗口";
             dbWinBaseInit( hDBAccountDb, hDBAccountEdit );
         }

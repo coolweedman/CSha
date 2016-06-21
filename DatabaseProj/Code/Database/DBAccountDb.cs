@@ -51,36 +51,6 @@ namespace DatabaseProj.Code.Database {
             "工号",
         };
 
-        public static string[] strDBATypeDesc = {
-            "ROOT",
-            "ADMIN",
-            "普通用户",
-            "访客",
-        };
-
-        public static string[] strDBAAuthorityDesc = {
-            "ROOT",
-            "高",
-            "读写",
-            "只读",
-        };
-
-        public static Dictionary<string, int> dicDBAType2Enum = new Dictionary<string, int>
-        {
-            { strDBATypeDesc[0], 0 },
-            { strDBATypeDesc[1], 1 },
-            { strDBATypeDesc[2], 2 },
-            { strDBATypeDesc[3], 3 },
-        };
-
-        public static Dictionary<string, int> dicDBAAuthority2Enum = new Dictionary<string, int>
-        {
-            { strDBAAuthorityDesc[0], 0 },
-            { strDBAAuthorityDesc[1], 1 },
-            { strDBAAuthorityDesc[2], 2 },
-            { strDBAAuthorityDesc[3], 3 },
-        };
-
         public CDBAccountDb ()
         {
             dbaTableCreate();
@@ -123,10 +93,10 @@ namespace DatabaseProj.Code.Database {
             hCmd.CommandText = "INSERT INTO DBAccount(Type, Account, Password, Authority, Name, JobNum) " +
                                "VALUES(@Type, @Account, @Password, @Authority, @Name, @JobNum)";
 
-            hCmd.Parameters.Add( new SQLiteParameter( "Type", strDBATypeDesc[sDBAStru.iType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Type", CDbBaseTable.strDbBaseDBATypeDesc[sDBAStru.iType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Account", sDBAStru.strAccount ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Password", sDBAStru.strPassword ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "Authority", strDBAAuthorityDesc[sDBAStru.iAuthority] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Authority", CDbBaseTable.strDbBaseAuthorityDesc[sDBAStru.iAuthority] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Name", sDBAStru.strName ) );
             hCmd.Parameters.Add( new SQLiteParameter( "JobNum", sDBAStru.strJobNum ) );
 
@@ -156,10 +126,10 @@ namespace DatabaseProj.Code.Database {
                                "JobNum=@JobNum " +
                                "WHERE Id=@Id";
 
-            hCmd.Parameters.Add( new SQLiteParameter( "Type", strDBATypeDesc[sDBAStru.iType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Type", CDbBaseTable.strDbBaseDBATypeDesc[sDBAStru.iType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Account", sDBAStru.strAccount ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Password", sDBAStru.strPassword ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "Authority", strDBAAuthorityDesc[sDBAStru.iAuthority] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "Authority", CDbBaseTable.strDbBaseAuthorityDesc[sDBAStru.iAuthority] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Name", sDBAStru.strName ) );
             hCmd.Parameters.Add( new SQLiteParameter( "JobNum", sDBAStru.strJobNum ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sDBAStru.iId ) );

@@ -51,10 +51,10 @@ namespace DatabaseProj.UI {
             int i = 0;
 
             textBoxId.Text = listRecord[i++];
-            comboBoxType.SelectedIndex = CDBAccountDb.dicDBAType2Enum[listRecord[i++]];
+            comboBoxType.SelectedIndex = CDbBaseTable.dicDbBaseDBATypeDesc[listRecord[i++]];
             textBoxAccount.Text = listRecord[i++];
             textBoxPassword.Text = listRecord[i++];
-            comboBoxAuthority.SelectedIndex = CDBAccountDb.dicDBAAuthority2Enum[listRecord[i++]];
+            comboBoxAuthority.SelectedIndex = CDbBaseTable.dicDbBaseAuthorityDesc[listRecord[i++]];
             textBoxName.Text = listRecord[i++];
             textBoxJobNuym.Text = listRecord[i++];
         }
@@ -93,10 +93,10 @@ namespace DatabaseProj.UI {
 
         public void dbUiInit ()
         {
-            foreach ( string str in CDBAccountDb.strDBATypeDesc) {
+            foreach ( string str in CDbBaseTable.strDbBaseDBATypeDesc) {
                 comboBoxType.Items.Add( str );
             }
-            foreach( string str in CDBAccountDb.strDBAAuthorityDesc ) {
+            foreach( string str in CDbBaseTable.strDbBaseAuthorityDesc ) {
                 comboBoxAuthority.Items.Add( str );
             }
 

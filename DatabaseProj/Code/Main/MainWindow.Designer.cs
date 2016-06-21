@@ -32,6 +32,8 @@
             this.parkingSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dBAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parkingRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createDefaultTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +41,8 @@
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.databaseToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(278, 32);
@@ -93,6 +96,21 @@
             this.parkingRecordToolStripMenuItem.Text = "ParkingRecord";
             this.parkingRecordToolStripMenuItem.Click += new System.EventHandler(this.parkingRecordToolStripMenuItem_Click);
             // 
+            // databaseToolStripMenuItem
+            // 
+            this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createDefaultTableToolStripMenuItem});
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(103, 28);
+            this.databaseToolStripMenuItem.Text = "Database";
+            // 
+            // createDefaultTableToolStripMenuItem
+            // 
+            this.createDefaultTableToolStripMenuItem.Name = "createDefaultTableToolStripMenuItem";
+            this.createDefaultTableToolStripMenuItem.Size = new System.Drawing.Size(259, 30);
+            this.createDefaultTableToolStripMenuItem.Text = "CreateDefaultTable";
+            this.createDefaultTableToolStripMenuItem.Click += new System.EventHandler(this.createDefaultTableToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -118,5 +136,7 @@
         private System.Windows.Forms.ToolStripMenuItem parkingSpaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dBAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parkingRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createDefaultTableToolStripMenuItem;
     }
 }

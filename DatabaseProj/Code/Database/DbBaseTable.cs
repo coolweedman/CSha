@@ -36,6 +36,12 @@ namespace DatabaseProj.Code.Database {
             "季度卡",
             "临保卡",
         };
+        public static Dictionary<string, int> dicDbBaseParkingCardTypeDesc = new Dictionary<string, int>
+        {
+            { strDbBaseParkingCardTypeDesc[0], 0 },
+            { strDbBaseParkingCardTypeDesc[1], 1 },
+            { strDbBaseParkingCardTypeDesc[2], 2 },
+        };
         /// <summary>
         /// 固定卡车位类型描述
         /// </summary>
@@ -45,6 +51,13 @@ namespace DatabaseProj.Code.Database {
             "小型车",
             "临时定义",
         };
+        public static Dictionary<string, int> dicDbBaseParkingCarTypeDesc = new Dictionary<string, int>
+        {
+            { strDbBaseParkingCarTypeDesc[0], 0 },
+            { strDbBaseParkingCarTypeDesc[1], 1 },
+            { strDbBaseParkingCarTypeDesc[2], 2 },
+            { strDbBaseParkingCarTypeDesc[3], 3 },
+        };
         /// <summary>
         /// 停车位锁定状态描述
         /// </summary>
@@ -53,12 +66,23 @@ namespace DatabaseProj.Code.Database {
             "停车中",
             "锁定",
         };
+        public static Dictionary<string, int> dicDbBaseParkingSpaceLockStatDesc = new Dictionary<string, int>
+        {
+            { strDbBaseParkingSpaceLockStatDesc[0], 0 },
+            { strDbBaseParkingSpaceLockStatDesc[1], 1 },
+            { strDbBaseParkingSpaceLockStatDesc[2], 2 },
+        };
         /// <summary>
         /// 停车位相对位置描述
         /// </summary>
         public static string[] strDbBaseParkingSpacePosiDesc = {
             "前",
             "后",
+        };
+        public static Dictionary<string, int> dicDbBaseParkingSpacePosiDesc = new Dictionary<string, int>
+        {
+            { strDbBaseParkingSpacePosiDesc[0], 0 },
+            { strDbBaseParkingSpacePosiDesc[1], 1 },
         };
         /// <summary>
         /// 付款方式描述
@@ -69,7 +93,43 @@ namespace DatabaseProj.Code.Database {
             "免费",
             "余额",
         };
-
+        public static Dictionary<string, int> dicDbBasePayModeDesc = new Dictionary<string, int>
+        {
+            { strDbBasePayModeDesc[0], 0 },
+            { strDbBasePayModeDesc[1], 1 },
+            { strDbBasePayModeDesc[2], 2 },
+            { strDbBasePayModeDesc[3], 3 },
+        };
+        /// <summary>
+        /// 数据库管理员类型
+        /// </summary>
+        public static string[] strDbBaseDBATypeDesc = {
+            "ROOT",
+            "ADMIN",
+            "普通用户",
+            "访客",
+        };
+        public static Dictionary<string, int> dicDbBaseDBATypeDesc = new Dictionary<string, int>
+        {
+            { strDbBaseDBATypeDesc[0], 0 },
+            { strDbBaseDBATypeDesc[1], 1 },
+            { strDbBaseDBATypeDesc[2], 2 },
+            { strDbBaseDBATypeDesc[3], 3 },
+        };
+        public static string[] strDbBaseAuthorityDesc = {
+            "ROOT",
+            "高",
+            "读写",
+            "只读",
+        };
+        public static Dictionary<string, int> dicDbBaseAuthorityDesc = new Dictionary<string, int>
+        {
+            { strDbBaseAuthorityDesc[0], 0 },
+            { strDbBaseAuthorityDesc[1], 1 },
+            { strDbBaseAuthorityDesc[2], 2 },
+            { strDbBaseAuthorityDesc[3], 3 },
+        };
+        
         /// <summary>
         /// 基本表创建
         /// </summary>
@@ -83,6 +143,8 @@ namespace DatabaseProj.Code.Database {
             dbParkingSpaceGarageNumTableInit();
             dbParkingSpaceNumTableInit();
             dbPayModeTableInit();
+            dbDBATypeableInit();
+            dbDBAAuthorityTableInit();
         }
 
         /// <summary>
@@ -291,6 +353,58 @@ namespace DatabaseProj.Code.Database {
                 }
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "Database: dbPayModeTableInit table fail..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 数据库管理员类型表
+        /// </summary>
+        public void dbDBATypeableInit ()
+        {
+            try {
+                strTableCreateCmd = "CREATE TABLE IF NOT EXISTS BaseDBAType (" +
+                                    "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "DBAType                TEXT    UNIQUE  NOT NULL)";
+
+                SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
+                base.dataBaseBaseTableCreate( strTableCreateCmd );
+
+                int i;
+                for ( i = 0; i < strDbBaseDBATypeDesc.Length; i++ ) {
+                    hDbCmd.CommandText = "INSERT INTO BaseDBAType(DBAType) VALUES(@DBAType)";
+                    hDbCmd.Parameters.Add( new SQLiteParameter( "DBAType", strDbBaseDBATypeDesc[i] ) );
+                    hDbCmd.ExecuteNonQuery();
+                }
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "Database: dbDBATypeableInit table fail..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 数据库管理员权限表
+        /// </summary>
+        public void dbDBAAuthorityTableInit ()
+        {
+            try {
+                strTableCreateCmd = "CREATE TABLE IF NOT EXISTS BaseDBAAuthority (" +
+                                    "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "Authority              TEXT    UNIQUE  NOT NULL)";
+
+                SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
+                base.dataBaseBaseTableCreate( strTableCreateCmd );
+
+                int i;
+                for ( i = 0; i < strDbBaseAuthorityDesc.Length; i++ ) {
+                    hDbCmd.CommandText = "INSERT INTO BaseDBAAuthority(Authority) VALUES(@Authority)";
+                    hDbCmd.Parameters.Add( new SQLiteParameter( "Authority", strDbBaseAuthorityDesc[i] ) );
+                    hDbCmd.ExecuteNonQuery();
+                }
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "Database: dbDBAAuthorityTableInit table fail..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
