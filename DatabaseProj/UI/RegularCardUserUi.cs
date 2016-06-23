@@ -16,8 +16,6 @@ namespace DatabaseProj.UI {
             hRegularCardUserDb = new CRegularCardUserDb();
             hRegularCardUserEdit = new RegularCardUserEdit ();
 
-            hRegularCardUserDb.dataBaseBaseDeRecordInsert();
-
             dbWinBaseInit( hRegularCardUserDb , hRegularCardUserEdit );
         }
     }

@@ -35,6 +35,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonQuery = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             // buttonReFlash
             // 
-            this.buttonReFlash.Location = new System.Drawing.Point(326, 332);
+            this.buttonReFlash.Location = new System.Drawing.Point(248, 332);
             this.buttonReFlash.Name = "buttonReFlash";
             this.buttonReFlash.Size = new System.Drawing.Size(93, 35);
             this.buttonReFlash.TabIndex = 2;
@@ -106,21 +107,31 @@
             this.编辑ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 64);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 60);
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
             this.编辑ToolStripMenuItem.Text = "编辑";
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // buttonQuery
+            // 
+            this.buttonQuery.Location = new System.Drawing.Point(418, 331);
+            this.buttonQuery.Name = "buttonQuery";
+            this.buttonQuery.Size = new System.Drawing.Size(93, 35);
+            this.buttonQuery.TabIndex = 5;
+            this.buttonQuery.Text = "查询";
+            this.buttonQuery.UseVisualStyleBackColor = true;
+            this.buttonQuery.Click += new System.EventHandler(this.buttonQuery_Click);
             // 
             // DbWinBase
             // 
@@ -129,6 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
             this.ClientSize = new System.Drawing.Size(773, 403);
+            this.Controls.Add(this.buttonQuery);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonReFlash);
@@ -156,5 +168,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.Button buttonQuery;
     }
 }

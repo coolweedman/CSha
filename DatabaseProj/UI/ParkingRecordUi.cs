@@ -10,7 +10,6 @@ namespace DatabaseProj.UI {
         public ParkingRecordUi ()
         {
             hDatabaseBase = new CParkingRecordDb();
-            hDatabaseBase.dataBaseBaseDeRecordInsert();
             hDataTable = new DataTable();
 
             dbDgvReFlash();
