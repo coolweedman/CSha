@@ -13,8 +13,9 @@ using System.Diagnostics;
 namespace DatabaseProj.UI {
     public partial class ParkingSpaceQueryUi : Form {
 
-        CParkingSpaceDb hParkingSpaceDb;
+        public CParkingSpaceDb hParkingSpaceDb;
         public DataTable hDataTable;
+        public CParkingSpaceDb.SParkingSpaceQueryStru sParkingSpaceQueryStru;
 
         public ParkingSpaceQueryUi (CParkingSpaceDb hPsDb=null)
         {
@@ -27,9 +28,6 @@ namespace DatabaseProj.UI {
             psqDgvDeInit();
         }
 
-        public void psqDbInit (CParkingSpaceDb hPsDb)
-        {
-        }
 
         public void psqUiInit ()
         {
@@ -46,6 +44,20 @@ namespace DatabaseProj.UI {
 
         public void psqDgvFlash ()
         {
+            object sCond = sParkingSpaceQueryStru;
+            try {
+                hDataTable.Clear();
+                hDataTable.Load( hParkingSpaceDb.dataBaseBaseCommQuery( ref sCond ) );
+                dataGridView.DataSource = hDataTable;
+
+                for ( int i = 0; i < CParkingSpaceDb.strParkingSpaceHeadDesc.Length; i++ ) {
+                    dataGridView.Columns[i].HeaderText = CParkingSpaceDb.strParkingSpaceHeadDesc[i];
+                }
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "psqDgvFlash: Reflash fail..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         public void psqDgvDeInit ()
@@ -59,14 +71,27 @@ namespace DatabaseProj.UI {
                     dataGridView.Columns[i].HeaderText = CParkingSpaceDb.strParkingSpaceHeadDesc[i];
                 }
             } catch ( Exception ex ) {
-                CDebugPrint.dbgUserMsgPrint( "psqDgvFlash: Reflash fail..." );
+                CDebugPrint.dbgUserMsgPrint( "psqDgvDeInit: Reflash fail..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
         }
 
+        private void psqUi2Stru ()
+        {
+            sParkingSpaceQueryStru.bSpaceLockStatEn = checkBoxLockStat.Checked;
+            sParkingSpaceQueryStru.bSpaceTypeEn = checkBoxSpaceType.Checked;
+            sParkingSpaceQueryStru.bSpaceAeraEn = checkBoxSpaceAera.Checked;
+
+            sParkingSpaceQueryStru.iLockStat = comboBoxLockStat.SelectedIndex;
+            sParkingSpaceQueryStru.iSpaceType = comboBoxSpaceType.SelectedIndex;
+            sParkingSpaceQueryStru.iSpaceAera = comboBoxSpaceAera.SelectedIndex;
+        }
+
         private void buttonOk_Click (object sender, EventArgs e)
         {
+            psqUi2Stru();
+            psqDgvFlash();
         }
 
         private void buttonCancel_Click (object sender, EventArgs e)

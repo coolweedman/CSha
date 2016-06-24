@@ -24,6 +24,9 @@ namespace DatabaseProj.Code.Database {
         protected SQLiteDataReader hReader;
         protected SQLiteConnection hConn;
 
+        /// <summary>
+        /// 数据库构造函数 创建数据库文件并连接
+        /// </summary>
         public CDatebaseBase ()
         {
             if ( !Directory.Exists( strDatabaseDir ) ) {
@@ -33,6 +36,10 @@ namespace DatabaseProj.Code.Database {
             dataBasBaseConn();
         }
 
+        /// <summary>
+        /// 数据库连接
+        /// </summary>
+        /// <returns></returns>
         protected int dataBasBaseConn ()
         {
             try {
@@ -49,6 +56,10 @@ namespace DatabaseProj.Code.Database {
             }
         }
 
+        /// <summary>
+        /// 数据库使能外键
+        /// </summary>
+        /// <returns></returns>
         public int sqlite3ForeignKeyEn ()
         {
             try {
@@ -64,6 +75,11 @@ namespace DatabaseProj.Code.Database {
             }
         }
 
+        /// <summary>
+        /// 数据库表创建
+        /// </summary>
+        /// <param name="strCreateTable"></param>
+        /// <returns></returns>
         protected int dataBaseBaseTableCreate (string strCreateTable)
         {
             try {
@@ -80,6 +96,10 @@ namespace DatabaseProj.Code.Database {
             }
         }
 
+        /// <summary>
+        /// 数据库读取命令执行
+        /// </summary>
+        /// <returns></returns>
         protected int dataBaseBaseRecordRead ()
         {
             try {
@@ -95,6 +115,10 @@ namespace DatabaseProj.Code.Database {
             }
         }
 
+        /// <summary>
+        /// 数据库非读取命令执行
+        /// </summary>
+        /// <returns></returns>
         protected int dataBaseBaseCommCmdExec ()
         {
             try {
@@ -108,41 +132,73 @@ namespace DatabaseProj.Code.Database {
             }
         }
 
+        /// <summary>
+        /// 数据库插入默认记录
+        /// </summary>
         public virtual void dataBaseBaseDeRecordInsert ()
         {
+            
         }
 
+        /// <summary>
+        /// 数据库读取数据表
+        /// </summary>
+        /// <returns></returns>
         public virtual SQLiteDataReader dataBaseBaseCommRead ()
         {
             return hReader;
         }
 
+        public virtual SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// 数据库插入记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public virtual int dataBaseBaseCommAdd (ref object sRecord)
         {
             return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
         }
 
+        /// <summary>
+        /// 数据库删除记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public virtual int dataBaseBaseCommDelete (ref object sRecord)
         {
             return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
         }
 
+        /// <summary>
+        /// 数据库更新记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public virtual int dataBaseBaseCommUpdate (ref object sRecord)
         {
             return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
         }
 
-        public virtual string[] dataBaseBaseHeadDescGet ()
-        {
-            return null;
-        }
-
+        /// <summary>
+        /// 数据库清空表
+        /// </summary>
+        /// <returns></returns>
         public virtual int dataBaseBaseCommTableClr ()
         {
             return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
         }
 
-        public int dataBaseBaseTableClr (string strTable)
+        /// <summary>
+        /// 数据库根据表名清空表
+        /// </summary>
+        /// <param name="strTable"></param>
+        /// <returns></returns>
+        protected int dataBaseBaseTableClr (string strTable)
         {
             try {
                 hCmd.CommandText = "DELETE FROM " + strTable;
@@ -156,6 +212,15 @@ namespace DatabaseProj.Code.Database {
 
                 return (int)EDataBaseClassErrStat.DATABASEERR_FAIL;
             }
+        }
+
+        /// <summary>
+        /// 数据库获取数据表头描述
+        /// </summary>
+        /// <returns></returns>
+        public virtual string[] dataBaseBaseHeadDescGet ()
+        {
+            return null;
         }
     }
 }

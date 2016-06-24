@@ -30,7 +30,7 @@
             this.comboBoxLockStat = new System.Windows.Forms.ComboBox();
             this.checkBoxSpaceType = new System.Windows.Forms.CheckBox();
             this.comboBoxSpaceType = new System.Windows.Forms.ComboBox();
-            this.checkBoxSpacePosi = new System.Windows.Forms.CheckBox();
+            this.checkBoxSpaceAera = new System.Windows.Forms.CheckBox();
             this.comboBoxSpaceAera = new System.Windows.Forms.ComboBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -82,15 +82,15 @@
             this.comboBoxSpaceType.Size = new System.Drawing.Size(121, 26);
             this.comboBoxSpaceType.TabIndex = 4;
             // 
-            // checkBoxSpacePosi
+            // checkBoxSpaceAera
             // 
-            this.checkBoxSpacePosi.AutoSize = true;
-            this.checkBoxSpacePosi.Location = new System.Drawing.Point(518, 12);
-            this.checkBoxSpacePosi.Name = "checkBoxSpacePosi";
-            this.checkBoxSpacePosi.Size = new System.Drawing.Size(106, 22);
-            this.checkBoxSpacePosi.TabIndex = 5;
-            this.checkBoxSpacePosi.Text = "车位分区";
-            this.checkBoxSpacePosi.UseVisualStyleBackColor = true;
+            this.checkBoxSpaceAera.AutoSize = true;
+            this.checkBoxSpaceAera.Location = new System.Drawing.Point(518, 12);
+            this.checkBoxSpaceAera.Name = "checkBoxSpaceAera";
+            this.checkBoxSpaceAera.Size = new System.Drawing.Size(106, 22);
+            this.checkBoxSpaceAera.TabIndex = 5;
+            this.checkBoxSpaceAera.Text = "车位分区";
+            this.checkBoxSpaceAera.UseVisualStyleBackColor = true;
             // 
             // comboBoxSpaceAera
             // 
@@ -133,7 +133,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.comboBoxSpaceAera);
-            this.Controls.Add(this.checkBoxSpacePosi);
+            this.Controls.Add(this.checkBoxSpaceAera);
             this.Controls.Add(this.comboBoxSpaceType);
             this.Controls.Add(this.checkBoxSpaceType);
             this.Controls.Add(this.comboBoxLockStat);
@@ -154,7 +154,7 @@
         private System.Windows.Forms.ComboBox comboBoxLockStat;
         private System.Windows.Forms.CheckBox checkBoxSpaceType;
         private System.Windows.Forms.ComboBox comboBoxSpaceType;
-        private System.Windows.Forms.CheckBox checkBoxSpacePosi;
+        private System.Windows.Forms.CheckBox checkBoxSpaceAera;
         private System.Windows.Forms.ComboBox comboBoxSpaceAera;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
