@@ -97,6 +97,12 @@
     <Compile Include="UI\ParkingSpaceEdit.Designer.cs">
       <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ParkingSpaceQueryUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ParkingSpaceQueryUi.Designer.cs">
+      <DependentUpon>ParkingSpaceQueryUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ParkingSpaceUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingSpaceEdit.resx">
       <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParkingSpaceQueryUi.resx">
+      <DependentUpon>ParkingSpaceQueryUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardPaymentEdit.resx">
       <DependentUpon>RegularCardPaymentEdit.cs</DependentUpon>

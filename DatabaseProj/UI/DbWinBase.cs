@@ -141,5 +141,14 @@ namespace DatabaseProj.UI {
                 }
             }
         }
+
+        private void buttonQuery_Click (object sender, EventArgs e)
+        {
+            dbWinQueryProc();
+        }
+
+        public virtual void dbWinQueryProc ()
+        {
+        }
     }
 }

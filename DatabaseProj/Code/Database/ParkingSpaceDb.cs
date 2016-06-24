@@ -47,6 +47,26 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        public struct SParkingSpaceQueryStru {
+            public bool bSpaceLockStatEn;
+            public bool bSpaceTypeEn;
+            public bool bSpaceAeraEn;
+
+            public int iLockStat;
+            public int iSpaceType;
+            public int iSpaceAera;
+
+            public SParkingSpaceQueryStru (bool LockStatEn, bool SpaceTypeEn, bool SpaceAeraEn, int LockStat, int SpaceType, int SpaceAera)
+            {
+                bSpaceLockStatEn = LockStatEn;
+                bSpaceTypeEn = SpaceTypeEn;
+                bSpaceAeraEn = SpaceAeraEn;
+                iLockStat = LockStat;
+                iSpaceType = SpaceType;
+                iSpaceAera = SpaceAera;
+            }
+        };
+
         public enum EPsLockStat {
             PARKINGSPACE_LOCKSTATIDLE = 0,
             PARKINGSPACE_LOCKSTATBUSY,
@@ -73,6 +93,9 @@ namespace DatabaseProj.Code.Database {
             PARKINGSPACE_AREAD,
         };
 
+        /// <summary>
+        /// 停车位数据库 表头描述
+        /// </summary>
         public static string[] strParkingSpaceHeadDesc = {
             "ID",
             "车库号",
@@ -93,12 +116,18 @@ namespace DatabaseProj.Code.Database {
             "图片路径",
         };
 
+        /// <summary>
+        /// 停车位数据库 构造函数 创建表并使能外键
+        /// </summary>
         public CParkingSpaceDb ()
         {
             psTableCreate();
             base.sqlite3ForeignKeyEn();
         }
 
+        /// <summary>
+        /// 停车位数据库 创建表
+        /// </summary>
         public void psTableCreate ()
         {
             string strCreateTable = "CREATE TABLE IF NOT EXISTS ParkingSpace ( " +
@@ -129,6 +158,9 @@ namespace DatabaseProj.Code.Database {
             base.dataBaseBaseTableCreate( strCreateTable );
         }
 
+        /// <summary>
+        /// 停车位数据库 插入默认记录
+        /// </summary>
         public override void dataBaseBaseDeRecordInsert ()
         {
             SParkingSpaceStru sParkingSpaceStru = new SParkingSpaceStru( 1, 1, 1, "TestCardNum", 10, 12, 0, 0, 0, 0, 0, 0, "", "", "", "粤A-88888", "none" );
@@ -136,6 +168,10 @@ namespace DatabaseProj.Code.Database {
             dataBaseBaseCommAdd( ref sObject );
         }
 
+        /// <summary>
+        /// 停车位数据库 读取所有记录
+        /// </summary>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM ParkingSpace";
@@ -144,6 +180,67 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 停车位数据库 条件查询
+        /// </summary>
+        /// <param name="sCond"></param>
+        /// <returns></returns>
+        public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
+        {
+            bool bFirstFlag = true;
+            SParkingSpaceQueryStru sQueryStru = (SParkingSpaceQueryStru)sCond;
+
+            if ( !sQueryStru.bSpaceLockStatEn && !sQueryStru .bSpaceTypeEn && !sQueryStru .bSpaceAeraEn ) {
+                return dataBaseBaseCommRead();
+            }
+
+            hCmd.CommandText = "SELECT * FROM ParkingSpace WHERE ";
+            if ( sQueryStru.bSpaceLockStatEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += "AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "LockStat=@LockStat";
+            }
+            if ( sQueryStru.bSpaceTypeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += "AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "SpaceType=@SpaceType";
+            }
+            if ( sQueryStru.bSpaceAeraEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += "AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "SpaceAera=@SpaceAera";
+            }
+
+            if ( sQueryStru.bSpaceLockStatEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "LockStat", CDbBaseTable.strDbBaseParkingSpaceLockStatDesc[sQueryStru.iLockStat] ) );
+            }
+            if ( sQueryStru.bSpaceTypeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "SpaceType", CDbBaseTable.strDbBaseParkingCarTypeDesc[sQueryStru.iSpaceType] ) );
+            }
+            if ( sQueryStru.bSpaceAeraEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", CDbBaseTable.strDbBaseParkingSpaceAeraDesc[sQueryStru.iSpaceAera] ) );
+            }
+
+            base.dataBaseBaseRecordRead();
+
+            return hReader;
+
+        }
+
+        /// <summary>
+        /// 停车位数据库 插入一条记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public override int dataBaseBaseCommAdd (ref object sRecord)
         {
             SParkingSpaceStru sRcuStru = (SParkingSpaceStru)sRecord;
@@ -171,6 +268,11 @@ namespace DatabaseProj.Code.Database {
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 停车位数据库 删除一条记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public override int dataBaseBaseCommDelete (ref object sRecord)
         {
             SParkingSpaceStru sRcuStru = (SParkingSpaceStru)sRecord;
@@ -181,6 +283,11 @@ namespace DatabaseProj.Code.Database {
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 停车位数据库 更新一条记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public override int dataBaseBaseCommUpdate (ref object sRecord)
         {
             SParkingSpaceStru sRcuStru = (SParkingSpaceStru)sRecord;
@@ -225,16 +332,29 @@ namespace DatabaseProj.Code.Database {
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 停车位数据库 获取表头描述
+        /// </summary>
+        /// <returns></returns>
         public override string[] dataBaseBaseHeadDescGet ()
         {
             return strParkingSpaceHeadDesc;
         }
 
+        /// <summary>
+        /// 停车位数据库 清空表
+        /// </summary>
+        /// <returns></returns>
         public override int dataBaseBaseCommTableClr ()
         {
             return base.dataBaseBaseTableClr( "ParkingSpace" );
         }
 
+        /// <summary>
+        /// 停车位数据库 读取所有记录到列表
+        /// </summary>
+        /// <param name="listParkingSpace">数据记录列表</param>
+        /// <returns></returns>
         public bool dbParkingSpaceRead (ref List<SParkingSpaceStru> listParkingSpace)
         {
             dataBaseBaseCommRead();
@@ -271,6 +391,7 @@ namespace DatabaseProj.Code.Database {
 
                 listParkingSpace.Add( sStru );
             }
+            hReader.Close();
 
             return true;
         }

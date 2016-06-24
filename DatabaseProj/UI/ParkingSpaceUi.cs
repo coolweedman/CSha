@@ -15,10 +15,15 @@ namespace DatabaseProj.UI {
             hParingSpaceDb = new CParkingSpaceDb();
             hParkingSpaceEdit = new ParkingSpaceEdit();
 
-            hParingSpaceDb.dataBaseBaseDeRecordInsert();
             this.Text = "停车位数据库";
 
             dbWinBaseInit( hParingSpaceDb, hParkingSpaceEdit );
+        }
+
+        public override void dbWinQueryProc ()
+        {
+            ParkingSpaceQueryUi hParkingSpaceQueryUi = new ParkingSpaceQueryUi( hParingSpaceDb );
+            hParkingSpaceQueryUi.Show();
         }
     }
 }
