@@ -4,7 +4,7 @@ using System.Data.SQLite;
 using System.Text;
 
 namespace DatabaseProj.Code.Database {
-    public class CRegularCardPayment : CDatebaseBase {
+    public class CRegularCardPaymentDb : CDatebaseBase {
 
         /// <summary>
         /// 停车卡缴费 结构体
@@ -30,16 +30,16 @@ namespace DatabaseProj.Code.Database {
         /// 停车卡缴费 查询结构体
         /// </summary>
         public struct SRegularCardPaymentQueryStru {
-            bool bPayTimeEn;
-            bool bPayMoneyEn;
-            bool bValidTime;
+            public bool bPayTimeEn;
+            public bool bPayMoneyEn;
+            public bool bValidTime;
 
-            DateTime sPayTimeStart;
-            DateTime sPayTimeStop;
-            double dPayMoneyMin;
-            double dPayMoneyMax;
-            DateTime sValidTimeStart;
-            DateTime sValidTimeStop;
+            public DateTime sPayTimeStart;
+            public DateTime sPayTimeStop;
+            public double dPayMoneyMin;
+            public double dPayMoneyMax;
+            public DateTime sValidTimeStart;
+            public DateTime sValidTimeStop;
         };
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DatabaseProj.Code.Database {
         /// <summary>
         /// 停车卡缴费 构造函数 创建表 使能外键
         /// </summary>
-        public CRegularCardPayment ()
+        public CRegularCardPaymentDb ()
         {
             rcpTableCreate();
             base.sqlite3ForeignKeyEn();

@@ -51,6 +51,7 @@
     <Compile Include="Code\Database\ParkingSpaceDb.cs" />
     <Compile Include="Code\Database\RegularCardPaymentDb.cs" />
     <Compile Include="Code\Database\RegularCardUserDb.cs" />
+    <Compile Include="Code\Database\RegularCardView.cs" />
     <Compile Include="Code\Debug\DebugPrint.cs" />
     <Compile Include="Code\Main\MainWindow.cs">
       <SubType>Form</SubType>

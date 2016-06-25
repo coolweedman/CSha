@@ -43,9 +43,6 @@ namespace DatabaseProj.Code.Database {
             public bool bCarNum;
             public bool bCardType;
             public bool bCarType;
-            public bool bPayTime;
-            public bool bPayMoney;
-            public bool bValidTime;
 
             public string strUserName;
             public string strUserIdent;
@@ -54,12 +51,6 @@ namespace DatabaseProj.Code.Database {
             public string strCardNum;
             public int iCardType;
             public int iCarType;
-            public DateTime sPayTimeStart;
-            public DateTime sPayTimeStop;
-            public double dPayMoneyMin;
-            public double dPayMoneyMax;
-            public DateTime sValidTimeStart;
-            public DateTime sValidTimeStop;
         };
 
         public enum ERcuCardType {
