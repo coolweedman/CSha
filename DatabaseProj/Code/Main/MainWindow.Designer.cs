@@ -35,6 +35,7 @@
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDefaultTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regularCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             this.regularCardPaymentToolStripMenuItem,
             this.parkingSpaceToolStripMenuItem,
             this.dBAccountToolStripMenuItem,
-            this.parkingRecordToolStripMenuItem});
+            this.parkingRecordToolStripMenuItem,
+            this.regularCardToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
             this.viewToolStripMenuItem.Text = "View";
@@ -120,12 +122,21 @@
             this.logInToolStripMenuItem.Text = "LogIn";
             this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click);
             // 
+            // regularCardToolStripMenuItem
+            // 
+            this.regularCardToolStripMenuItem.Name = "regularCardToolStripMenuItem";
+            this.regularCardToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.regularCardToolStripMenuItem.Text = "RegularCard";
+            this.regularCardToolStripMenuItem.Click += new System.EventHandler(this.regularCardToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(278, 244);
             this.Controls.Add(this.menuStrip);
+            this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainWindow";
             this.Text = "MainWindow";
@@ -148,5 +159,6 @@
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDefaultTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regularCardToolStripMenuItem;
     }
 }

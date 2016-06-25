@@ -9,7 +9,7 @@ using DatabaseProj.UI;
 using DatabaseProj.Code.Database;
 
 namespace DatabaseProj.Code.Main {
-    public partial class MainWindow : Form {
+    public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
 
         public MainWindow ()
         {
@@ -63,6 +63,9 @@ namespace DatabaseProj.Code.Main {
             CRegularCardUserDb hCRegularCardUserDb = new CRegularCardUserDb();
             hCRegularCardUserDb.dataBaseBaseDeRecordInsert();
 
+            CRegularCardPaymentDb hCRegularCardPaymentDb = new CRegularCardPaymentDb();
+            hCRegularCardPaymentDb.dataBaseBaseDeRecordInsert();
+
             MessageBox.Show( "Default Table Created" );
         }
 
@@ -70,6 +73,12 @@ namespace DatabaseProj.Code.Main {
         {
             DBALogInUi hDbaLogInUi = new DBALogInUi();
             hDbaLogInUi.Show();
+        }
+
+        private void regularCardToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            RegularCardUi hRegularCardUi = new RegularCardUi();
+            hRegularCardUi.Show();
         }
     }
 }

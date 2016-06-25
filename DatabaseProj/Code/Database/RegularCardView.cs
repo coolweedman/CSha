@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Text;
 
 namespace DatabaseProj.Code.Database {
@@ -12,6 +13,8 @@ namespace DatabaseProj.Code.Database {
         {
             hRegularCardUserDb = new CRegularCardUserDb();
             hRegularCardPaymentDb = new CRegularCardPaymentDb();
+
+            rcvViewCreate();
         }
 
         public void rcvViewCreate ()
@@ -22,6 +25,14 @@ namespace DatabaseProj.Code.Database {
                                     "ON   RegularCardUser.Id = RegularCardPayment.RcuId";
 
             base.dataBaseBaseTableCreate( strCreateTable );
+        }
+
+        public override SQLiteDataReader dataBaseBaseCommRead ()
+        {
+            hCmd.CommandText = "SELECT * FROM RegularCardView";
+            base.dataBaseBaseRecordRead();
+
+            return hReader;
         }
     }
 }

@@ -27,7 +27,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewDb = new System.Windows.Forms.DataGridView();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonAdd = new DevComponents.DotNetBar.ButtonX();
             this.buttonReFlash = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -59,7 +59,7 @@
             this.buttonAdd.Size = new System.Drawing.Size(90, 35);
             this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = "添加";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            //this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonReFlash
@@ -107,19 +107,19 @@
             this.编辑ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 60);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 64);
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
             this.编辑ToolStripMenuItem.Text = "编辑";
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -146,6 +146,8 @@
             this.Controls.Add(this.buttonReFlash);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridViewDb);
+            this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.Name = "DbWinBase";
             this.Text = "DbWinBase";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).EndInit();
@@ -159,8 +161,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewDb;
-        private System.Windows.Forms.Button buttonAdd;
+        protected System.Windows.Forms.DataGridView dataGridViewDb;
+        private DevComponents.DotNetBar.ButtonX buttonAdd;
         private System.Windows.Forms.Button buttonReFlash;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.StatusStrip statusStrip1;

@@ -10,7 +10,7 @@ using DatabaseProj.Code.Debug;
 using System.Diagnostics;
 
 namespace DatabaseProj.UI {
-    public partial class DbWinBase : Form {
+    public partial class DbWinBase : DevComponents.DotNetBar.Office2007Form {
 
         public CDatebaseBase hDatabaseBase;
         public DbEditWinIf hDbEditWinIf;
