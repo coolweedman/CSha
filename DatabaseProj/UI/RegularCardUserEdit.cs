@@ -37,11 +37,8 @@ namespace DatabaseProj.UI {
                 sRcuStru.strUserPhone = listRecord[i++];
                 sRcuStru.strCarPlate = listRecord[i++];
                 sRcuStru.strCardNum = listRecord[i++];
-                sRcuStru.iCardType = CRegularCardUserDb.dicRcuCardType2Enum[listRecord[i++]];
-                sRcuStru.iCarType = CRegularCardUserDb.dicRcuCarType2Enum[listRecord[i++]];
-                sRcuStru.sPayTime = Convert.ToDateTime( listRecord[i++] );
-                sRcuStru.dPayMoney = double.Parse( listRecord[i++] );
-                sRcuStru.sVaildTime = Convert.ToDateTime( listRecord[i++] );
+                sRcuStru.iCardType = CDbBaseTable.dicDbBaseParkingCardTypeDesc[listRecord[i++]];
+                sRcuStru.iCarType = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbString2Stru..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -60,11 +57,8 @@ namespace DatabaseProj.UI {
                 textBoxUserPhone.Text = listRecord[i++];
                 textBoxCarPlate.Text = listRecord[i++];
                 textBoxCardNum.Text = listRecord[i++];
-                comboBoxCardType.SelectedIndex = CRegularCardUserDb.dicRcuCardType2Enum[listRecord[i++]];
-                comboBoxCarType.SelectedIndex = CRegularCardUserDb.dicRcuCarType2Enum[listRecord[i++]];
-                dateTimePickerPayTime.Value = Convert.ToDateTime( listRecord[i++] );
-                textBoxPayMoney.Text = listRecord[i++];
-                dateTimePickerValidTime.Value = Convert.ToDateTime( listRecord[i++] );
+                comboBoxCardType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCardTypeDesc[listRecord[i++]];
+                comboBoxCarType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -82,9 +76,6 @@ namespace DatabaseProj.UI {
             textBoxCardNum.Text = sRcuStru.strCardNum;
             comboBoxCardType.SelectedIndex = sRcuStru.iCardType;
             comboBoxCarType.SelectedIndex = sRcuStru.iCarType;
-            dateTimePickerPayTime.Value = sRcuStru.sPayTime;
-            textBoxPayMoney.Text = sRcuStru.dPayMoney.ToString();
-            dateTimePickerValidTime.Value = sRcuStru.sVaildTime;
         }
 
         public object dbStruGet ()
@@ -103,9 +94,6 @@ namespace DatabaseProj.UI {
                 sRcuStru.strCardNum = textBoxCardNum.Text;
                 sRcuStru.iCardType = comboBoxCardType.SelectedIndex;
                 sRcuStru.iCarType = comboBoxCarType.SelectedIndex;
-                sRcuStru.sPayTime = dateTimePickerPayTime.Value;
-                sRcuStru.dPayMoney = double.Parse( textBoxPayMoney.Text );
-                sRcuStru.sVaildTime = dateTimePickerValidTime.Value;
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -122,11 +110,11 @@ namespace DatabaseProj.UI {
         {
             int i;
 
-            for ( i=0; i<CRegularCardUserDb.strRcuCardTypeDesc.Length; i++ ) {
-                comboBoxCardType.Items.Add( CRegularCardUserDb.strRcuCardTypeDesc[i] );
+            for ( i=0; i< CDbBaseTable.strDbBaseParkingCardTypeDesc.Length; i++ ) {
+                comboBoxCardType.Items.Add( CDbBaseTable.strDbBaseParkingCardTypeDesc[i] );
             }
-            for ( i=0; i<CRegularCardUserDb.strRcuCarTypeDesc.Length; i++ ) {
-                comboBoxCarType.Items.Add( CRegularCardUserDb.strRcuCarTypeDesc[i] );
+            for ( i=0; i< CDbBaseTable.strDbBaseParkingCarTypeDesc.Length; i++ ) {
+                comboBoxCarType.Items.Add( CDbBaseTable.strDbBaseParkingCarTypeDesc[i] );
             }
 
             textBoxId.Text = "0";

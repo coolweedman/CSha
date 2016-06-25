@@ -6,6 +6,9 @@ using System.Data.SQLite;
 namespace DatabaseProj.Code.Database {
     public class CParkingSpaceDb : CDatebaseBase {
 
+        /// <summary>
+        /// 停车位数据库 结构体
+        /// </summary>
         public struct SParkingSpaceStru {
             public int iId;
             public int iGarageNum;

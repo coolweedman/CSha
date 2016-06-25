@@ -49,7 +49,7 @@
     <Compile Include="Code\Database\DbBaseTable.cs" />
     <Compile Include="Code\Database\ParkingRecordDb.cs" />
     <Compile Include="Code\Database\ParkingSpaceDb.cs" />
-    <Compile Include="Code\Database\RegularCardPayment.cs" />
+    <Compile Include="Code\Database\RegularCardPaymentDb.cs" />
     <Compile Include="Code\Database\RegularCardUserDb.cs" />
     <Compile Include="Code\Debug\DebugPrint.cs" />
     <Compile Include="Code\Main\MainWindow.cs">

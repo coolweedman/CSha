@@ -13,7 +13,7 @@ using System.Diagnostics;
 namespace DatabaseProj.UI {
     public partial class RegularCardPaymentEdit : Form, DbEditWinIf {
 
-        public CRegularCardPayment.SRegularCardPayment sRcpStru;
+        public CRegularCardPayment.SRegularCardPaymentStru sRcpStru;
         public DialogResult eDialogResult = DialogResult.OK;
 
         public RegularCardPaymentEdit ()

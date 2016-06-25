@@ -48,11 +48,20 @@ namespace DatabaseProj.Code.Main {
             hParkingRecordUi.Show();
         }
 
+        /// <summary>
+        /// 创建默认数据库表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createDefaultTableToolStripMenuItem_Click (object sender, EventArgs e)
         {
             CDbBaseTable hDbBaseTable = new CDbBaseTable();
+
             CDBAccountDb hDBAccountDb = new CDBAccountDb();
             hDBAccountDb.dataBaseBaseDeRecordInsert();
+
+            CRegularCardUserDb hCRegularCardUserDb = new CRegularCardUserDb();
+            hCRegularCardUserDb.dataBaseBaseDeRecordInsert();
 
             MessageBox.Show( "Default Table Created" );
         }
