@@ -1,9 +1,5 @@
 ﻿namespace DatabaseProj.UI {
     partial class DbWinBase {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -23,7 +19,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent ()
+        protected void InitializeComponent ()
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewDb = new System.Windows.Forms.DataGridView();
@@ -56,6 +52,7 @@
             // buttonAdd
             // 
             this.buttonAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAdd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonAdd.Location = new System.Drawing.Point(74, 332);
             this.buttonAdd.Name = "buttonAdd";
@@ -66,6 +63,7 @@
             // 
             // buttonReFlash
             // 
+            this.buttonReFlash.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.buttonReFlash.Location = new System.Drawing.Point(248, 332);
             this.buttonReFlash.Name = "buttonReFlash";
             this.buttonReFlash.Size = new System.Drawing.Size(93, 35);
@@ -109,19 +107,19 @@
             this.编辑ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 60);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 64);
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
             this.编辑ToolStripMenuItem.Text = "编辑";
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(129, 30);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -164,14 +162,15 @@
         #endregion
 
         protected System.Windows.Forms.DataGridView dataGridViewDb;
+        protected System.Windows.Forms.Button buttonClose;
+        protected System.Windows.Forms.StatusStrip statusStrip1;
+        protected System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        protected System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        protected System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        protected System.Windows.Forms.Button buttonQuery;
+        private System.ComponentModel.IContainer components;
         private DevComponents.DotNetBar.ButtonX buttonAdd;
-        private System.Windows.Forms.Button buttonReFlash;
-        private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
-        private System.Windows.Forms.Button buttonQuery;
+        public System.Windows.Forms.Button buttonReFlash;
     }
 }

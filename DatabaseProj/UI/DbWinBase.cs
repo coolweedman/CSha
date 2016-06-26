@@ -95,7 +95,7 @@ namespace DatabaseProj.UI {
             this.Close();
         }
 
-        private void editToolStripMenuItem_Click (object sender, EventArgs e)
+        protected virtual void editToolStripMenuItem_Click (object sender, EventArgs e)
         {
             List<string> listStr = new List<string>();
 
@@ -113,7 +113,7 @@ namespace DatabaseProj.UI {
             }
         }
 
-        private void deleteToolStripMenuItem_Click (object sender, EventArgs e)
+        protected virtual void deleteToolStripMenuItem_Click (object sender, EventArgs e)
         {
             List<string> listStr = new List<string>();
 

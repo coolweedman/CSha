@@ -80,5 +80,10 @@ namespace DatabaseProj.Code.Main {
             RegularCardUi hRegularCardUi = new RegularCardUi();
             hRegularCardUi.Show();
         }
+
+        private void dBATableToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+
+        }
     }
 }
