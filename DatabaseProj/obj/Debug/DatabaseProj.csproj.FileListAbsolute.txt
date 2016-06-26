@@ -31,3 +31,5 @@ C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\Data
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.Base.DbDataShowBase.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardUi.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.Base.DbTableMainBase.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.Base.DbRecordEditBase.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.DBAUi.DbDBAEdit.resources

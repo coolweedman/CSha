@@ -198,6 +198,11 @@ namespace DatabaseProj.Code.Database {
                 return false;
             }
 
+            if ( !hReader.HasRows ) {
+                hReader.Close();
+                return false;
+            }
+
             hReader.Read();
             int i = 0;
             sStru.iType = CDbBaseTable.dicDbBaseDBATypeDesc[hReader.GetString( i++ )];
