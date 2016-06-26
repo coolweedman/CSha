@@ -6,12 +6,12 @@ using DatabaseProj.Code.Database;
 namespace DatabaseProj.UI {
     class RegularCardPaymentUi : DbWinBase {
 
-        CRegularCardPayment hRegularCardPaymentDb;
+        CRegularCardPaymentDb hRegularCardPaymentDb;
         RegularCardPaymentEdit hRegularCardPaymentEdit;
 
         public RegularCardPaymentUi ()
         {
-            hRegularCardPaymentDb = new CRegularCardPayment();
+            hRegularCardPaymentDb = new CRegularCardPaymentDb();
             hRegularCardPaymentEdit = new RegularCardPaymentEdit();
 
             this.Text = "固定卡缴费记录";

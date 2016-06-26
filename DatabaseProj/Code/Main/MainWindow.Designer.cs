@@ -32,9 +32,12 @@
             this.parkingSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dBAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parkingRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regularCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDefaultTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dBATableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,10 +46,11 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewToolStripMenuItem,
-            this.databaseToolStripMenuItem});
+            this.databaseToolStripMenuItem,
+            this.tableToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(278, 32);
+            this.menuStrip.Size = new System.Drawing.Size(383, 32);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -57,7 +61,8 @@
             this.regularCardPaymentToolStripMenuItem,
             this.parkingSpaceToolStripMenuItem,
             this.dBAccountToolStripMenuItem,
-            this.parkingRecordToolStripMenuItem});
+            this.parkingRecordToolStripMenuItem,
+            this.regularCardToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
             this.viewToolStripMenuItem.Text = "View";
@@ -97,6 +102,13 @@
             this.parkingRecordToolStripMenuItem.Text = "ParkingRecord";
             this.parkingRecordToolStripMenuItem.Click += new System.EventHandler(this.parkingRecordToolStripMenuItem_Click);
             // 
+            // regularCardToolStripMenuItem
+            // 
+            this.regularCardToolStripMenuItem.Name = "regularCardToolStripMenuItem";
+            this.regularCardToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.regularCardToolStripMenuItem.Text = "RegularCard";
+            this.regularCardToolStripMenuItem.Click += new System.EventHandler(this.regularCardToolStripMenuItem_Click);
+            // 
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -120,12 +132,29 @@
             this.logInToolStripMenuItem.Text = "LogIn";
             this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click);
             // 
+            // tableToolStripMenuItem
+            // 
+            this.tableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dBATableToolStripMenuItem});
+            this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(69, 28);
+            this.tableToolStripMenuItem.Text = "Table";
+            // 
+            // dBATableToolStripMenuItem
+            // 
+            this.dBATableToolStripMenuItem.Name = "dBATableToolStripMenuItem";
+            this.dBATableToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.dBATableToolStripMenuItem.Text = "DBATable";
+            this.dBATableToolStripMenuItem.Click += new System.EventHandler(this.dBATableToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 244);
+            this.ClientSize = new System.Drawing.Size(383, 325);
             this.Controls.Add(this.menuStrip);
+            this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainWindow";
             this.Text = "MainWindow";
@@ -148,5 +177,8 @@
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDefaultTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regularCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dBATableToolStripMenuItem;
     }
 }

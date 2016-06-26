@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>.\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite">
@@ -49,8 +52,9 @@
     <Compile Include="Code\Database\DbBaseTable.cs" />
     <Compile Include="Code\Database\ParkingRecordDb.cs" />
     <Compile Include="Code\Database\ParkingSpaceDb.cs" />
-    <Compile Include="Code\Database\RegularCardPayment.cs" />
+    <Compile Include="Code\Database\RegularCardPaymentDb.cs" />
     <Compile Include="Code\Database\RegularCardUserDb.cs" />
+    <Compile Include="Code\Database\RegularCardView.cs" />
     <Compile Include="Code\Debug\DebugPrint.cs" />
     <Compile Include="Code\Main\MainWindow.cs">
       <SubType>Form</SubType>
@@ -60,6 +64,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Base\DbDataShowBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Base\DbDataShowBase.Designer.cs">
+      <DependentUpon>DbDataShowBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Base\DbTableMainBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\DBAccountEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +128,9 @@
     <Compile Include="UI\RegularCardPaymentUi.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\RegularCardUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\RegularCardUserEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +152,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Base\DbDataShowBase.resx">
+      <DependentUpon>DbDataShowBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Base\DbTableMainBase.resx">
+      <DependentUpon>DbTableMainBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\DBAccountEdit.resx">
       <DependentUpon>DBAccountEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +170,9 @@
     <EmbeddedResource Include="UI\ParkingRecordQueryUi.resx">
       <DependentUpon>ParkingRecordQueryUi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParkingRecordUi.resx">
+      <DependentUpon>ParkingRecordUi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingSpaceEdit.resx">
       <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardPaymentEdit.resx">
       <DependentUpon>RegularCardPaymentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegularCardUi.resx">
+      <DependentUpon>RegularCardUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardUserEdit.resx">
       <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
@@ -170,7 +198,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UI\DBAUi\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
