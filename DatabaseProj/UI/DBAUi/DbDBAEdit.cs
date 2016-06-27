@@ -32,7 +32,7 @@ namespace DatabaseProj.UI.DBAUi {
             dbUiInit();
         }
 
-        protected override void dbString2Stru (ref List<string> listRecord)
+        public override void dbString2Stru (ref List<string> listRecord)
         {
             int i = 0;
 
@@ -51,7 +51,7 @@ namespace DatabaseProj.UI.DBAUi {
             }
         }
 
-        protected override void dbString2Ui (ref List<string> listRecord)
+        public override void dbString2Ui (ref List<string> listRecord)
         {
             int i = 0;
 
@@ -64,7 +64,7 @@ namespace DatabaseProj.UI.DBAUi {
             textBoxJobNuym.Text = listRecord[i++];
         }
 
-        protected override void dbStru2Ui ()
+        public override void dbStru2Ui ()
         {
             textBoxId.Text = sDBAStru.iId.ToString();
             comboBoxType.SelectedIndex = sDBAStru.iType;
@@ -75,12 +75,12 @@ namespace DatabaseProj.UI.DBAUi {
             textBoxJobNuym.Text = sDBAStru.strPassword;
         }
 
-        protected override object dbStruGet ()
+        public override object dbStruGet ()
         {
             return sDBAStru;
         }
 
-        protected override void dbUi2Stru ()
+        public override void dbUi2Stru ()
         {
             sDBAStru.iId = int.Parse( textBoxId.Text );
             sDBAStru.iType = comboBoxType.SelectedIndex;
@@ -91,7 +91,7 @@ namespace DatabaseProj.UI.DBAUi {
             sDBAStru.strJobNum = textBoxJobNuym.Text;
         }
 
-        protected override void dbUiInit ()
+        public override void dbUiInit ()
         {
             foreach ( string str in CDbBaseTable.strDbBaseDBATypeDesc ) {
                 comboBoxType.Items.Add( str );

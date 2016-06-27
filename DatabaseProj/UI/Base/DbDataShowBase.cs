@@ -134,23 +134,30 @@ namespace DatabaseProj.UI.Base {
                     iDgvRightSelectedRow = e.RowIndex;
                     iDgvRightSelectedCol = e.ColumnIndex;
 
-                    EDbDataShowStat eStat;
-
-                    eStat = dbDataShowButtonCb( iDgvRightSelectedRow, iDgvRightSelectedCol );
-                    dbDataShowStatSet( eStat );
+                    contextMenuStrip.Show( MousePosition.X, MousePosition.Y );
                 }
             }
         }
 
-        /// <summary>
-        /// 鼠标右键处理函数
-        /// </summary>
-        /// <param name="iX"></param>
-        /// <param name="iY"></param>
-        /// <returns></returns>
-        protected virtual EDbDataShowStat dbDataShowButtonCb (int iX, int iY)
+        protected virtual EDbDataShowStat dbRecordEditProc ()
         {
             return EDbDataShowStat.DBDATASHOW_FAILED;
+        }
+
+        protected virtual EDbDataShowStat dbRecordDeleteProc ()
+        {
+            return EDbDataShowStat.DBDATASHOW_FAILED;
+        }
+
+
+        private void 编辑ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            dbDataShowStatSet( dbRecordEditProc () );
+        }
+
+        private void 删除ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            dbDataShowStatSet( dbRecordDeleteProc() );
         }
     }
 }

@@ -18,39 +18,44 @@ namespace DatabaseProj.UI.Base {
             this.Text = strTitle;
         }
 
-        protected virtual void dbString2Stru (ref List<string> listRecord)
+        public DbRecordEditBase ()
+        {
+            InitializeComponent();
+        }
+
+        public virtual void dbString2Stru (ref List<string> listRecord)
         {
         }
 
-        protected virtual void dbString2Ui (ref List<string> listRecord)
+        public virtual void dbString2Ui (ref List<string> listRecord)
         {
         }
 
-        protected virtual void dbStru2Ui ()
+        public virtual void dbStru2Ui ()
         {
         }
 
-        protected virtual object dbStruGet ()
+        public virtual object dbStruGet ()
         {
             return null;
         }
 
-        protected virtual void dbUi2Stru ()
+        public virtual void dbUi2Stru ()
         {
         }
 
-        protected virtual void dbUiInit ()
+        public virtual void dbUiInit ()
         {
         }
 
-        private void buttonOk_Click (object sender, EventArgs e)
+        protected void buttonOk_Click (object sender, EventArgs e)
         {
             dbUi2Stru();
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void buttonCancel_Click (object sender, EventArgs e)
+        protected void buttonCancel_Click (object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

@@ -13,6 +13,11 @@ namespace DatabaseProj.UI.Base {
 
         protected CDatebaseBase hDbTable;
 
+        public DbTableMainBase ()
+        {
+            InitializeComponent();
+        }
+
         public DbTableMainBase (CDatebaseBase hDbBase, string strTitle = "Table")
         {
             InitializeComponent();

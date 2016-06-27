@@ -26,8 +26,11 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).BeginInit();
             this.statusStrip.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewDb
@@ -61,8 +64,25 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(74, 4);
+            this.contextMenuStrip.Size = new System.Drawing.Size(212, 97);
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // DbDataShowBase
             // 
@@ -77,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,9 +105,11 @@
 
         #endregion
         protected System.Windows.Forms.StatusStrip statusStrip;
-        protected System.Windows.Forms.DataGridView dataGridViewDb;
         protected System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        protected System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        public System.Windows.Forms.DataGridView dataGridViewDb;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.ComponentModel.IContainer components;
+        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
     }
 }
