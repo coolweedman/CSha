@@ -76,6 +76,12 @@
     <Compile Include="UI\Base\DbRecordEditBase.Designer.cs">
       <DependentUpon>DbRecordEditBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Base\DbRecordQueryBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Base\DbRecordQueryBase.Designer.cs">
+      <DependentUpon>DbRecordQueryBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Base\DbTableMainBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\DBAUi\DbDBAMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DBAUi\DbDBAQuery.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\DbEditWinIf.cs" />
@@ -170,6 +179,9 @@
     <EmbeddedResource Include="UI\Base\DbRecordEditBase.resx">
       <DependentUpon>DbRecordEditBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Base\DbRecordQueryBase.resx">
+      <DependentUpon>DbRecordQueryBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Base\DbTableMainBase.resx">
       <DependentUpon>DbTableMainBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DBAUi\DbDBAEdit.resx">
       <DependentUpon>DbDBAEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DBAUi\DbDBAQuery.resx">
+      <DependentUpon>DbDBAQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DbWinBase.resx">
       <DependentUpon>DbWinBase.cs</DependentUpon>

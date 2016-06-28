@@ -36,11 +36,6 @@ namespace DatabaseProj.UI.Base {
             return EDbDataShowStat.DBDATASHOW_READY;
         }
 
-        protected virtual EDbDataShowStat dbTableReFlashProc ()
-        {
-            return EDbDataShowStat.DBDATASHOW_READY;
-        }
-
         private new void InitializeComponent ()
         {
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -130,7 +125,8 @@ namespace DatabaseProj.UI.Base {
 
         private void buttonFeFlash_Click (object sender, EventArgs e)
         {
-            base.dbDataShowStatSet( dbTableReFlashProc() );
+            dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
+            base.dbDataShowStatSet( EDbDataShowStat.DBDATASHOW_SUCCEESSED );
         }
 
         private void buttonClose_Click (object sender, EventArgs e)

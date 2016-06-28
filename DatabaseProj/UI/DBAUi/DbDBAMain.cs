@@ -99,5 +99,13 @@ namespace DatabaseProj.UI.DBAUi {
                 return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
             }
         }
+
+        protected override EDbDataShowStat dbTableQueryProc ()
+        {
+            DbDBAQuery hDbDBAQuery = new DbDBAQuery( hDbTable );
+            hDbDBAQuery.ShowDialog();
+
+            return EDbDataShowStat.DBDATASHOW_READY;
+        }
     }
 }
