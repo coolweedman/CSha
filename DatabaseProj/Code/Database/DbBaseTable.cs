@@ -100,6 +100,12 @@ namespace DatabaseProj.Code.Database {
             { strDbBaseParkingSpaceAeraDesc[2], 2 },
             { strDbBaseParkingSpaceAeraDesc[3], 3 },
         };
+
+        public static explicit operator CDbBaseTable (CDBAccountDb v)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 付款方式描述
         /// </summary>

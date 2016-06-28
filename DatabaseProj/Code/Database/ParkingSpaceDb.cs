@@ -136,7 +136,7 @@ namespace DatabaseProj.Code.Database {
             string strCreateTable = "CREATE TABLE IF NOT EXISTS ParkingSpace ( " +
                                     "Id         INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                     "GarageNum  INT, " +
-                                    "SpaceNum   INT, " +
+                                    "SpaceNum   INT     UNIQUE, " +
                                     "CardNum    TEXT, " +
                                     "AxisX      REAL, " +
                                     "AxisY      REAL, " +
@@ -190,17 +190,17 @@ namespace DatabaseProj.Code.Database {
         /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
         {
-            bool bFirstFlag = true;
             SParkingSpaceQueryStru sQueryStru = (SParkingSpaceQueryStru)sCond;
 
             if ( !sQueryStru.bSpaceLockStatEn && !sQueryStru .bSpaceTypeEn && !sQueryStru .bSpaceAeraEn ) {
                 return dataBaseBaseCommRead();
             }
 
+            bool bFirstFlag = true;
             hCmd.CommandText = "SELECT * FROM ParkingSpace WHERE ";
             if ( sQueryStru.bSpaceLockStatEn ) {
                 if ( !bFirstFlag ) {
-                    hCmd.CommandText += "AND ";
+                    hCmd.CommandText += " AND ";
                 }
                 bFirstFlag = false;
 
@@ -208,7 +208,7 @@ namespace DatabaseProj.Code.Database {
             }
             if ( sQueryStru.bSpaceTypeEn ) {
                 if ( !bFirstFlag ) {
-                    hCmd.CommandText += "AND ";
+                    hCmd.CommandText += " AND ";
                 }
                 bFirstFlag = false;
 
@@ -216,7 +216,7 @@ namespace DatabaseProj.Code.Database {
             }
             if ( sQueryStru.bSpaceAeraEn ) {
                 if ( !bFirstFlag ) {
-                    hCmd.CommandText += "AND ";
+                    hCmd.CommandText += " AND ";
                 }
                 bFirstFlag = false;
 
@@ -363,6 +363,11 @@ namespace DatabaseProj.Code.Database {
             dataBaseBaseCommRead();
 
             if ( null == hReader ) {
+                return false;
+            }
+
+            if ( !hReader.HasRows ) {
+                hReader.Close();
                 return false;
             }
 

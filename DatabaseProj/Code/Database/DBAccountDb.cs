@@ -30,6 +30,25 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        public struct SDBAccountQueryStru {
+            public bool bIdEn;
+            public bool bTypeEn;
+            public bool bAccountEn;
+            public bool bAuthorityEn;
+            public bool bNameEn;
+            public bool bJobNumEn;
+
+            public int iId;
+            public int iType;
+            public string strAccount;
+            public int iAuthority;
+            public string strName;
+            public string strJobNum;
+        };
+
+        /// <summary>
+        /// 数据库管理员 类型
+        /// </summary>
         public enum EDBAccountType {
             DBATYPE_ROOT = 0,
             DBATYPE_ADMIN,
@@ -37,6 +56,9 @@ namespace DatabaseProj.Code.Database {
             DBATYPE_GUEST,
         };
 
+        /// <summary>
+        /// 数据库管理员 权限
+        /// </summary>
         public enum EDBAccountAuthority {
             DBAAUTHORITY_ROOT = 0,
             DBAAUTHORITY_HIGH,
@@ -103,6 +125,90 @@ namespace DatabaseProj.Code.Database {
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM DBAccount";
+            base.dataBaseBaseRecordRead();
+
+            return hReader;
+        }
+
+        public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
+        {
+            SDBAccountQueryStru sQueryStru = (SDBAccountQueryStru)sCond;
+
+            if ( !sQueryStru.bIdEn && !sQueryStru.bTypeEn && !sQueryStru.bAccountEn && !sQueryStru.bAuthorityEn && !sQueryStru.bNameEn && !sQueryStru.bJobNumEn ) {
+                return dataBaseBaseCommRead();
+            }
+
+            bool bFirstFlag = true;
+            hCmd.CommandText = "SELECT * FROM DBAccount WHERE ";
+
+            if ( sQueryStru.bIdEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Id=@Id";
+            }
+            if ( sQueryStru.bAccountEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Account=@Account";
+            }
+            if ( sQueryStru.bTypeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Type=@Type";
+            }
+            if ( sQueryStru.bAuthorityEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Authority=@Authority";
+            }
+            if ( sQueryStru.bNameEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Name=@Name";
+            }
+            if ( sQueryStru.bJobNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "JobNum=@JobNum";
+            }
+
+            if ( sQueryStru.bIdEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Id", sQueryStru.iId ) );
+            }
+            if ( sQueryStru.bAccountEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Account", sQueryStru.strAccount ) );
+            }
+            if ( sQueryStru.bTypeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Type", CDbBaseTable.strDbBaseDBATypeDesc[sQueryStru.iType] ) );
+            }
+            if ( sQueryStru.bAuthorityEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Authority", CDbBaseTable.strDbBaseAuthorityDesc[sQueryStru.iAuthority] ) );
+            }
+            if ( sQueryStru.bNameEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Name", sQueryStru.strName ) );
+            }
+            if ( sQueryStru.bJobNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "JobNum", sQueryStru.strJobNum ) );
+            }
+
             base.dataBaseBaseRecordRead();
 
             return hReader;
@@ -195,6 +301,11 @@ namespace DatabaseProj.Code.Database {
             base.dataBaseBaseRecordRead();
 
             if ( null == hReader ) {
+                return false;
+            }
+
+            if ( !hReader.HasRows ) {
+                hReader.Close();
                 return false;
             }
 

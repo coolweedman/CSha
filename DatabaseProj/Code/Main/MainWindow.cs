@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DatabaseProj.UI;
 using DatabaseProj.Code.Database;
+using DatabaseProj.UI.DBAUi;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -66,6 +67,9 @@ namespace DatabaseProj.Code.Main {
             CRegularCardPaymentDb hCRegularCardPaymentDb = new CRegularCardPaymentDb();
             hCRegularCardPaymentDb.dataBaseBaseDeRecordInsert();
 
+            CParkingSpaceDb hParkingSpaceDb = new CParkingSpaceDb();
+            hParkingSpaceDb.dataBaseBaseDeRecordInsert();
+
             MessageBox.Show( "Default Table Created" );
         }
 
@@ -83,7 +87,10 @@ namespace DatabaseProj.Code.Main {
 
         private void dBATableToolStripMenuItem_Click (object sender, EventArgs e)
         {
+            CDatebaseBase hDBAccountDb = new CDBAccountDb();
 
+            DbDBAMain hDbDBAMain = new DbDBAMain( hDBAccountDb, "DBA window" );
+            hDbDBAMain.Show();
         }
     }
 }
