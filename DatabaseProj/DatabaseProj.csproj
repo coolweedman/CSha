@@ -158,7 +158,14 @@
     <Compile Include="UI\RegularCardUserEdit.Designer.cs">
       <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\RegularCardUserUi.cs">
+    <Compile Include="UI\RegularCardUserUi.cs" />
+    <Compile Include="UI\RegularCardUserUi\RegularCardUserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegularCardUserUi\RegularCardUserMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegularCardUserUi\RegularCardUserQuery.cs">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="Code\Main\MainWindow.resx">
@@ -220,6 +227,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardUserEdit.resx">
       <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegularCardUserUi\RegularCardUserEdit.resx">
+      <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegularCardUserUi\RegularCardUserQuery.resx">
+      <DependentUpon>RegularCardUserQuery.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

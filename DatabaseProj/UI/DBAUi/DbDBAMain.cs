@@ -13,10 +13,8 @@ namespace DatabaseProj.UI.DBAUi {
         /// </summary>
         /// <param name="hDbBase"></param>
         /// <param name="strTitle"></param>
-        public DbDBAMain (CDatebaseBase hDbBase, string strTitle = "Table") : base( hDbBase, strTitle )
+        public DbDBAMain (CDatebaseBase hDbBase, string strTitle = "DBA Main Window") : base( hDbBase, strTitle )
         {
-            hDbTable = hDbBase;
-            dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
             dbDataShowHeadSet( CDBAccountDb.strDBAccountHeadDesc );
         }
 
@@ -25,8 +23,6 @@ namespace DatabaseProj.UI.DBAUi {
         /// </summary>
         public DbDBAMain () : base(null)
         {
-            dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
-            dbDataShowHeadSet( CDBAccountDb.strDBAccountHeadDesc );
         }
 
         /// <summary>
@@ -35,19 +31,9 @@ namespace DatabaseProj.UI.DBAUi {
         /// <returns></returns>
         protected override EDbDataShowStat dbTableAddProc ()
         {
-            DbDBAEdit hDbDBAEdit = new DbDBAEdit();
+            hEditUi = new DbDBAEdit();
 
-            if ( DialogResult.OK == hDbDBAEdit.ShowDialog() ) {
-                object sRecord = hDbDBAEdit.sDBAStru;
-                if ( (int)EDataBaseClassErrStat.DATABASEERR_FAIL != hDbTable.dataBaseBaseCommAdd( ref sRecord  ) ) {
-                    dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
-                    return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
-                } else {
-                    return EDbDataShowStat.DBDATASHOW_FAILED;
-                }
-            } else {
-                return EDbDataShowStat.DBDATASHOW_READY;
-            }
+            return base.dbTableAddProc();
         }
 
         /// <summary>
@@ -56,25 +42,9 @@ namespace DatabaseProj.UI.DBAUi {
         /// <returns></returns>
         protected override EDbDataShowStat dbRecordEditProc ()
         {
-            DbDBAEdit hDbDBAEdit = new DbDBAEdit();
-            List<string> listStr = new List<string>();
+            hEditUi = new DbDBAEdit();
 
-            dbDataShowDgv2StringList( listStr );
-            hDbDBAEdit.dbString2Ui( ref listStr );
-
-            if ( DialogResult.OK != hDbDBAEdit.ShowDialog() ) {
-                return EDbDataShowStat.DBDATASHOW_READY;
-            }
-
-            object sRecord = hDbDBAEdit.dbStruGet();
-
-            if ( (int)EDataBaseClassErrStat.DATABASEERR_FAIL == hDbTable.dataBaseBaseCommUpdate( ref sRecord ) ) {
-                return EDbDataShowStat.DBDATASHOW_FAILED;
-            } else {
-                dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
-
-                return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
-            }
+            return base.dbRecordEditProc();
         }
 
         /// <summary>
@@ -83,23 +53,15 @@ namespace DatabaseProj.UI.DBAUi {
         /// <returns></returns>
         protected override EDbDataShowStat dbRecordDeleteProc ()
         {
-            DbDBAEdit hDbDBAEdit = new DbDBAEdit();
-            List<string> listStr = new List<string>();
+            hEditUi = new DbDBAEdit();
 
-            dbDataShowDgv2StringList( listStr );
-            hDbDBAEdit.dbString2Stru( ref listStr );
-
-            object sRecord = hDbDBAEdit.dbStruGet();
-
-            if ( (int)EDataBaseClassErrStat.DATABASEERR_FAIL == hDbTable.dataBaseBaseCommDelete( ref sRecord ) ) {
-                return EDbDataShowStat.DBDATASHOW_FAILED;
-            } else {
-                dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
-
-                return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
-            }
+            return base.dbRecordDeleteProc();
         }
 
+        /// <summary>
+        /// 查询处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbTableQueryProc ()
         {
             DbDBAQuery hDbDBAQuery = new DbDBAQuery( hDbTable );
