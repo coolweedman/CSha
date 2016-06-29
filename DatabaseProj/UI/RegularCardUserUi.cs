@@ -6,17 +6,17 @@ using DatabaseProj.UI;
 
 
 namespace DatabaseProj.UI {
-    public class RegularCardUserUi : DbWinBase {
+    //public class RegularCardUserUi : DbWinBase {
 
-        CRegularCardUserDb hRegularCardUserDb;
-        RegularCardUserEdit hRegularCardUserEdit;
+    //    CRegularCardUserDb hRegularCardUserDb;
+    //    RegularCardUserEdit hRegularCardUserEdit;
 
-        public RegularCardUserUi ()
-        {
-            hRegularCardUserDb = new CRegularCardUserDb();
-            hRegularCardUserEdit = new RegularCardUserEdit ();
+    //    public RegularCardUserUi ()
+    //    {
+    //        hRegularCardUserDb = new CRegularCardUserDb();
+    //        hRegularCardUserEdit = new RegularCardUserEdit ();
 
-            dbWinBaseInit( hRegularCardUserDb , hRegularCardUserEdit );
-        }
-    }
+    //        dbWinBaseInit( hRegularCardUserDb , hRegularCardUserEdit );
+    //    }
+    //}
 }

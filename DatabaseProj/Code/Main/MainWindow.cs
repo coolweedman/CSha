@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DatabaseProj.UI;
 using DatabaseProj.Code.Database;
 using DatabaseProj.UI.DBAUi;
+using DatabaseProj.UI.RegularCardUserUi;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -20,8 +21,8 @@ namespace DatabaseProj.Code.Main {
 
         private void regularCardUserToolStripMenuItem_Click_1 (object sender, EventArgs e)
         {
-            RegularCardUserUi hRegularCardUserUi = new RegularCardUserUi();
-            hRegularCardUserUi.Show();
+            //RegularCardUserUi hRegularCardUserUi = new RegularCardUserUi();
+            //hRegularCardUserUi.Show();
         }
 
         private void regularCardPaymentToolStripMenuItem_Click (object sender, EventArgs e)
@@ -89,8 +90,16 @@ namespace DatabaseProj.Code.Main {
         {
             CDatebaseBase hDBAccountDb = new CDBAccountDb();
 
-            DbDBAMain hDbDBAMain = new DbDBAMain( hDBAccountDb, "DBA window" );
+            DbDBAMain hDbDBAMain = new DbDBAMain( hDBAccountDb );
             hDbDBAMain.Show();
+        }
+
+        private void regularCardUserToolStripMenuItem1_Click (object sender, EventArgs e)
+        {
+            CRegularCardUserDb hCRegularCardUserDb = new CRegularCardUserDb();
+
+            RegularCardUserMain hRegularCardUserUi = new RegularCardUserMain( hCRegularCardUserDb );
+            hRegularCardUserUi.Show();
         }
     }
 }

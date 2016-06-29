@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
+
 
 namespace DatabaseProj.UI.Base {
     public class DbTableMainBase : DbDataShowBase {
@@ -12,28 +14,146 @@ namespace DatabaseProj.UI.Base {
         private System.Windows.Forms.Button buttonClose;
 
         protected CDatebaseBase hDbTable;
+        protected DbRecordEditBase hEditUi;
 
+        /// <summary>
+        /// 数据库界面主窗口基类 构造函数
+        /// </summary>
         public DbTableMainBase ()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 数据库界面主窗口基类 带参数构造函数
+        /// </summary>
+        /// <param name="hDbBase"></param>
+        /// <param name="strTitle"></param>
         public DbTableMainBase (CDatebaseBase hDbBase, string strTitle = "Table")
         {
             InitializeComponent();
 
             hDbTable = hDbBase;
             this.Text = strTitle;
+
+            dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
         }
 
+        /// <summary>
+        /// 数据库界面主窗口基类 添加记录处理
+        /// </summary>
+        /// <returns></returns>
         protected virtual EDbDataShowStat dbTableAddProc ()
         {
-            return EDbDataShowStat.DBDATASHOW_READY;
+            if ( DialogResult.OK == hEditUi.ShowDialog() ) {
+                object sRecord = hEditUi.dbStruGet();
+                if ( (int)EDataBaseClassErrStat.DATABASEERR_FAIL != hDbTable.dataBaseBaseCommAdd( ref sRecord ) ) {
+                    dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
+                    return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
+                } else {
+                    return EDbDataShowStat.DBDATASHOW_FAILED;
+                }
+            } else {
+                return EDbDataShowStat.DBDATASHOW_READY;
+            }
         }
 
+        /// <summary>
+        /// 数据库界面主窗口基类 查询处理
+        /// </summary>
+        /// <returns></returns>
         protected virtual EDbDataShowStat dbTableQueryProc ()
         {
             return EDbDataShowStat.DBDATASHOW_READY;
+        }
+
+        /// <summary>
+        /// 数据库界面主窗口基类 编辑记录处理
+        /// </summary>
+        /// <returns></returns>
+        protected override EDbDataShowStat dbRecordEditProc ()
+        {
+            List<string> listStr = new List<string>();
+
+            dbDataShowDgv2StringList( listStr );
+            hEditUi.dbString2Ui( ref listStr );
+
+            if ( DialogResult.OK != hEditUi.ShowDialog() ) {
+                return EDbDataShowStat.DBDATASHOW_READY;
+            }
+
+            object sRecord = hEditUi.dbStruGet();
+
+            if ( (int)EDataBaseClassErrStat.DATABASEERR_FAIL == hDbTable.dataBaseBaseCommUpdate( ref sRecord ) ) {
+                return EDbDataShowStat.DBDATASHOW_FAILED;
+            } else {
+                dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
+
+                return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
+            }
+        }
+
+        /// <summary>
+        /// 数据库界面主窗口基类 删除记录处理
+        /// </summary>
+        /// <returns></returns>
+        protected override EDbDataShowStat dbRecordDeleteProc ()
+        {
+            List<string> listStr = new List<string>();
+
+            dbDataShowDgv2StringList( listStr );
+            hEditUi.dbString2Stru( ref listStr );
+
+            object sRecord = hEditUi.dbStruGet();
+
+            if ( (int)EDataBaseClassErrStat.DATABASEERR_FAIL == hDbTable.dataBaseBaseCommDelete( ref sRecord ) ) {
+                return EDbDataShowStat.DBDATASHOW_FAILED;
+            } else {
+                dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
+
+                return EDbDataShowStat.DBDATASHOW_SUCCEESSED;
+            }
+        }
+
+        /// <summary>
+        /// 数据库界面主窗口基类 添加按钮事件处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAdd_Click (object sender, EventArgs e)
+        {
+            base.dbDataShowStatSet( dbTableAddProc() );
+        }
+
+        /// <summary>
+        /// 数据库界面主窗口基类 查询按钮事件处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonQuery_Click (object sender, EventArgs e)
+        {
+            base.dbDataShowStatSet( dbTableQueryProc() );
+        }
+
+        /// <summary>
+        /// 数据库界面主窗口基类 刷新按钮事件处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonFeFlash_Click (object sender, EventArgs e)
+        {
+            dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
+            base.dbDataShowStatSet( EDbDataShowStat.DBDATASHOW_SUCCEESSED );
+        }
+
+        /// <summary>
+        /// 数据库界面主窗口基类 取消按钮处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonClose_Click (object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private new void InitializeComponent ()
@@ -111,27 +231,6 @@ namespace DatabaseProj.UI.Base {
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        private void buttonAdd_Click (object sender, EventArgs e)
-        {
-            base.dbDataShowStatSet( dbTableAddProc() );
-        }
-
-        private void buttonQuery_Click (object sender, EventArgs e)
-        {
-            base.dbDataShowStatSet( dbTableQueryProc() );
-        }
-
-        private void buttonFeFlash_Click (object sender, EventArgs e)
-        {
-            dbDataShowReFlash( hDbTable.dataBaseBaseCommRead() );
-            base.dbDataShowStatSet( EDbDataShowStat.DBDATASHOW_SUCCEESSED );
-        }
-
-        private void buttonClose_Click (object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

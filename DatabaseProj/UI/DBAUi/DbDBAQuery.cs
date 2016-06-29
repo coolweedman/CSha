@@ -7,6 +7,7 @@ using DatabaseProj.Code.Database;
 
 namespace DatabaseProj.UI.DBAUi {
     public class DbDBAQuery : DbRecordQueryBase {
+
         protected CDBAccountDb.SDBAccountQueryStru sQueryStru = new CDBAccountDb.SDBAccountQueryStru();
 
         private System.Windows.Forms.CheckBox checkBoxId;
@@ -26,7 +27,7 @@ namespace DatabaseProj.UI.DBAUi {
         /// 数据库管理员查询 构造函数
         /// </summary>
         /// <param name="hDbTableBase">数据库管理员数据表基类</param>
-        public DbDBAQuery (CDatebaseBase hDbTableBase) : base( hDbTableBase )
+        public DbDBAQuery (CDatebaseBase hDbTableBase, string strTitle = "DBA Query Window") : base( hDbTableBase, strTitle )
         {
             InitializeComponent();
             dbRecordQueryUiInit();
@@ -210,7 +211,7 @@ namespace DatabaseProj.UI.DBAUi {
         /// <summary>
         /// 数据库管理员查询 界面初始化
         /// </summary>
-        private void dbRecordQueryUiInit ()
+        protected override void dbRecordQueryUiInit ()
         {
             for ( int i=0; i<CDbBaseTable.strDbBaseDBATypeDesc.Length; i++ ) {
                 comboBoxType.Items.Add( CDbBaseTable.strDbBaseDBATypeDesc[i] );

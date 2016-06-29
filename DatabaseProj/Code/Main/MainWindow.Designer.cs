@@ -38,6 +38,7 @@
             this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dBATableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regularCardUserToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +136,8 @@
             // tableToolStripMenuItem
             // 
             this.tableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dBATableToolStripMenuItem});
+            this.dBATableToolStripMenuItem,
+            this.regularCardUserToolStripMenuItem1});
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
             this.tableToolStripMenuItem.Size = new System.Drawing.Size(69, 28);
             this.tableToolStripMenuItem.Text = "Table";
@@ -143,9 +145,16 @@
             // dBATableToolStripMenuItem
             // 
             this.dBATableToolStripMenuItem.Name = "dBATableToolStripMenuItem";
-            this.dBATableToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.dBATableToolStripMenuItem.Size = new System.Drawing.Size(239, 30);
             this.dBATableToolStripMenuItem.Text = "DBATable";
             this.dBATableToolStripMenuItem.Click += new System.EventHandler(this.dBATableToolStripMenuItem_Click);
+            // 
+            // regularCardUserToolStripMenuItem1
+            // 
+            this.regularCardUserToolStripMenuItem1.Name = "regularCardUserToolStripMenuItem1";
+            this.regularCardUserToolStripMenuItem1.Size = new System.Drawing.Size(239, 30);
+            this.regularCardUserToolStripMenuItem1.Text = "RegularCardUser";
+            this.regularCardUserToolStripMenuItem1.Click += new System.EventHandler(this.regularCardUserToolStripMenuItem1_Click);
             // 
             // MainWindow
             // 
@@ -180,5 +189,6 @@
         private System.Windows.Forms.ToolStripMenuItem regularCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dBATableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regularCardUserToolStripMenuItem1;
     }
 }

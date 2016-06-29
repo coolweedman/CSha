@@ -195,7 +195,7 @@ namespace DatabaseProj.Code.Database {
                                "CarPlate=@CarPlate, " +
                                "CardNum=@CardNum, " +
                                "CardType=@CardType, " +
-                               "CarType=@CarType, " +
+                               "CarType=@CarType " +
                                "WHERE Id=@Id";
 
             hCmd.Parameters.Add( new SQLiteParameter( "UserName", sRcuStru.strUserName ) );
@@ -203,8 +203,8 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "UserPhone", sRcuStru.strUserPhone ) );
             hCmd.Parameters.Add( new SQLiteParameter( "CarPlate", sRcuStru.strCarPlate ) );
             hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sRcuStru.strCardNum ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "CardType", sRcuStru.iCardType ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "CarType", sRcuStru.iCarType ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "CardType", CDbBaseTable.strDbBaseParkingCardTypeDesc[sRcuStru.iCardType] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "CarType", CDbBaseTable.strDbBaseParkingCarTypeDesc[sRcuStru.iCarType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sRcuStru.iId ) );
 
             return base.dataBaseBaseCommCmdExec();

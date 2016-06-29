@@ -22,12 +22,13 @@ namespace DatabaseProj.UI.Base {
         /// 数据库查询界面基类 构造函数
         /// </summary>
         /// <param name="hDbTableBase">数据库基类</param>
-        public DbRecordQueryBase (CDatebaseBase hDbTableBase)
+        public DbRecordQueryBase (CDatebaseBase hDbTableBase, string strTitle = "DbRecordQueryBase")
         {
             InitializeComponent();
 
             hDbTable = hDbTableBase;
             dbRecordQueryInit();
+            this.Text = strTitle;
         }
 
         /// <summary>
@@ -37,6 +38,10 @@ namespace DatabaseProj.UI.Base {
         {
             InitializeComponent();
             dbRecordQueryInit();
+        }
+
+        protected virtual void dbRecordQueryUiInit ()
+        {
         }
 
         /// <summary>

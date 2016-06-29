@@ -26,12 +26,39 @@ namespace DatabaseProj.UI.DBAUi {
 
         public CDBAccountDb.SDBAccountStru sDBAStru;
 
+        /// <summary>
+        /// 数据库管理员编辑 构造函数
+        /// </summary>
+        /// <param name="strTitle"></param>
         public DbDBAEdit (string strTitle="DBA Edit") : base(strTitle)
         {
             InitializeComponent ();
             dbUiInit();
         }
 
+        /// <summary>
+        /// 数据库管理员编辑 UI初始化
+        /// </summary>
+        public override void dbUiInit ()
+        {
+            foreach ( string str in CDbBaseTable.strDbBaseDBATypeDesc ) {
+                comboBoxType.Items.Add( str );
+            }
+            comboBoxType.SelectedIndex = CDbBaseTable.strDbBaseDBATypeDesc.Length - 1;
+
+            foreach ( string str in CDbBaseTable.strDbBaseAuthorityDesc ) {
+                comboBoxAuthority.Items.Add( str );
+            }
+            comboBoxAuthority.SelectedIndex = CDbBaseTable.strDbBaseAuthorityDesc.Length - 1;
+
+            textBoxId.Text = "0";
+            textBoxId.Enabled = false;
+        }
+
+        /// <summary>
+        /// 数据库管理员编辑 字符串转结构体
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Stru (ref List<string> listRecord)
         {
             int i = 0;
@@ -51,6 +78,10 @@ namespace DatabaseProj.UI.DBAUi {
             }
         }
 
+        /// <summary>
+        /// 数据库管理员编辑 字符串转到UI
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Ui (ref List<string> listRecord)
         {
             int i = 0;
@@ -64,6 +95,9 @@ namespace DatabaseProj.UI.DBAUi {
             textBoxJobNuym.Text = listRecord[i++];
         }
 
+        /// <summary>
+        /// 数据库管理员编辑 结构体转到UI
+        /// </summary>
         public override void dbStru2Ui ()
         {
             textBoxId.Text = sDBAStru.iId.ToString();
@@ -75,11 +109,18 @@ namespace DatabaseProj.UI.DBAUi {
             textBoxJobNuym.Text = sDBAStru.strPassword;
         }
 
+        /// <summary>
+        /// 数据库管理员编辑 获取结构体
+        /// </summary>
+        /// <returns></returns>
         public override object dbStruGet ()
         {
             return sDBAStru;
         }
 
+        /// <summary>
+        /// 数据库管理员编辑 UI转到结构体
+        /// </summary>
         public override void dbUi2Stru ()
         {
             sDBAStru.iId = int.Parse( textBoxId.Text );
@@ -89,21 +130,6 @@ namespace DatabaseProj.UI.DBAUi {
             sDBAStru.iAuthority = comboBoxAuthority.SelectedIndex;
             sDBAStru.strName = textBoxName.Text;
             sDBAStru.strJobNum = textBoxJobNuym.Text;
-        }
-
-        public override void dbUiInit ()
-        {
-            foreach ( string str in CDbBaseTable.strDbBaseDBATypeDesc ) {
-                comboBoxType.Items.Add( str );
-            }
-            comboBoxType.SelectedIndex = CDbBaseTable.strDbBaseDBATypeDesc.Length - 1;
-
-            foreach ( string str in CDbBaseTable.strDbBaseAuthorityDesc ) {
-                comboBoxAuthority.Items.Add( str );
-            }
-            comboBoxAuthority.SelectedIndex = CDbBaseTable.strDbBaseAuthorityDesc.Length - 1;
-
-            textBoxId.Text = "0";
         }
 
         private new void InitializeComponent ()
