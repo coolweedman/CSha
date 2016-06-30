@@ -6,6 +6,7 @@ using System.Text;
 
 namespace DatabaseProj.UI.RegularCardUserUi {
     class RegularCardUserQuery : DbRecordQueryBase {
+
         private System.Windows.Forms.ComboBox comboBoxCarType;
         private System.Windows.Forms.ComboBox comboBoxCardType;
         private System.Windows.Forms.TextBox textBoxCardNum;
@@ -23,12 +24,22 @@ namespace DatabaseProj.UI.RegularCardUserUi {
         private System.Windows.Forms.CheckBox checkBoxCarType;
         private System.Windows.Forms.TextBox textBoxId;
 
+        protected CRegularCardUserDb.SRegularCardUserQueryStru sQueryStru;
+
+        /// <summary>
+        /// 停车卡数据库查询 构造函数
+        /// </summary>
+        /// <param name="hDbTableBase"></param>
+        /// <param name="strTitle"></param>
         public RegularCardUserQuery (CDatebaseBase hDbTableBase, string strTitle = "Regular Card User Query Window") : base( hDbTableBase, strTitle )
         {
             InitializeComponent();
             dbRecordQueryUiInit();
         }
 
+        /// <summary>
+        /// 停车卡数据库查询 UI初始化
+        /// </summary>
         protected override void dbRecordQueryUiInit ()
         {
             for ( int i=0; i<CDbBaseTable.strDbBaseParkingCardTypeDesc.Length; i++ ) {
@@ -37,6 +48,49 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             for ( int i=0; i<CDbBaseTable.strDbBaseParkingCarTypeDesc.Length; i++ ) {
                 comboBoxCarType.Items.Add( CDbBaseTable.strDbBaseParkingCarTypeDesc[i] );
             }
+        }
+
+        /// <summary>
+        /// 停车卡数据库查询 UI转结构体
+        /// </summary>
+        /// <returns></returns>
+        protected override object dbRecordQueryUi2Stru ()
+        {
+            sQueryStru.bIdEn = checkBoxId.Checked;
+            sQueryStru.bUserNameEn = checkBoxUserName.Checked;
+            sQueryStru.bUserIdent = checkBoxUserIdent.Checked;
+            sQueryStru.bUserPhone = checkBoxUserPhone.Checked;
+            sQueryStru.bCarPlate = checkBoxCarPlate.Checked;
+            sQueryStru.bCarNum = checkBoxCardNum.Checked;
+            sQueryStru.bCardType = checkBoxCardType.Checked;
+            sQueryStru.bCarType = checkBoxCarType.Checked;
+
+            if ( sQueryStru.bIdEn ) {
+                sQueryStru.iId = int.Parse( textBoxId.Text );
+            }
+            if ( sQueryStru.bUserNameEn ) {
+                sQueryStru.strUserName = textBoxUserName.Text;
+            }
+            if ( sQueryStru.bUserIdent ) {
+                sQueryStru.strUserIdent = textBoxUserIdent.Text;
+            }
+            if ( sQueryStru.bUserPhone ) {
+                sQueryStru.strUserPhone = textBoxUserPhone.Text;
+            }
+            if ( sQueryStru.bCarPlate ) {
+                sQueryStru.strCarPlate = textBoxCarPlate.Text;
+            }
+            if ( sQueryStru.bCarNum ) {
+                sQueryStru.strCardNum = textBoxCardNum.Text;
+            }
+            if ( sQueryStru.bCardType ) {
+                sQueryStru.iCardType = comboBoxCardType.SelectedIndex;
+            }
+            if ( sQueryStru.bCarType ) {
+                sQueryStru.iCarType = comboBoxCarType.SelectedIndex;
+            }
+
+            return sQueryStru;
         }
 
         private void InitializeComponent ()

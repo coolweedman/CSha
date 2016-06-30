@@ -36,6 +36,7 @@ namespace DatabaseProj.Code.Database {
         };
 
         public struct SRegularCardUserQueryStru {
+            public bool bIdEn;
             public bool bUserNameEn;
             public bool bUserIdent;
             public bool bUserPhone;
@@ -44,6 +45,7 @@ namespace DatabaseProj.Code.Database {
             public bool bCardType;
             public bool bCarType;
 
+            public int iId;
             public string strUserName;
             public string strUserIdent;
             public string strUserPhone;
@@ -156,12 +158,115 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 查询停车卡数据库
+        /// </summary>
+        /// <param name="sCond">查询条件</param>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
         {
             SRegularCardUserQueryStru sQueryStru = (SRegularCardUserQueryStru)sCond;
 
+            if ( !sQueryStru.bIdEn && !sQueryStru.bUserNameEn && !sQueryStru.bUserIdent && !sQueryStru.bUserPhone && !sQueryStru.bCarPlate && !sQueryStru.bCarNum && !sQueryStru.bCardType && !sQueryStru.bCarType ) {
+                return dataBaseBaseCommRead();
+            }
 
-            return null;
+            bool bFirstFlag = true;
+            hCmd.CommandText = "SELECT * FROM RegularCardUser WHERE ";
+
+            if ( sQueryStru.bIdEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Id=@Id";
+            }
+            if ( sQueryStru.bUserNameEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "UserName=@UserName";
+            }
+            if ( sQueryStru.bUserIdent ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "UserIdent=@UserIdent";
+            }
+            if ( sQueryStru.bUserPhone ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "UserPhone=@UserPhone";
+            }
+            if ( sQueryStru.bCarPlate ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CarPlate=@CarPlate";
+            }
+            if ( sQueryStru.bCarNum ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CardNum=@CardNum";
+            }
+            if ( sQueryStru.bCardType ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CardType=@CardType";
+            }
+            if ( sQueryStru.bCarType ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CarType=@CarType";
+            }
+
+            if ( sQueryStru.bIdEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Id", sQueryStru.iId ) );
+            }
+            if ( sQueryStru.bUserNameEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "UserName", sQueryStru.strUserName ) );
+            }
+            if ( sQueryStru.bUserIdent ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "UserIdent", sQueryStru.strUserIdent ) );
+            }
+            if ( sQueryStru.bUserPhone ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "UserPhone", sQueryStru.strUserPhone ) );
+            }
+            if ( sQueryStru.bCarPlate ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CarPlate", sQueryStru.strCarPlate ) );
+            }
+            if ( sQueryStru.bCarNum ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sQueryStru.strCardNum ) );
+            }
+            if ( sQueryStru.bCardType ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CardType", CDbBaseTable.strDbBaseParkingCardTypeDesc[sQueryStru.iCardType] ) );
+            }
+            if ( sQueryStru.bCarType ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CarType", CDbBaseTable.strDbBaseParkingCarTypeDesc[sQueryStru.iCarType] ) );
+            }
+
+            base.dataBaseBaseRecordRead();
+
+            return hReader;
         }
 
         /// <summary>

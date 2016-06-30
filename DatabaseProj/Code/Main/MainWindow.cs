@@ -9,6 +9,7 @@ using DatabaseProj.UI;
 using DatabaseProj.Code.Database;
 using DatabaseProj.UI.DBAUi;
 using DatabaseProj.UI.RegularCardUserUi;
+using DatabaseProj.UI.RegularCardPaymentUi;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -27,8 +28,8 @@ namespace DatabaseProj.Code.Main {
 
         private void regularCardPaymentToolStripMenuItem_Click (object sender, EventArgs e)
         {
-            RegularCardPaymentUi hRegularCardPayment = new RegularCardPaymentUi();
-            hRegularCardPayment.Show();
+            //RegularCardPaymentUi hRegularCardPayment = new RegularCardPaymentUi();
+            //hRegularCardPayment.Show();
         }
 
         private void parkingSpaceToolStripMenuItem_Click (object sender, EventArgs e)
@@ -100,6 +101,14 @@ namespace DatabaseProj.Code.Main {
 
             RegularCardUserMain hRegularCardUserUi = new RegularCardUserMain( hCRegularCardUserDb );
             hRegularCardUserUi.Show();
+        }
+
+        private void regularCardPaymentToolStripMenuItem1_Click (object sender, EventArgs e)
+        {
+            CRegularCardPaymentDb hCRegularCardPaymentDb = new CRegularCardPaymentDb();
+
+            RegularCardPaymentMain hRegularCardPaymentMain = new RegularCardPaymentMain( hCRegularCardPaymentDb );
+            hRegularCardPaymentMain.Show();
         }
     }
 }
