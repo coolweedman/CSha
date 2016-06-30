@@ -4,19 +4,19 @@ using System.Text;
 using DatabaseProj.Code.Database;
 
 namespace DatabaseProj.UI {
-    class RegularCardPaymentUi : DbWinBase {
+    //class RegularCardPaymentUi : DbWinBase {
 
-        CRegularCardPaymentDb hRegularCardPaymentDb;
-        RegularCardPaymentEdit hRegularCardPaymentEdit;
+    //    CRegularCardPaymentDb hRegularCardPaymentDb;
+    //    RegularCardPaymentEdit hRegularCardPaymentEdit;
 
-        public RegularCardPaymentUi ()
-        {
-            hRegularCardPaymentDb = new CRegularCardPaymentDb();
-            hRegularCardPaymentEdit = new RegularCardPaymentEdit();
+    //    public RegularCardPaymentUi ()
+    //    {
+    //        hRegularCardPaymentDb = new CRegularCardPaymentDb();
+    //        hRegularCardPaymentEdit = new RegularCardPaymentEdit();
 
-            this.Text = "固定卡缴费记录";
+    //        this.Text = "固定卡缴费记录";
 
-            dbWinBaseInit( hRegularCardPaymentDb, hRegularCardPaymentEdit );
-        }
-    }
+    //        dbWinBaseInit( hRegularCardPaymentDb, hRegularCardPaymentEdit );
+    //    }
+    //}
 }

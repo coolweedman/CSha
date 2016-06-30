@@ -37,3 +37,4 @@ C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\Data
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.DBAUi.DbDBAQuery.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardUserUi.RegularCardUserEdit.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardUserUi.RegularCardUserQuery.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardPaymentUi.RegularCardPaymentEdit.resources
