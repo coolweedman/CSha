@@ -30,14 +30,17 @@ namespace DatabaseProj.Code.Database {
         /// 停车卡缴费 查询结构体
         /// </summary>
         public struct SRegularCardPaymentQueryStru {
+            public bool bIdEn;
+            public bool bRcuIdEn;
             public bool bPayTimeEn;
             public bool bPayMoneyEn;
-            public bool bValidTime;
+            public bool bValidTimeEn;
 
+            public int iId;
+            public int iRcuId;
             public DateTime sPayTimeStart;
             public DateTime sPayTimeStop;
-            public double dPayMoneyMin;
-            public double dPayMoneyMax;
+            public double dPayMoney;
             public DateTime sValidTimeStart;
             public DateTime sValidTimeStop;
         };
@@ -95,6 +98,86 @@ namespace DatabaseProj.Code.Database {
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM RegularCardPayment";
+            base.dataBaseBaseRecordRead();
+
+            return hReader;
+        }
+
+        /// <summary>
+        /// 停车卡缴费 查询
+        /// </summary>
+        /// <param name="sCond">查询条件</param>
+        /// <returns></returns>
+        public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
+        {
+            SRegularCardPaymentQueryStru sQueryStru = (SRegularCardPaymentQueryStru)sCond;
+
+            if ( !sQueryStru.bIdEn && !sQueryStru.bRcuIdEn && !sQueryStru.bPayTimeEn && !sQueryStru.bPayMoneyEn && !sQueryStru.bValidTimeEn ) {
+                return dataBaseBaseCommRead();
+            }
+
+            bool bFirstFlag = true;
+            hCmd.CommandText = "SELECT * FROM RegularCardPayment WHERE ";
+
+            if ( sQueryStru.bIdEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Id=@Id";
+            }
+            if ( sQueryStru.bRcuIdEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "RcuId=@RcuId";
+            }
+            if ( sQueryStru.bPayTimeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "PayTime>=@PayTimeStart AND PayTime<=@PayTimeEnd";
+            }
+            if ( sQueryStru.bPayMoneyEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "PayMoney=@PayMoney";
+            }
+            if ( sQueryStru.bValidTimeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "VaildTime>=@VaildTimeStart AND VaildTime<=@VaildTimeEnd";
+            }
+
+            if ( sQueryStru.bIdEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Id", sQueryStru.iId ) );
+            }
+            if ( sQueryStru.bRcuIdEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "RcuId", sQueryStru.iRcuId ) );
+            }
+            if ( sQueryStru.bPayTimeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "PayTimeStart", sQueryStru.sPayTimeStart ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "PayTimeEnd", sQueryStru.sPayTimeStop ) );
+            }
+            if ( sQueryStru.bPayMoneyEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", sQueryStru.dPayMoney ) );
+            }
+            if ( sQueryStru.bValidTimeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "VaildTimeStart", sQueryStru.sValidTimeStart ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "VaildTimeEnd", sQueryStru.sValidTimeStop ) );
+            }
+
             base.dataBaseBaseRecordRead();
 
             return hReader;

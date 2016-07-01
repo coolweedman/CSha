@@ -34,6 +34,12 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             return base.dbRecordDeleteProc();
         }
 
+        protected override EDbDataShowStat dbTableQueryProc ()
+        {
+            RegularCardPaymentQuery hRegularCardPaymentQuery = new RegularCardPaymentQuery( hDbTable );
+            hRegularCardPaymentQuery.ShowDialog();
 
+            return EDbDataShowStat.DBDATASHOW_READY;
+        }
     }
 }

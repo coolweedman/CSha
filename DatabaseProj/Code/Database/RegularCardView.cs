@@ -66,7 +66,7 @@ namespace DatabaseProj.Code.Database {
                  !sQueryStru.sUserQuery.bCarType &&
                  !sQueryStru.sPaymentQuery.bPayTimeEn &&
                  !sQueryStru.sPaymentQuery.bPayMoneyEn &&
-                 !sQueryStru.sPaymentQuery.bValidTime ) {
+                 !sQueryStru.sPaymentQuery.bValidTimeEn ) {
 
                 return dataBaseBaseCommRead();
             }
