@@ -35,6 +35,9 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        /// <summary>
+        /// 数据库停车卡 查询结构体
+        /// </summary>
         public struct SRegularCardUserQueryStru {
             public bool bIdEn;
             public bool bUserNameEn;
