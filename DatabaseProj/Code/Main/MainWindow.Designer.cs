@@ -40,6 +40,7 @@
             this.dBATableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regularCardUserToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.regularCardPaymentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.parkingSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,7 +140,8 @@
             this.tableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dBATableToolStripMenuItem,
             this.regularCardUserToolStripMenuItem1,
-            this.regularCardPaymentToolStripMenuItem1});
+            this.regularCardPaymentToolStripMenuItem1,
+            this.parkingSpaceToolStripMenuItem1});
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
             this.tableToolStripMenuItem.Size = new System.Drawing.Size(69, 28);
             this.tableToolStripMenuItem.Text = "Table";
@@ -164,6 +166,13 @@
             this.regularCardPaymentToolStripMenuItem1.Size = new System.Drawing.Size(277, 30);
             this.regularCardPaymentToolStripMenuItem1.Text = "RegularCardPayment";
             this.regularCardPaymentToolStripMenuItem1.Click += new System.EventHandler(this.regularCardPaymentToolStripMenuItem1_Click);
+            // 
+            // parkingSpaceToolStripMenuItem1
+            // 
+            this.parkingSpaceToolStripMenuItem1.Name = "parkingSpaceToolStripMenuItem1";
+            this.parkingSpaceToolStripMenuItem1.Size = new System.Drawing.Size(277, 30);
+            this.parkingSpaceToolStripMenuItem1.Text = "ParkingSpace";
+            this.parkingSpaceToolStripMenuItem1.Click += new System.EventHandler(this.parkingSpaceToolStripMenuItem1_Click);
             // 
             // MainWindow
             // 
@@ -200,5 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem dBATableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regularCardUserToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem regularCardPaymentToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem parkingSpaceToolStripMenuItem1;
     }
 }
