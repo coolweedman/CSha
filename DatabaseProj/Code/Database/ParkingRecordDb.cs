@@ -5,7 +5,7 @@ using DatabaseProj.Code.Database;
 using System.Data.SQLite;
 
 namespace DatabaseProj.Code.Database {
-    class CParkingRecordDb : CDatebaseBase {
+    public class CParkingRecordDb : CDatebaseBase {
 
         /// <summary>
         /// 停车记录 结构体
@@ -72,8 +72,9 @@ namespace DatabaseProj.Code.Database {
             "车辆图片",
             "付费金额",
             "应收金额",
-            "操作员ID",
-            "停车卡类型",
+            "付款方式",
+            "操作员姓名",
+            "操作员类型",
             "备注",
         };
 
@@ -149,8 +150,8 @@ namespace DatabaseProj.Code.Database {
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
 
-            hCmd.CommandText = "INSERT INTO ParkingRecord(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAType, DBAType, Remarks) " +
-                               "VALUES(@GarageNum, @SpaceNum, @CardNum, @BillNum, @BillTime, @CarInTime, @CarOutTime, @CarPlate, @PicPath, @MoneyIn, @MoneyPay, @PayMode, @DBAType, @DBAType, @Remarks)";
+            hCmd.CommandText = "INSERT INTO ParkingRecord(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAName, DBAType, Remarks) " +
+                               "VALUES(@GarageNum, @SpaceNum, @CardNum, @BillNum, @BillTime, @CarInTime, @CarOutTime, @CarPlate, @PicPath, @MoneyIn, @MoneyPay, @PayMode, @DBAName, @DBAType, @Remarks)";
 
             hCmd.Parameters.Add( new SQLiteParameter( "GarageNum", sParkingRecordStru.iGarageNum ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpaceNum", sParkingRecordStru.iSpaceNum ) );
@@ -206,10 +207,10 @@ namespace DatabaseProj.Code.Database {
                                "CarPlate=@CarPlate, " +
                                "PicPath=@PicPath, " +
                                "MoneyIn=@MoneyIn, " +
-                               "MoneyPay=@MoneyPay " +
-                               "PayMode=@PayMode " +
+                               "MoneyPay=@MoneyPay, " +
+                               "PayMode=@PayMode, " +
                                "DBAName=@DBAName, " +
-                               "DBAType=@DBAType " +
+                               "DBAType=@DBAType, " +
                                "Remarks=@Remarks " +
                                "WHERE Id=@Id";
 
