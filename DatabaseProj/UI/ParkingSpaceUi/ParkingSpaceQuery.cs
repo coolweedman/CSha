@@ -25,12 +25,20 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
 
         protected CParkingSpaceDb.SParkingSpaceQueryStru sQueryStru;
 
+        /// <summary>
+        /// 停车位查询 构造函数
+        /// </summary>
+        /// <param name="hDbTableBase"></param>
+        /// <param name="strTitle"></param>
         public ParkingSpaceQuery (CDatebaseBase hDbTableBase, string strTitle = "Parking Space Query Window") : base( hDbTableBase, strTitle )
         {
             InitializeComponent();
             dbRecordQueryUiInit();
         }
 
+        /// <summary>
+        /// 停车位查询 UI初始化
+        /// </summary>
         protected override void dbRecordQueryUiInit ()
         {
             for ( int i=0; i< CDbBaseTable.strDbBaseParkingSpaceLockStatDesc.Length; i++ ) {
@@ -44,6 +52,10 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             }
         }
 
+        /// <summary>
+        /// 停车位查询 UI转结构体
+        /// </summary>
+        /// <returns></returns>
         protected override object dbRecordQueryUi2Stru ()
         {
             sQueryStru.bIdEn = checkBoxId.Checked;

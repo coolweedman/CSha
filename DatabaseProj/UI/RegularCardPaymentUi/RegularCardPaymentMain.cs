@@ -13,6 +13,10 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             
         }
 
+        /// <summary>
+        /// 添加记录处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbTableAddProc ()
         {
             hEditUi = new RegularCardPaymentEdit();
@@ -20,6 +24,10 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             return base.dbTableAddProc();
         }
 
+        /// <summary>
+        /// 编辑记录处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbRecordEditProc ()
         {
             hEditUi = new RegularCardPaymentEdit();
@@ -27,6 +35,10 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             return base.dbRecordEditProc();
         }
 
+        /// <summary>
+        /// 删除记录处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbRecordDeleteProc ()
         {
             hEditUi = new RegularCardPaymentEdit();
@@ -34,6 +46,10 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             return base.dbRecordDeleteProc();
         }
 
+        /// <summary>
+        /// 查询处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbTableQueryProc ()
         {
             RegularCardPaymentQuery hRegularCardPaymentQuery = new RegularCardPaymentQuery( hDbTable );

@@ -46,12 +46,19 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
 
         public CParkingSpaceDb.SParkingSpaceStru sPsStru;
 
+        /// <summary>
+        /// 停车位编辑界面 构造函数
+        /// </summary>
+        /// <param name="strTitle"></param>
         public ParkingSpaceEdit (string strTitle = "Parking Space Edit") : base( strTitle )
         {
             InitializeComponent();
             dbUiInit();
         }
 
+        /// <summary>
+        /// 停车位编辑界面 UI初始化
+        /// </summary>
         public override void dbUiInit ()
         {
             int i;
@@ -73,6 +80,10 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             textBoxId.Enabled = false;
         }
 
+        /// <summary>
+        /// 停车位编辑界面 字符串转结构体
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Stru (ref List<string> listRecord)
         {
             int i = 0;
@@ -102,6 +113,10 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             }
         }
 
+        /// <summary>
+        /// 停车位编辑界面 字符串转UI
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Ui (ref List<string> listRecord)
         {
             int i = 0;
@@ -125,6 +140,9 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             textBoxPicPath.Text = listRecord[i++];
         }
 
+        /// <summary>
+        /// 停车位编辑界面 结构体转UI
+        /// </summary>
         public override void dbStru2Ui ()
         {
             textBoxId.Text = sPsStru.iId.ToString();
@@ -146,11 +164,18 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             textBoxPicPath.Text = sPsStru.strPicPath;
         }
 
+        /// <summary>
+        /// 停车位编辑界面 结构体获取
+        /// </summary>
+        /// <returns></returns>
         public override object dbStruGet ()
         {
             return sPsStru;
         }
 
+        /// <summary>
+        /// 停车位编辑界面 UI转结构体
+        /// </summary>
         public override void dbUi2Stru ()
         {
             try {

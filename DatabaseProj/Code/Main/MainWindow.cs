@@ -76,18 +76,33 @@ namespace DatabaseProj.Code.Main {
             MessageBox.Show( "Default Table Created" );
         }
 
+        /// <summary>
+        /// 数据库登录界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logInToolStripMenuItem_Click (object sender, EventArgs e)
         {
             DBALogInUi hDbaLogInUi = new DBALogInUi();
             hDbaLogInUi.Show();
         }
 
+        /// <summary>
+        /// 固定卡数据库界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void regularCardToolStripMenuItem_Click (object sender, EventArgs e)
         {
             RegularCardUi hRegularCardUi = new RegularCardUi();
             hRegularCardUi.Show();
         }
 
+        /// <summary>
+        /// 数据库管理员界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dBATableToolStripMenuItem_Click (object sender, EventArgs e)
         {
             CDatebaseBase hDBAccountDb = new CDBAccountDb();
@@ -96,6 +111,11 @@ namespace DatabaseProj.Code.Main {
             hDbDBAMain.Show();
         }
 
+        /// <summary>
+        /// 固定卡用户界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void regularCardUserToolStripMenuItem1_Click (object sender, EventArgs e)
         {
             CRegularCardUserDb hCRegularCardUserDb = new CRegularCardUserDb();
@@ -104,6 +124,11 @@ namespace DatabaseProj.Code.Main {
             hRegularCardUserUi.Show();
         }
 
+        /// <summary>
+        /// 固定卡付款界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void regularCardPaymentToolStripMenuItem1_Click (object sender, EventArgs e)
         {
             CRegularCardPaymentDb hCRegularCardPaymentDb = new CRegularCardPaymentDb();
@@ -112,6 +137,11 @@ namespace DatabaseProj.Code.Main {
             hRegularCardPaymentMain.Show();
         }
 
+        /// <summary>
+        /// 停车位界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void parkingSpaceToolStripMenuItem1_Click (object sender, EventArgs e)
         {
             CParkingSpaceDb hCParkingSpaceDb = new CParkingSpaceDb();

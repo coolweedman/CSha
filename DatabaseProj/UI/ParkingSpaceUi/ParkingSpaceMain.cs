@@ -23,6 +23,10 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             return base.dbTableAddProc();
         }
 
+        /// <summary>
+        /// 编辑记录处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbRecordEditProc ()
         {
             hEditUi = new ParkingSpaceEdit();
@@ -30,6 +34,10 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             return base.dbRecordEditProc();
         }
 
+        /// <summary>
+        /// 删除记录处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbRecordDeleteProc ()
         {
             hEditUi = new ParkingSpaceEdit();
@@ -37,6 +45,10 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             return base.dbRecordDeleteProc();
         }
         
+        /// <summary>
+        /// 查询处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbTableQueryProc ()
         {
             ParkingSpaceQuery hDbParkingSpaceQuery = new ParkingSpaceQuery( hDbTable );
