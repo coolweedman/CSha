@@ -49,6 +49,43 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        public struct SParkingRecordQueryStru {
+            public bool bIdEn;
+            public bool bGarageNumEn;
+            public bool bSpaceNumEn;
+            public bool bCardNumEn;
+            public bool bBillNumEn;
+            public bool bBillDateEn;
+            public bool bCarInTimeEn;
+            public bool bCarOutTimeEn;
+            public bool bCarPlateEn;
+            public bool bPicPathEn;
+            public bool bMoneyInEn;
+            public bool bMoneyPayEn;
+            public bool bPayModeEn;
+            public bool bDBANameEn;
+            public bool bDBATypeEn;
+
+            public int iId;
+            public int iGarageNum;
+            public int iSpaceNum;
+            public string strCardNum;
+            public string strBillNum;
+            public DateTime sBillDateStart;
+            public DateTime sBillDateEnd;
+            public DateTime sCarInTimeStart;
+            public DateTime sCarInTimeEnd;
+            public DateTime sCarOutTimeStart;
+            public DateTime sCarOutTimeEnd;
+            public string strCarPlate;
+            public string strPicPath;
+            public double dMoneyIn;
+            public double dMoneyPay;
+            public int iPayMode;
+            public string strDBAName;
+            public int iDBAType;
+        };
+
         public enum EParkingRecordPayMode {
             PARKINGRECORD_PAYFREE = 0,
             PARKINGRECORD_PAYCASH,
@@ -136,6 +173,191 @@ namespace DatabaseProj.Code.Database {
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM ParkingRecord";
+            base.dataBaseBaseRecordRead();
+
+            return hReader;
+        }
+
+        public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
+        {
+            SParkingRecordQueryStru sQueryStru = (SParkingRecordQueryStru)sCond;
+            if ( !sQueryStru.bIdEn && !sQueryStru.bGarageNumEn && !sQueryStru.bSpaceNumEn && !sQueryStru.bCardNumEn && !sQueryStru.bBillNumEn && !sQueryStru.bBillDateEn && !sQueryStru.bCarInTimeEn && !sQueryStru.bCarOutTimeEn && !sQueryStru.bCarPlateEn && !sQueryStru.bPicPathEn && !sQueryStru.bMoneyInEn && !sQueryStru.bMoneyPayEn && !sQueryStru.bPayModeEn && !sQueryStru.bDBANameEn && !sQueryStru.bDBATypeEn ) {
+                return dataBaseBaseCommRead();
+            }
+
+            bool bFirstFlag = true;
+            hCmd.CommandText = "SELECT * FROM ParkingRecord WHERE ";
+
+            if ( sQueryStru.bIdEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Id=@Id";
+            }
+            if ( sQueryStru.bGarageNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "GarageNum=@GarageNum";
+            }
+            if ( sQueryStru.bSpaceNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "SpaceNum=@SpaceNum";
+            }
+            if ( sQueryStru.bCardNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CardNum=@CardNum";
+            }
+            if ( sQueryStru.bBillDateEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "BillTime>=@BillTimeStart AND BillTime<=@BillTimeEnd";
+            }
+            if ( sQueryStru.bBillNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "BillNum=@BillNum";
+            }
+            if ( sQueryStru.bCarInTimeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CarInTime>=@CarInTimeStart AND CarInTime<=CarInTimeEnd";
+            }
+            if ( sQueryStru.bCarOutTimeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CarOutTime>=@CarOutTime AND CarOutTime<=@CarOutTimeEnd";
+            }
+            if ( sQueryStru.bCarPlateEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CarPlate=@CarPlate";
+            }
+            if ( sQueryStru.bPicPathEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "PicPath=@PicPath";
+            }
+            if ( sQueryStru.bMoneyInEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "MoneyIn=@MoneyIn";
+            }
+            if ( sQueryStru.bMoneyPayEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "MoneyPay=@MoneyPay";
+            }
+            if ( sQueryStru.bPayModeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "PayMode=@PayMode";
+            }
+            if ( sQueryStru.bDBANameEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "DBAName=@DBAName";
+            }
+            if ( sQueryStru.bDBATypeEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "DBAType=@DBAType";
+            }
+
+            if ( sQueryStru.bIdEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Id", sQueryStru.iId ) );
+            }
+            if ( sQueryStru.bGarageNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "GarageNum", sQueryStru.iGarageNum ) );
+            }
+            if ( sQueryStru.bSpaceNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "SpaceNum", sQueryStru.iSpaceNum ) );
+            }
+            if ( sQueryStru.bCardNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sQueryStru.strCardNum ) );
+            }
+            if ( sQueryStru.bBillNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "BillNum", sQueryStru.strBillNum ) );
+            }
+            if ( sQueryStru.bBillDateEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "BillTimeStart", sQueryStru.sBillDateStart ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "BillTimeEnd", sQueryStru.sBillDateEnd ) );
+            }
+            if ( sQueryStru.bCarInTimeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CarInTimeStart", sQueryStru.sCarInTimeStart ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "CarInTimeEnd", sQueryStru.sCarInTimeEnd ) );
+            }
+            if ( sQueryStru.bCarOutTimeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CarOutTimeStart", sQueryStru.sCarOutTimeStart ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "CarOutTimeEnd", sQueryStru.sCarOutTimeEnd ) );
+            }
+            if ( sQueryStru.bCarPlateEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CarPlate", sQueryStru.strCarPlate ) );
+            }
+            if ( sQueryStru.bPicPathEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "PicPath", sQueryStru.strPicPath ) );
+            }
+            if ( sQueryStru.bMoneyInEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "MoneyIn", sQueryStru.dMoneyIn ) );
+            }
+            if ( sQueryStru.bMoneyPayEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "MoneyPay", sQueryStru.dMoneyPay ) );
+            }
+            if ( sQueryStru.bPayModeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "PayMode", CDbBaseTable.strDbBasePayModeDesc[sQueryStru.iPayMode] ) );
+            }
+            if ( sQueryStru.bDBANameEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "DBAName", sQueryStru.strDBAName ) );
+            }
+            if ( sQueryStru.bDBATypeEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "DBAType", CDbBaseTable.strDbBaseDBATypeDesc[sQueryStru.iDBAType] ) );
+            }
+
             base.dataBaseBaseRecordRead();
 
             return hReader;

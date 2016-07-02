@@ -65,7 +65,7 @@ namespace DatabaseProj.UI.DBAUi {
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(449, 586);
+            this.buttonCancel.Location = new System.Drawing.Point(797, 586);
             // 
             // checkBoxId
             // 
@@ -80,7 +80,7 @@ namespace DatabaseProj.UI.DBAUi {
             // checkBoxAccountEn
             // 
             this.checkBoxAccountEn.AutoSize = true;
-            this.checkBoxAccountEn.Location = new System.Drawing.Point(311, 29);
+            this.checkBoxAccountEn.Location = new System.Drawing.Point(398, 30);
             this.checkBoxAccountEn.Name = "checkBoxAccountEn";
             this.checkBoxAccountEn.Size = new System.Drawing.Size(70, 22);
             this.checkBoxAccountEn.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace DatabaseProj.UI.DBAUi {
             // checkBoxTypeEn
             // 
             this.checkBoxTypeEn.AutoSize = true;
-            this.checkBoxTypeEn.Location = new System.Drawing.Point(575, 29);
+            this.checkBoxTypeEn.Location = new System.Drawing.Point(827, 31);
             this.checkBoxTypeEn.Name = "checkBoxTypeEn";
             this.checkBoxTypeEn.Size = new System.Drawing.Size(70, 22);
             this.checkBoxTypeEn.TabIndex = 5;
@@ -110,7 +110,7 @@ namespace DatabaseProj.UI.DBAUi {
             // checkBoxNameEn
             // 
             this.checkBoxNameEn.AutoSize = true;
-            this.checkBoxNameEn.Location = new System.Drawing.Point(311, 125);
+            this.checkBoxNameEn.Location = new System.Drawing.Point(398, 126);
             this.checkBoxNameEn.Name = "checkBoxNameEn";
             this.checkBoxNameEn.Size = new System.Drawing.Size(70, 22);
             this.checkBoxNameEn.TabIndex = 7;
@@ -120,7 +120,7 @@ namespace DatabaseProj.UI.DBAUi {
             // checkBoxjobNumEn
             // 
             this.checkBoxjobNumEn.AutoSize = true;
-            this.checkBoxjobNumEn.Location = new System.Drawing.Point(575, 125);
+            this.checkBoxjobNumEn.Location = new System.Drawing.Point(827, 127);
             this.checkBoxjobNumEn.Name = "checkBoxjobNumEn";
             this.checkBoxjobNumEn.Size = new System.Drawing.Size(70, 22);
             this.checkBoxjobNumEn.TabIndex = 8;
@@ -136,21 +136,21 @@ namespace DatabaseProj.UI.DBAUi {
             // 
             // textBoxAccount
             // 
-            this.textBoxAccount.Location = new System.Drawing.Point(311, 69);
+            this.textBoxAccount.Location = new System.Drawing.Point(398, 70);
             this.textBoxAccount.Name = "textBoxAccount";
             this.textBoxAccount.Size = new System.Drawing.Size(100, 28);
             this.textBoxAccount.TabIndex = 10;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(311, 163);
+            this.textBoxName.Location = new System.Drawing.Point(398, 164);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 28);
             this.textBoxName.TabIndex = 11;
             // 
             // textBoxJobNum
             // 
-            this.textBoxJobNum.Location = new System.Drawing.Point(575, 162);
+            this.textBoxJobNum.Location = new System.Drawing.Point(827, 164);
             this.textBoxJobNum.Name = "textBoxJobNum";
             this.textBoxJobNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxJobNum.TabIndex = 12;
@@ -158,7 +158,7 @@ namespace DatabaseProj.UI.DBAUi {
             // comboBoxType
             // 
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(575, 69);
+            this.comboBoxType.Location = new System.Drawing.Point(827, 71);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(121, 26);
             this.comboBoxType.TabIndex = 13;
@@ -174,7 +174,7 @@ namespace DatabaseProj.UI.DBAUi {
             // DbDBAQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.ClientSize = new System.Drawing.Size(776, 658);
+            this.ClientSize = new System.Drawing.Size(1124, 658);
             this.Controls.Add(this.comboBoxAuthority);
             this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.textBoxJobNum);

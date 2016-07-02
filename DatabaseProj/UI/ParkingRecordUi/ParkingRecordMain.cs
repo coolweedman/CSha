@@ -47,5 +47,16 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             return base.dbRecordDeleteProc();
         }
 
+        /// <summary>
+        /// 查询处理
+        /// </summary>
+        /// <returns></returns>
+        protected override EDbDataShowStat dbTableQueryProc ()
+        {
+            ParkingRecordQuery hDbParkingRecordQuery = new ParkingRecordQuery( hDbTable );
+            hDbParkingRecordQuery.ShowDialog();
+
+            return EDbDataShowStat.DBDATASHOW_READY;
+        }
     }
 }

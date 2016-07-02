@@ -180,7 +180,7 @@ namespace DatabaseProj.UI.Base {
             // buttonQuery
             // 
             this.buttonQuery.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonQuery.Location = new System.Drawing.Point(286, 476);
+            this.buttonQuery.Location = new System.Drawing.Point(257, 476);
             this.buttonQuery.Name = "buttonQuery";
             this.buttonQuery.Size = new System.Drawing.Size(105, 36);
             this.buttonQuery.TabIndex = 4;
@@ -192,7 +192,7 @@ namespace DatabaseProj.UI.Base {
             // 
             this.buttonFeFlash.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonFeFlash.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonFeFlash.Location = new System.Drawing.Point(469, 476);
+            this.buttonFeFlash.Location = new System.Drawing.Point(452, 476);
             this.buttonFeFlash.Name = "buttonFeFlash";
             this.buttonFeFlash.Size = new System.Drawing.Size(102, 36);
             this.buttonFeFlash.TabIndex = 5;
@@ -204,7 +204,7 @@ namespace DatabaseProj.UI.Base {
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Location = new System.Drawing.Point(676, 476);
+            this.buttonClose.Location = new System.Drawing.Point(643, 476);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(96, 36);
             this.buttonClose.TabIndex = 6;
@@ -217,7 +217,7 @@ namespace DatabaseProj.UI.Base {
             this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(848, 571);
+            this.ClientSize = new System.Drawing.Size(815, 571);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonFeFlash);
             this.Controls.Add(this.buttonQuery);
