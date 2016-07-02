@@ -356,6 +356,9 @@ namespace DatabaseProj.Code.Database {
             }
         }
 
+        /// <summary>
+        /// 停车位分区
+        /// </summary>
         public void dbParkingSpaceAeraTableInit ()
         {
             try {
@@ -387,8 +390,8 @@ namespace DatabaseProj.Code.Database {
         {
             try {
                 strTableCreateCmd = "CREATE TABLE IF NOT EXISTS BasePayMode (" +
-                                    "Id                     INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                    "PayMode                TEXT    UNIQUE  NOT NULL)";
+                                    "Id         INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "PayMode    TEXT    UNIQUE  NOT NULL)";
 
                 SQLiteCommand hDbCmd = new SQLiteCommand( strTableCreateCmd, hConn );
                 base.dataBaseBaseTableCreate( strTableCreateCmd );

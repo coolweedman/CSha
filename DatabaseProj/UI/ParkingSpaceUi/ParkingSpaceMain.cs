@@ -4,11 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatabaseProj.UI.RegularCardPaymentUi {
+namespace DatabaseProj.UI.ParkingSpaceUi {
+    public class ParkingSpaceMain : DbTableMainBase {
 
-    public class RegularCardPaymentMain : DbTableMainBase {
-
-        public RegularCardPaymentMain (CDatebaseBase hDbBase, string strTitle = "Regular Card Payment Main Window") : base( hDbBase, strTitle )
+        public ParkingSpaceMain (CDatebaseBase hDbBase, string strTitle = "Parking Space Main Window") : base( hDbBase, strTitle )
         {
             
         }
@@ -19,7 +18,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         /// <returns></returns>
         protected override EDbDataShowStat dbTableAddProc ()
         {
-            hEditUi = new RegularCardPaymentEdit();
+            hEditUi = new ParkingSpaceEdit();
 
             return base.dbTableAddProc();
         }
@@ -30,7 +29,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         /// <returns></returns>
         protected override EDbDataShowStat dbRecordEditProc ()
         {
-            hEditUi = new RegularCardPaymentEdit();
+            hEditUi = new ParkingSpaceEdit();
 
             return base.dbRecordEditProc();
         }
@@ -41,21 +40,22 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         /// <returns></returns>
         protected override EDbDataShowStat dbRecordDeleteProc ()
         {
-            hEditUi = new RegularCardPaymentEdit();
+            hEditUi = new ParkingSpaceEdit();
 
             return base.dbRecordDeleteProc();
         }
-
+        
         /// <summary>
         /// 查询处理
         /// </summary>
         /// <returns></returns>
         protected override EDbDataShowStat dbTableQueryProc ()
         {
-            RegularCardPaymentQuery hRegularCardPaymentQuery = new RegularCardPaymentQuery( hDbTable );
-            hRegularCardPaymentQuery.ShowDialog();
+            ParkingSpaceQuery hDbParkingSpaceQuery = new ParkingSpaceQuery( hDbTable );
+            hDbParkingSpaceQuery.ShowDialog();
 
             return EDbDataShowStat.DBDATASHOW_READY;
         }
+
     }
 }

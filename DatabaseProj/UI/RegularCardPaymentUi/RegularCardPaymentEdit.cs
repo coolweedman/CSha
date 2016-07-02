@@ -23,18 +23,29 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
 
         protected CRegularCardPaymentDb.SRegularCardPaymentStru sRcpStru;
 
+        /// <summary>
+        /// 固定卡收费编辑 构造函数
+        /// </summary>
+        /// <param name="strTitle"></param>
         public RegularCardPaymentEdit (string strTitle = "Regular Card Payment Edit") : base( strTitle )
         {
             InitializeComponent();
             dbUiInit();
         }
 
+        /// <summary>
+        /// 固定卡收费编辑 UI初始化
+        /// </summary>
         public override void dbUiInit ()
         {
             textBoxId.Text = "0";
             textBoxId.Enabled = false;
         }
 
+        /// <summary>
+        /// 固定卡收费编辑 字符串转结构体
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Stru (ref List<string> listRecord)
         {
             int i = 0;
@@ -52,6 +63,10 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             }
         }
 
+        /// <summary>
+        /// 固定卡收费编辑 字符串转UI
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Ui (ref List<string> listRecord)
         {
             int i = 0;
@@ -69,6 +84,9 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             dateTimePickerVaildTime.Value = sDataTimeValid;
         }
 
+        /// <summary>
+        /// 固定卡收费编辑 结构体转UI
+        /// </summary>
         public override void dbStru2Ui ()
         {
             textBoxId.Text = sRcpStru.iId.ToString();
@@ -78,11 +96,18 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             dateTimePickerVaildTime.Value = sRcpStru.sVaildTime;
         }
 
+        /// <summary>
+        /// 结构体获取
+        /// </summary>
+        /// <returns></returns>
         public override object dbStruGet ()
         {
             return sRcpStru;
         }
 
+        /// <summary>
+        /// 固定卡收费编辑 UI转结构体
+        /// </summary>
         public override void dbUi2Stru ()
         {
             sRcpStru.iId = int.Parse( textBoxId.Text );

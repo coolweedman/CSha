@@ -7,6 +7,9 @@ using System.Data.SQLite;
 namespace DatabaseProj.Code.Database {
     class CParkingRecordDb : CDatebaseBase {
 
+        /// <summary>
+        /// 停车记录 结构体
+        /// </summary>
         public struct SParkingRecordStru {
             public int iId;
             public int iGarageNum;
@@ -21,11 +24,11 @@ namespace DatabaseProj.Code.Database {
             public double dMoneyIn;
             public double dMoneyPay;
             public int iPayMode;
-            public int iDBAId;
-            public string strCardType;
+            public string strDBAName;
+            public int iDBAType;
             public string strRemarks;
 
-            public SParkingRecordStru (int Id, int GarageNum, int SpaceNum, string CardNum, string BillNum, DateTime BillDate, DateTime CarInTime, DateTime CarOutTime, string CarPlate, string PicPath, double MoneyIn, double MoneyPay, int PayMode, int DBAId, string CardType, string Remarks)
+            public SParkingRecordStru (int Id, int GarageNum, int SpaceNum, string CardNum, string BillNum, DateTime BillDate, DateTime CarInTime, DateTime CarOutTime, string CarPlate, string PicPath, double MoneyIn, double MoneyPay, int PayMode, string DBAName, int DBAType, string Remarks)
             {
                 iId = Id;
                 iGarageNum = GarageNum;
@@ -40,8 +43,8 @@ namespace DatabaseProj.Code.Database {
                 dMoneyIn = MoneyIn;
                 dMoneyPay = MoneyPay;
                 iPayMode = PayMode;
-                iDBAId = DBAId;
-                strCardType = CardType;
+                strDBAName = DBAName;
+                iDBAType = DBAType;
                 strRemarks = Remarks;
             }
         };
@@ -53,22 +56,9 @@ namespace DatabaseProj.Code.Database {
             PARKINGRECORD_PAYBANKCARD,
         };
 
-        public static string[] strPrPayModeDesc =
-        {
-            "免费",
-            "现金",
-            "余额",
-            "刷卡",
-        };
-
-        public static Dictionary<string, int> dicPrPayMode2Enum = new Dictionary<string, int>
-        {
-            { strPrPayModeDesc[0], 0 },
-            { strPrPayModeDesc[1], 1 },
-            { strPrPayModeDesc[2], 2 },
-            { strPrPayModeDesc[3], 3 },
-        };
-
+        /// <summary>
+        /// 停车记录 表头
+        /// </summary>
         public static string[] strParkingRecordHeadDesc = {
             "ID",
             "车库号",
@@ -87,12 +77,18 @@ namespace DatabaseProj.Code.Database {
             "备注",
         };
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public CParkingRecordDb ()
         {
             prTableCreate();
             base.sqlite3ForeignKeyEn();
         }
 
+        /// <summary>
+        /// 停车记录 创建表
+        /// </summary>
         public void prTableCreate ()
         {
             string strCreateTable = "CREATE TABLE IF NOT EXISTS ParkingRecord ( " +
@@ -109,25 +105,33 @@ namespace DatabaseProj.Code.Database {
                                     "MoneyIn    REAL, " +
                                     "MoneyPay   REAL, " +
                                     "PayMode    TEXT, " +
-                                    "DBAId      INTEGER, " +
-                                    "CardType   TEXT, " +
+                                    "DBAName    TEXT, " +
+                                    "DBAType    TEXT, " +
                                     "Remarks    TEXT, " +
-                                    //"FOREIGN KEY(GarageNum) REFERENCES ParkingSpace(GarageNum) )";
-                                    "FOREIGN KEY(SpaceNum)  REFERENCES ParkingSpace(SpaceNum) ) ";
-                                    //"FOREIGN KEY(CardNum)   REFERENCES RegularCardUser(CardNum), " +
-                                    //"FOREIGN KEY(DBAId)     REFERENCES DBAccount(Id), " +
-                                    //"FOREIGN KEY(CardType)  REFERENCES RegularCardUser(CardType))";
+                                    "FOREIGN    KEY(GarageNum) REFERENCES BaseParkingSpaceGarageNum(ParkingSpaceGarageNum), " +
+                                    "FOREIGN    KEY(SpaceNum)  REFERENCES BaseParkingSpaceNum(ParkingSpaceNum), " +
+                                    "FOREIGN    KEY(CardNum)   REFERENCES BaseParkingCardNum(ParkingCardNum), " +
+                                    "FOREIGN    KEY(PayMode)   REFERENCES BasePayMode(PayMode), " +
+                                    "FOREIGN    KEY(DBAName)   REFERENCES DBAccount(Name), " +
+                                    "FOREIGN    KEY(DBAType)   REFERENCES BaseDBAType(DBAType) )";
 
             base.dataBaseBaseTableCreate( strCreateTable );
         }
 
+        /// <summary>
+        /// 停车记录 插入默认记录
+        /// </summary>
         public override void dataBaseBaseDeRecordInsert ()
         {
-            SParkingRecordStru sParkingRecordStru = new SParkingRecordStru( 1, 1, 1, "TestCardNum", "BillNum", DateTime.Now, DateTime.Now, DateTime.Now, "粤A-88888", "null", 8, 10, 0, 1, "月卡", "" );
+            SParkingRecordStru sParkingRecordStru = new SParkingRecordStru( 1, 1, 1, "10001", "BillNum", DateTime.Now, DateTime.Now, DateTime.Now, "粤A-88888", "null", 8, 10, 0, "ROOT_USER", 0, "" );
             object sObject = sParkingRecordStru;
             dataBaseBaseCommAdd( ref sObject );
         }
 
+        /// <summary>
+        /// 停车记录 读取所有记录
+        /// </summary>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM ParkingRecord";
@@ -136,12 +140,17 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 停车记录 添加一条记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public override int dataBaseBaseCommAdd (ref object sRecord)
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
 
-            hCmd.CommandText = "INSERT INTO ParkingRecord(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAId, CardType, Remarks) " +
-                               "VALUES(@GarageNum, @SpaceNum, @CardNum, @BillNum, @BillTime, @CarInTime, @CarOutTime, @CarPlate, @PicPath, @MoneyIn, @MoneyPay, @PayMode, @DBAId, @CardType, @Remarks)";
+            hCmd.CommandText = "INSERT INTO ParkingRecord(GarageNum, SpaceNum, CardNum, BillNum, BillTime, CarInTime, CarOutTime, CarPlate, PicPath, MoneyIn, MoneyPay, PayMode, DBAType, DBAType, Remarks) " +
+                               "VALUES(@GarageNum, @SpaceNum, @CardNum, @BillNum, @BillTime, @CarInTime, @CarOutTime, @CarPlate, @PicPath, @MoneyIn, @MoneyPay, @PayMode, @DBAType, @DBAType, @Remarks)";
 
             hCmd.Parameters.Add( new SQLiteParameter( "GarageNum", sParkingRecordStru.iGarageNum ) );
             hCmd.Parameters.Add( new SQLiteParameter( "SpaceNum", sParkingRecordStru.iSpaceNum ) );
@@ -154,14 +163,19 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "PicPath", sParkingRecordStru.strPicPath ) );
             hCmd.Parameters.Add( new SQLiteParameter( "MoneyIn", sParkingRecordStru.dMoneyIn ) );
             hCmd.Parameters.Add( new SQLiteParameter( "MoneyPay", sParkingRecordStru.dMoneyPay ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "PayMode", strPrPayModeDesc[sParkingRecordStru.iPayMode] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "DBAId", sParkingRecordStru.iDBAId ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "CardType", sParkingRecordStru.strCardType ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "PayMode", CDbBaseTable.strDbBasePayModeDesc[sParkingRecordStru.iPayMode] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "DBAName", sParkingRecordStru.strDBAName ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "DBAType", CDbBaseTable.strDbBaseDBATypeDesc[sParkingRecordStru.iDBAType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Remarks", sParkingRecordStru.strRemarks ) );
 
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 停车记录 删除一条记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public override int dataBaseBaseCommDelete (ref object sRecord)
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
@@ -172,6 +186,11 @@ namespace DatabaseProj.Code.Database {
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 停车记录 更新记录
+        /// </summary>
+        /// <param name="sRecord"></param>
+        /// <returns></returns>
         public override int dataBaseBaseCommUpdate (ref object sRecord)
         {
             SParkingRecordStru sParkingRecordStru = (SParkingRecordStru)sRecord;
@@ -189,8 +208,8 @@ namespace DatabaseProj.Code.Database {
                                "MoneyIn=@MoneyIn, " +
                                "MoneyPay=@MoneyPay " +
                                "PayMode=@PayMode " +
-                               "DBAId=@DBAId, " +
-                               "CardType=@CardType " +
+                               "DBAName=@DBAName, " +
+                               "DBAType=@DBAType " +
                                "Remarks=@Remarks " +
                                "WHERE Id=@Id";
 
@@ -205,20 +224,28 @@ namespace DatabaseProj.Code.Database {
             hCmd.Parameters.Add( new SQLiteParameter( "PicPath", sParkingRecordStru.strPicPath ) );
             hCmd.Parameters.Add( new SQLiteParameter( "MoneyIn", sParkingRecordStru.dMoneyIn ) );
             hCmd.Parameters.Add( new SQLiteParameter( "MoneyPay", sParkingRecordStru.dMoneyPay ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "PayMode", strPrPayModeDesc[sParkingRecordStru.iPayMode] ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "DBAId", sParkingRecordStru.iDBAId ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "CardType", sParkingRecordStru.strCardType ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "PayMode", CDbBaseTable.strDbBasePayModeDesc[sParkingRecordStru.iPayMode] ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "DBAName", sParkingRecordStru.strDBAName ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "DBAType", CDbBaseTable.strDbBaseDBATypeDesc[sParkingRecordStru.iDBAType] ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Remarks", sParkingRecordStru.strRemarks ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sParkingRecordStru.iId ) );
 
             return base.dataBaseBaseCommCmdExec();
         }
 
+        /// <summary>
+        /// 停车记录 获取表头描述
+        /// </summary>
+        /// <returns></returns>
         public override string[] dataBaseBaseHeadDescGet ()
         {
             return strParkingRecordHeadDesc;
         }
 
+        /// <summary>
+        /// 停车记录 清空表
+        /// </summary>
+        /// <returns></returns>
         public override int dataBaseBaseCommTableClr ()
         {
             return base.dataBaseBaseTableClr( "ParkingRecord" );

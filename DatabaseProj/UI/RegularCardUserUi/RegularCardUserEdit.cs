@@ -27,12 +27,19 @@ namespace DatabaseProj.UI.RegularCardUserUi {
 
         protected CRegularCardUserDb.SRegularCardUserStru sRcuStru;
 
+        /// <summary>
+        /// 停车卡用户编辑 构造函数
+        /// </summary>
+        /// <param name="strTitle"></param>
         public RegularCardUserEdit(string strTitle = "Regular Card User Edit Window") : base(strTitle)
         {
             InitializeComponent();
             dbUiInit();
         }
 
+        /// <summary>
+        /// 停车卡用户编辑 UI初始化
+        /// </summary>
         public override void dbUiInit ()
         {
             for ( int i=0; i<CDbBaseTable.strDbBaseParkingCardTypeDesc.Length; i++ ) {
@@ -49,6 +56,10 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             textBoxId.Enabled = false;
         }
 
+        /// <summary>
+        /// 停车卡用户编辑 字符串转结构体
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Stru (ref List<string> listRecord)
         {
             int i = 0;
@@ -69,6 +80,10 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             }
         }
 
+        /// <summary>
+        /// 停车卡用户编辑 字符串转UI
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Ui (ref List<string> listRecord)
         {
             int i = 0;
@@ -83,6 +98,9 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             comboBoxCarType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
         }
 
+        /// <summary>
+        /// 停车卡用户编辑 结构体转UI
+        /// </summary>
         public override void dbStru2Ui ()
         {
             textBoxId.Text = sRcuStru.iId.ToString();
@@ -104,6 +122,9 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             return sRcuStru;
         }
 
+        /// <summary>
+        /// 停车卡用户编辑 UI转结构体
+        /// </summary>
         public override void dbUi2Stru ()
         {
             sRcuStru.iId = int.Parse( textBoxId.Text );

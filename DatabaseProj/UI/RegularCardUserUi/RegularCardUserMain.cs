@@ -47,6 +47,10 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             return base.dbRecordDeleteProc();
         }
 
+        /// <summary>
+        /// 查询处理
+        /// </summary>
+        /// <returns></returns>
         protected override EDbDataShowStat dbTableQueryProc ()
         {
             RegularCardUserQuery hRegularCardUserQuery = new RegularCardUserQuery( hDbTable );

@@ -51,23 +51,23 @@ namespace DatabaseProj.Code.Database {
         };
 
         public struct SParkingSpaceQueryStru {
+            public bool bIdEn;
+            public bool bGarageNumEn;
+            public bool bSpaceNumEn;
+            public bool bCardNumEn;
             public bool bSpaceLockStatEn;
             public bool bSpaceTypeEn;
             public bool bSpaceAeraEn;
+            public bool bCarPlate;
 
+            public int iId;
+            public int iGarageNum;
+            public int iSpaceNum;
+            public string strCardNum;
             public int iLockStat;
             public int iSpaceType;
             public int iSpaceAera;
-
-            public SParkingSpaceQueryStru (bool LockStatEn, bool SpaceTypeEn, bool SpaceAeraEn, int LockStat, int SpaceType, int SpaceAera)
-            {
-                bSpaceLockStatEn = LockStatEn;
-                bSpaceTypeEn = SpaceTypeEn;
-                bSpaceAeraEn = SpaceAeraEn;
-                iLockStat = LockStat;
-                iSpaceType = SpaceType;
-                iSpaceAera = SpaceAera;
-            }
+            public string strCarPlate;
         };
 
         public enum EPsLockStat {
@@ -192,12 +192,44 @@ namespace DatabaseProj.Code.Database {
         {
             SParkingSpaceQueryStru sQueryStru = (SParkingSpaceQueryStru)sCond;
 
-            if ( !sQueryStru.bSpaceLockStatEn && !sQueryStru .bSpaceTypeEn && !sQueryStru .bSpaceAeraEn ) {
+            if ( !sQueryStru.bIdEn && !sQueryStru.bGarageNumEn && !sQueryStru.bSpaceNumEn && !sQueryStru.bCardNumEn && !sQueryStru.bSpaceLockStatEn && !sQueryStru.bSpaceTypeEn && !sQueryStru.bSpaceAeraEn && !sQueryStru.bCarPlate ) {
                 return dataBaseBaseCommRead();
             }
 
             bool bFirstFlag = true;
             hCmd.CommandText = "SELECT * FROM ParkingSpace WHERE ";
+            if ( sQueryStru.bIdEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "Id=@Id";
+            }
+            if ( sQueryStru.bGarageNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "GarageNum=@GarageNum";
+            }
+            if ( sQueryStru.bSpaceNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "SpaceNum=@SpaceNum";
+            }
+            if ( sQueryStru.bCardNumEn ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
+
+                hCmd.CommandText += "CardNum=@CardNum";
+            }
             if ( sQueryStru.bSpaceLockStatEn ) {
                 if ( !bFirstFlag ) {
                     hCmd.CommandText += " AND ";
@@ -222,7 +254,27 @@ namespace DatabaseProj.Code.Database {
 
                 hCmd.CommandText += "SpaceAera=@SpaceAera";
             }
+            if ( sQueryStru.bCarPlate ) {
+                if ( !bFirstFlag ) {
+                    hCmd.CommandText += " AND ";
+                }
+                bFirstFlag = false;
 
+                hCmd.CommandText += "CarPlate=@CarPlate";
+            }
+
+            if ( sQueryStru.bIdEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "Id", sQueryStru.iId ) );
+            }
+            if ( sQueryStru.bGarageNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "GarageNum", sQueryStru.bGarageNumEn ) );
+            }
+            if ( sQueryStru.bSpaceNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "SpaceNum", sQueryStru.iSpaceNum ) );
+            }
+            if ( sQueryStru.bCardNumEn ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sQueryStru.strCardNum ) );
+            }
             if ( sQueryStru.bSpaceLockStatEn ) {
                 hCmd.Parameters.Add( new SQLiteParameter( "LockStat", CDbBaseTable.strDbBaseParkingSpaceLockStatDesc[sQueryStru.iLockStat] ) );
             }
@@ -231,6 +283,9 @@ namespace DatabaseProj.Code.Database {
             }
             if ( sQueryStru.bSpaceAeraEn ) {
                 hCmd.Parameters.Add( new SQLiteParameter( "SpaceAera", CDbBaseTable.strDbBaseParkingSpaceAeraDesc[sQueryStru.iSpaceAera] ) );
+            }
+            if ( sQueryStru.bCarPlate ) {
+                hCmd.Parameters.Add( new SQLiteParameter( "CarPlate", sQueryStru.strCarPlate ) );
             }
 
             base.dataBaseBaseRecordRead();
