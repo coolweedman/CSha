@@ -11,6 +11,7 @@ using DatabaseProj.UI.DBAUi;
 using DatabaseProj.UI.RegularCardUserUi;
 using DatabaseProj.UI.RegularCardPaymentUi;
 using DatabaseProj.UI.ParkingSpaceUi;
+using DatabaseProj.UI.ParkingRecordUi;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -48,8 +49,8 @@ namespace DatabaseProj.Code.Main {
 
         private void parkingRecordToolStripMenuItem_Click (object sender, EventArgs e)
         {
-            ParkingRecordUi hParkingRecordUi = new ParkingRecordUi();
-            hParkingRecordUi.Show();
+            //ParkingRecordUi hParkingRecordUi = new ParkingRecordUi();
+            //hParkingRecordUi.Show();
         }
 
         /// <summary>
@@ -72,6 +73,9 @@ namespace DatabaseProj.Code.Main {
 
             CParkingSpaceDb hParkingSpaceDb = new CParkingSpaceDb();
             hParkingSpaceDb.dataBaseBaseDeRecordInsert();
+
+            CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
+            hParkingRecordDb.dataBaseBaseDeRecordInsert();
 
             MessageBox.Show( "Default Table Created" );
         }
@@ -147,6 +151,18 @@ namespace DatabaseProj.Code.Main {
             CParkingSpaceDb hCParkingSpaceDb = new CParkingSpaceDb();
             ParkingSpaceMain hParkingSpaceMain = new ParkingSpaceMain( hCParkingSpaceDb );
             hParkingSpaceMain.Show();
+        }
+
+        /// <summary>
+        /// 停车记录界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void parkingRecordToolStripMenuItem1_Click (object sender, EventArgs e)
+        {
+            CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
+            ParkingRecordMain hParkingRecordMain = new ParkingRecordMain( hParkingRecordDb  );
+            hParkingRecordMain.Show();
         }
     }
 }

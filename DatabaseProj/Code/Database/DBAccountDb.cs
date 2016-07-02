@@ -100,7 +100,7 @@ namespace DatabaseProj.Code.Database {
                                     "Account    TEXT    UNIQUE  NOT NULL, " +
                                     "Password   TEXT, " +
                                     "Authority  TEXT    DEFAULT '只读', " +
-                                    "Name       TEXT, " +
+                                    "Name       TEXT    UNIQUE  NOT NULL, " +
                                     "JobNum     TEXT, "+
                                     "FOREIGN    KEY(Type)       REFERENCES BaseDBAType(DBAType), "+
                                     "FOREIGN    KEY(Authority)  REFERENCES BaseDBAAuthority(Authority))";
