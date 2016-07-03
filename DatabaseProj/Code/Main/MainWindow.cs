@@ -21,38 +21,7 @@ namespace DatabaseProj.Code.Main {
             InitializeComponent();
 
         }
-
-        private void regularCardUserToolStripMenuItem_Click_1 (object sender, EventArgs e)
-        {
-            //RegularCardUserUi hRegularCardUserUi = new RegularCardUserUi();
-            //hRegularCardUserUi.Show();
-        }
-
-        private void regularCardPaymentToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            //RegularCardPaymentUi hRegularCardPayment = new RegularCardPaymentUi();
-            //hRegularCardPayment.Show();
-        }
-
-        private void parkingSpaceToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            //ParkingSpaceUi hParkingSpaceUi = new ParkingSpaceUi();
-            //hParkingSpaceUi.Show();
-        }
-
-        private void dBAccountToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            DBAccountUi hDBAccountUi = new DBAccountUi();
-            hDBAccountUi.Show();
-
-        }
-
-        private void parkingRecordToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            //ParkingRecordUi hParkingRecordUi = new ParkingRecordUi();
-            //hParkingRecordUi.Show();
-        }
-
+        
         /// <summary>
         /// 创建默认数据库表
         /// </summary>
@@ -91,18 +60,7 @@ namespace DatabaseProj.Code.Main {
             hDbaLogInUi.Show();
         }
 
-        /// <summary>
-        /// 固定卡数据库界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void regularCardToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            RegularCardUi hRegularCardUi = new RegularCardUi();
-            hRegularCardUi.Show();
-        }
-
-        /// <summary>
+         /// <summary>
         /// 数据库管理员界面
         /// </summary>
         /// <param name="sender"></param>
@@ -163,6 +121,11 @@ namespace DatabaseProj.Code.Main {
             CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
             ParkingRecordMain hParkingRecordMain = new ParkingRecordMain( hParkingRecordDb  );
             hParkingRecordMain.Show();
+        }
+
+        private void buttonClose_Click (object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

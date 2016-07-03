@@ -85,21 +85,10 @@
     <Compile Include="UI\Base\DbTableMainBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DBAccountEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\DBAccountEdit.Designer.cs">
-      <DependentUpon>DBAccountEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\DBAccountUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UI\DBALogInUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DBALogInUi.Designer.cs">
-      <DependentUpon>DBALogInUi.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\DBALogInUi.Designer.cs" />
     <Compile Include="UI\DBAUi\DbDBAEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,20 +98,6 @@
     <Compile Include="UI\DBAUi\DbDBAQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DbEditWinIf.cs" />
-    <Compile Include="UI\DbWinBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\DbWinBase.Designer.cs">
-      <DependentUpon>DbWinBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ParkingRecordQueryUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ParkingRecordQueryUi.Designer.cs">
-      <DependentUpon>ParkingRecordQueryUi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ParkingRecordUi.cs" />
     <Compile Include="UI\ParkingRecordUi\ParkingRecordEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,19 +107,6 @@
     <Compile Include="UI\ParkingRecordUi\ParkingRecordQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ParkingSpaceEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ParkingSpaceEdit.Designer.cs">
-      <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ParkingSpaceQueryUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ParkingSpaceQueryUi.Designer.cs">
-      <DependentUpon>ParkingSpaceQueryUi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ParkingSpaceUi.cs" />
     <Compile Include="UI\ParkingSpaceUi\ParkingSpaceEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,15 +114,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ParkingSpaceUi\ParkingSpaceQuery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\RegularCardPaymentEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\RegularCardPaymentEdit.Designer.cs">
-      <DependentUpon>RegularCardPaymentEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\RegularCardPaymentUi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\RegularCardPaymentUi\RegularCardPaymentEdit.cs">
@@ -172,16 +125,6 @@
     <Compile Include="UI\RegularCardPaymentUi\RegularCardPaymentQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\RegularCardUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\RegularCardUserEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\RegularCardUserEdit.Designer.cs">
-      <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\RegularCardUserUi.cs" />
     <Compile Include="UI\RegularCardUserUi\RegularCardUserEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,26 +158,12 @@
     <EmbeddedResource Include="UI\Base\DbTableMainBase.resx">
       <DependentUpon>DbTableMainBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\DBAccountEdit.resx">
-      <DependentUpon>DBAccountEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\DBALogInUi.resx">
-      <DependentUpon>DBALogInUi.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DBALogInUi.resx" />
     <EmbeddedResource Include="UI\DBAUi\DbDBAEdit.resx">
       <DependentUpon>DbDBAEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DBAUi\DbDBAQuery.resx">
       <DependentUpon>DbDBAQuery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\DbWinBase.resx">
-      <DependentUpon>DbWinBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ParkingRecordQueryUi.resx">
-      <DependentUpon>ParkingRecordQueryUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ParkingRecordUi.resx">
-      <DependentUpon>ParkingRecordUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingRecordUi\ParkingRecordEdit.resx">
       <DependentUpon>ParkingRecordEdit.cs</DependentUpon>
@@ -242,32 +171,17 @@
     <EmbeddedResource Include="UI\ParkingRecordUi\ParkingRecordQuery.resx">
       <DependentUpon>ParkingRecordQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ParkingSpaceEdit.resx">
-      <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ParkingSpaceQueryUi.resx">
-      <DependentUpon>ParkingSpaceQueryUi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingSpaceUi\ParkingSpaceEdit.resx">
       <DependentUpon>ParkingSpaceEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingSpaceUi\ParkingSpaceQuery.resx">
       <DependentUpon>ParkingSpaceQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\RegularCardPaymentEdit.resx">
-      <DependentUpon>RegularCardPaymentEdit.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardPaymentUi\RegularCardPaymentEdit.resx">
       <DependentUpon>RegularCardPaymentEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardPaymentUi\RegularCardPaymentQuery.resx">
       <DependentUpon>RegularCardPaymentQuery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\RegularCardUi.resx">
-      <DependentUpon>RegularCardUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\RegularCardUserEdit.resx">
-      <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardUserUi\RegularCardUserEdit.resx">
       <DependentUpon>RegularCardUserEdit.cs</DependentUpon>
