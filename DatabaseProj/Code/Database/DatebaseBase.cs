@@ -9,6 +9,9 @@ using System.Diagnostics;
 
 namespace DatabaseProj.Code.Database {
 
+    /// <summary>
+    /// 数据库基类 数据库操作状态
+    /// </summary>
     public enum EDataBaseClassErrStat {
         DATABASEERR_NOERR = 0,
         DATABASEERR_FAIL = -1,
@@ -149,6 +152,11 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 数据库查询记录
+        /// </summary>
+        /// <param name="sCond"></param>
+        /// <returns></returns>
         public virtual SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
         {
             return null;

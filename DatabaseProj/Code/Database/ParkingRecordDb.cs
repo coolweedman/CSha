@@ -49,6 +49,9 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        /// <summary>
+        /// 停车记录 查询结构体
+        /// </summary>
         public struct SParkingRecordQueryStru {
             public bool bIdEn;
             public bool bGarageNumEn;
@@ -178,6 +181,11 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 停车记录 条件查询
+        /// </summary>
+        /// <param name="sCond"></param>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
         {
             SParkingRecordQueryStru sQueryStru = (SParkingRecordQueryStru)sCond;
@@ -242,7 +250,7 @@ namespace DatabaseProj.Code.Database {
                 }
                 bFirstFlag = false;
 
-                hCmd.CommandText += "CarInTime>=@CarInTimeStart AND CarInTime<=CarInTimeEnd";
+                hCmd.CommandText += "CarInTime>=@CarInTimeStart AND CarInTime<=@CarInTimeEnd";
             }
             if ( sQueryStru.bCarOutTimeEn ) {
                 if ( !bFirstFlag ) {
@@ -250,7 +258,7 @@ namespace DatabaseProj.Code.Database {
                 }
                 bFirstFlag = false;
 
-                hCmd.CommandText += "CarOutTime>=@CarOutTime AND CarOutTime<=@CarOutTimeEnd";
+                hCmd.CommandText += "CarOutTime>=@CarOutTimeStart AND CarOutTime<=@CarOutTimeEnd";
             }
             if ( sQueryStru.bCarPlateEn ) {
                 if ( !bFirstFlag ) {

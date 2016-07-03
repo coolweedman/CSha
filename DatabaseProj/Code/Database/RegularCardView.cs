@@ -6,6 +6,9 @@ using System.Text;
 namespace DatabaseProj.Code.Database {
     public class CRegularCardView : CDatebaseBase {
 
+        /// <summary>
+        /// 停车卡视图 查询
+        /// </summary>
         public struct SRegularCardViewQueryStru {
             public CRegularCardUserDb.SRegularCardUserQueryStru sUserQuery;
             public CRegularCardPaymentDb.SRegularCardPaymentQueryStru sPaymentQuery;
@@ -14,6 +17,9 @@ namespace DatabaseProj.Code.Database {
         protected CRegularCardUserDb hRegularCardUserDb;
         protected CRegularCardPaymentDb hRegularCardPaymentDb;
 
+        /// <summary>
+        /// 停车卡视图 构造函数
+        /// </summary>
         public CRegularCardView ()
         {
             hRegularCardUserDb = new CRegularCardUserDb();
@@ -22,6 +28,9 @@ namespace DatabaseProj.Code.Database {
             rcvViewCreate();
         }
 
+        /// <summary>
+        /// 停车卡视图 创建视图
+        /// </summary>
         public void rcvViewCreate ()
         {
             string strCreateTable = "CREATE VIEW IF NOT EXISTS  RegularCardView AS SELECT " +
@@ -42,6 +51,10 @@ namespace DatabaseProj.Code.Database {
             base.dataBaseBaseTableCreate( strCreateTable );
         }
 
+        /// <summary>
+        /// 停车卡视图 读取所有记录
+        /// </summary>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommRead ()
         {
             hCmd.CommandText = "SELECT * FROM RegularCardView";
@@ -50,6 +63,11 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 停车卡视图 查询记录
+        /// </summary>
+        /// <param name="sCond"></param>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
         {
             bool bFirstFlag = true;

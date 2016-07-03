@@ -30,6 +30,9 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        /// <summary>
+        /// 数据库管理员 查询结构体
+        /// </summary>
         public struct SDBAccountQueryStru {
             public bool bIdEn;
             public bool bTypeEn;
@@ -130,6 +133,11 @@ namespace DatabaseProj.Code.Database {
             return hReader;
         }
 
+        /// <summary>
+        /// 数据库管理员 查询
+        /// </summary>
+        /// <param name="sCond"></param>
+        /// <returns></returns>
         public override SQLiteDataReader dataBaseBaseCommQuery (ref object sCond)
         {
             SDBAccountQueryStru sQueryStru = (SDBAccountQueryStru)sCond;

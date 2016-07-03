@@ -19,7 +19,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
         private System.Windows.Forms.ComboBox comboBoxDBAType;
         private System.Windows.Forms.ComboBox comboBoxPayMode;
         private System.Windows.Forms.TextBox textBoxDBAName;
-        private System.Windows.Forms.DateTimePicker dateTimePickerCarOutTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerCarOutTimeStart;
         private System.Windows.Forms.DateTimePicker dateTimePickerCarInTimeStart;
         private System.Windows.Forms.DateTimePicker dateTimePickerBillDateStart;
         private System.Windows.Forms.DateTimePicker dateTimePickerBillDateEnd;
@@ -43,25 +43,112 @@ namespace DatabaseProj.UI.ParkingRecordUi {
 
         protected CParkingRecordDb.SParkingRecordQueryStru sQueryStru;
 
+        /// <summary>
+        /// 停车记录查询界面 构造函数
+        /// </summary>
+        /// <param name="hDbTableBase"></param>
+        /// <param name="strTitle"></param>
         public ParkingRecordQuery (CDatebaseBase hDbTableBase, string strTitle = "DBA Query Window") : base( hDbTableBase, strTitle )
         {
             InitializeComponent();
             dbRecordQueryUiInit();
         }
 
+        /// <summary>
+        /// 停车记录查询界面 UI初始化
+        /// </summary>
         protected override void dbRecordQueryUiInit ()
         {
             for ( int i=0; i<CDbBaseTable.strDbBaseDBATypeDesc.Length; i++  ) {
-                comboBoxDBAType.Items.Add( CDbBaseTable.strDbBaseDBATypeDesc[i++] );
+                comboBoxDBAType.Items.Add( CDbBaseTable.strDbBaseDBATypeDesc[i] );
             }
             for ( int i=0; i<CDbBaseTable.strDbBasePayModeDesc.Length; i++ ) {
-                comboBoxPayMode.Items.Add( CDbBaseTable.strDbBasePayModeDesc[i++] );
+                comboBoxPayMode.Items.Add( CDbBaseTable.strDbBasePayModeDesc[i] );
             }
         }
 
+        /// <summary>
+        /// 停车记录查询界面 UI转结构体
+        /// </summary>
+        /// <returns></returns>
         protected override object dbRecordQueryUi2Stru ()
         {
             sQueryStru.bIdEn = checkBoxId.Checked;
+            sQueryStru.bGarageNumEn = checkBoxGarageNum.Checked;
+            sQueryStru.bSpaceNumEn = checkBoxSpaceNum.Checked;
+            sQueryStru.bCardNumEn = checkBoxCardNum.Checked;
+            sQueryStru.bCarPlateEn = checkBoxCarPlate.Checked;
+            sQueryStru.bPicPathEn = checkBoxPitPath.Checked;
+            sQueryStru.bMoneyInEn = checkBoxMoneyIn.Checked;
+            sQueryStru.bMoneyPayEn = checkBoxPayMoney.Checked;
+            sQueryStru.bBillNumEn = checkBoxBillNum.Checked;
+            sQueryStru.bPayModeEn = checkBoxPayMode.Checked;
+            sQueryStru.bDBANameEn = checkBoxDBAName.Checked;
+            sQueryStru.bDBATypeEn = checkBoxDBAType.Checked;
+            sQueryStru.bCarInTimeEn = checkBoxCarInTime.Checked;
+            sQueryStru.bCarOutTimeEn = checkBoxCarOutTime.Checked;
+            sQueryStru.bBillDateEn = checkBoxBillDate.Checked;
+
+            if ( sQueryStru.bIdEn ) {
+                sQueryStru.iId = int.Parse( textBoxId.Text );
+            }
+            if ( sQueryStru.bGarageNumEn ) {
+                sQueryStru.iGarageNum = int.Parse( textBoxGarageNum.Text );
+            }
+            if ( sQueryStru.bSpaceNumEn ) {
+                sQueryStru.iSpaceNum = int.Parse( textBoxSpaceNum.Text );
+            }
+            if ( sQueryStru.bCardNumEn ) {
+                sQueryStru.strCardNum = textBoxCardNum.Text;
+            }
+            if ( sQueryStru.bBillNumEn ) {
+                sQueryStru.strBillNum = textBoxBillNum.Text;
+            }
+            if ( sQueryStru.bBillDateEn ) {
+                DateTime sDateTime;
+
+                sDateTime = dateTimePickerBillDateStart.Value;
+                sQueryStru.sBillDateStart = sDateTime;
+                sDateTime = dateTimePickerBillDateEnd.Value;
+                sQueryStru.sBillDateEnd = sDateTime;
+            }
+            if ( sQueryStru.bCarInTimeEn ) {
+                DateTime sDateTime;
+
+                sDateTime = dateTimePickerCarInTimeStart.Value;
+                sQueryStru.sCarInTimeStart = sDateTime;
+                sDateTime = dateTimePickerCarInTimeEnd.Value;
+                sQueryStru.sCarInTimeEnd = sDateTime;
+            }
+            if ( sQueryStru.bCarOutTimeEn ) {
+                DateTime sDateTime;
+
+                sDateTime = dateTimePickerCarOutTimeStart.Value;
+                sQueryStru.sCarOutTimeStart = sDateTime;
+                sDateTime = dateTimePickerCarOutTimeEnd.Value;
+                sQueryStru.sCarOutTimeEnd = sDateTime;
+            }
+            if ( sQueryStru.bCarPlateEn ) {
+                sQueryStru.strCarPlate = textBoxCarPlate.Text;
+            }
+            if ( sQueryStru.bPicPathEn ) {
+                sQueryStru.strPicPath = textBoxPicPath.Text;
+            }
+            if ( sQueryStru.bMoneyInEn ) {
+                sQueryStru.dMoneyIn = double.Parse( textBoxMoneyIn.Text );
+            }
+            if ( sQueryStru.bMoneyPayEn ) {
+                sQueryStru.dMoneyPay = double.Parse( textBoxPayMoney.Text );
+            }
+            if ( sQueryStru.bPayModeEn ) {
+                sQueryStru.iPayMode = comboBoxPayMode.SelectedIndex;
+            }
+            if ( sQueryStru.bDBANameEn ) {
+                sQueryStru.strDBAName = textBoxDBAName.Text;
+            }
+            if ( sQueryStru.bDBATypeEn ) {
+                sQueryStru.iDBAType = comboBoxDBAType.SelectedIndex;
+            }
 
             return sQueryStru;
         }
@@ -80,7 +167,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.comboBoxDBAType = new System.Windows.Forms.ComboBox();
             this.comboBoxPayMode = new System.Windows.Forms.ComboBox();
             this.textBoxDBAName = new System.Windows.Forms.TextBox();
-            this.dateTimePickerCarOutTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerCarOutTimeStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerCarInTimeStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerBillDateStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerBillDateEnd = new System.Windows.Forms.DateTimePicker();
@@ -110,32 +197,32 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(806, 607);
+            this.buttonCancel.Location = new System.Drawing.Point(785, 607);
             // 
             // textBoxSpaceNum
             // 
-            this.textBoxSpaceNum.Location = new System.Drawing.Point(299, 45);
+            this.textBoxSpaceNum.Location = new System.Drawing.Point(299, 43);
             this.textBoxSpaceNum.Name = "textBoxSpaceNum";
             this.textBoxSpaceNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxSpaceNum.TabIndex = 44;
             // 
             // textBoxGarageNum
             // 
-            this.textBoxGarageNum.Location = new System.Drawing.Point(155, 36);
+            this.textBoxGarageNum.Location = new System.Drawing.Point(155, 43);
             this.textBoxGarageNum.Name = "textBoxGarageNum";
             this.textBoxGarageNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxGarageNum.TabIndex = 43;
             // 
             // textBoxCardNum
             // 
-            this.textBoxCardNum.Location = new System.Drawing.Point(425, 44);
+            this.textBoxCardNum.Location = new System.Drawing.Point(425, 43);
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxCardNum.TabIndex = 42;
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(12, 36);
+            this.textBoxId.Location = new System.Drawing.Point(12, 43);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 28);
             this.textBoxId.TabIndex = 41;
@@ -149,28 +236,28 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // 
             // textBoxPayMoney
             // 
-            this.textBoxPayMoney.Location = new System.Drawing.Point(425, 121);
+            this.textBoxPayMoney.Location = new System.Drawing.Point(425, 118);
             this.textBoxPayMoney.Name = "textBoxPayMoney";
             this.textBoxPayMoney.Size = new System.Drawing.Size(100, 28);
             this.textBoxPayMoney.TabIndex = 54;
             // 
             // textBoxMoneyIn
             // 
-            this.textBoxMoneyIn.Location = new System.Drawing.Point(299, 122);
+            this.textBoxMoneyIn.Location = new System.Drawing.Point(299, 118);
             this.textBoxMoneyIn.Name = "textBoxMoneyIn";
             this.textBoxMoneyIn.Size = new System.Drawing.Size(100, 28);
             this.textBoxMoneyIn.TabIndex = 53;
             // 
             // textBoxPicPath
             // 
-            this.textBoxPicPath.Location = new System.Drawing.Point(155, 116);
+            this.textBoxPicPath.Location = new System.Drawing.Point(155, 118);
             this.textBoxPicPath.Name = "textBoxPicPath";
             this.textBoxPicPath.Size = new System.Drawing.Size(100, 28);
             this.textBoxPicPath.TabIndex = 52;
             // 
             // textBoxCarPlate
             // 
-            this.textBoxCarPlate.Location = new System.Drawing.Point(12, 116);
+            this.textBoxCarPlate.Location = new System.Drawing.Point(12, 118);
             this.textBoxCarPlate.Name = "textBoxCarPlate";
             this.textBoxCarPlate.Size = new System.Drawing.Size(100, 28);
             this.textBoxCarPlate.TabIndex = 51;
@@ -178,7 +265,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // comboBoxDBAType
             // 
             this.comboBoxDBAType.FormattingEnabled = true;
-            this.comboBoxDBAType.Location = new System.Drawing.Point(416, 198);
+            this.comboBoxDBAType.Location = new System.Drawing.Point(425, 191);
             this.comboBoxDBAType.Name = "comboBoxDBAType";
             this.comboBoxDBAType.Size = new System.Drawing.Size(121, 26);
             this.comboBoxDBAType.TabIndex = 60;
@@ -198,44 +285,44 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxDBAName.Size = new System.Drawing.Size(100, 28);
             this.textBoxDBAName.TabIndex = 58;
             // 
-            // dateTimePickerCarOutTime
+            // dateTimePickerCarOutTimeStart
             // 
-            this.dateTimePickerCarOutTime.Location = new System.Drawing.Point(609, 112);
-            this.dateTimePickerCarOutTime.Name = "dateTimePickerCarOutTime";
-            this.dateTimePickerCarOutTime.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePickerCarOutTime.TabIndex = 66;
+            this.dateTimePickerCarOutTimeStart.Location = new System.Drawing.Point(600, 118);
+            this.dateTimePickerCarOutTimeStart.Name = "dateTimePickerCarOutTimeStart";
+            this.dateTimePickerCarOutTimeStart.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePickerCarOutTimeStart.TabIndex = 66;
             // 
             // dateTimePickerCarInTimeStart
             // 
-            this.dateTimePickerCarInTimeStart.Location = new System.Drawing.Point(609, 50);
+            this.dateTimePickerCarInTimeStart.Location = new System.Drawing.Point(600, 43);
             this.dateTimePickerCarInTimeStart.Name = "dateTimePickerCarInTimeStart";
             this.dateTimePickerCarInTimeStart.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerCarInTimeStart.TabIndex = 65;
             // 
             // dateTimePickerBillDateStart
             // 
-            this.dateTimePickerBillDateStart.Location = new System.Drawing.Point(609, 198);
+            this.dateTimePickerBillDateStart.Location = new System.Drawing.Point(600, 187);
             this.dateTimePickerBillDateStart.Name = "dateTimePickerBillDateStart";
             this.dateTimePickerBillDateStart.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerBillDateStart.TabIndex = 64;
             // 
             // dateTimePickerBillDateEnd
             // 
-            this.dateTimePickerBillDateEnd.Location = new System.Drawing.Point(860, 191);
+            this.dateTimePickerBillDateEnd.Location = new System.Drawing.Point(860, 187);
             this.dateTimePickerBillDateEnd.Name = "dateTimePickerBillDateEnd";
             this.dateTimePickerBillDateEnd.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerBillDateEnd.TabIndex = 67;
             // 
             // dateTimePickerCarInTimeEnd
             // 
-            this.dateTimePickerCarInTimeEnd.Location = new System.Drawing.Point(869, 45);
+            this.dateTimePickerCarInTimeEnd.Location = new System.Drawing.Point(860, 43);
             this.dateTimePickerCarInTimeEnd.Name = "dateTimePickerCarInTimeEnd";
             this.dateTimePickerCarInTimeEnd.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerCarInTimeEnd.TabIndex = 68;
             // 
             // dateTimePickerCarOutTimeEnd
             // 
-            this.dateTimePickerCarOutTimeEnd.Location = new System.Drawing.Point(860, 112);
+            this.dateTimePickerCarOutTimeEnd.Location = new System.Drawing.Point(860, 118);
             this.dateTimePickerCarOutTimeEnd.Name = "dateTimePickerCarOutTimeEnd";
             this.dateTimePickerCarOutTimeEnd.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerCarOutTimeEnd.TabIndex = 69;
@@ -243,7 +330,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxId
             // 
             this.checkBoxId.AutoSize = true;
-            this.checkBoxId.Location = new System.Drawing.Point(12, 6);
+            this.checkBoxId.Location = new System.Drawing.Point(12, 11);
             this.checkBoxId.Name = "checkBoxId";
             this.checkBoxId.Size = new System.Drawing.Size(52, 22);
             this.checkBoxId.TabIndex = 70;
@@ -253,7 +340,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxGarageNum
             // 
             this.checkBoxGarageNum.AutoSize = true;
-            this.checkBoxGarageNum.Location = new System.Drawing.Point(155, 4);
+            this.checkBoxGarageNum.Location = new System.Drawing.Point(155, 10);
             this.checkBoxGarageNum.Name = "checkBoxGarageNum";
             this.checkBoxGarageNum.Size = new System.Drawing.Size(88, 22);
             this.checkBoxGarageNum.TabIndex = 71;
@@ -263,7 +350,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxSpaceNum
             // 
             this.checkBoxSpaceNum.AutoSize = true;
-            this.checkBoxSpaceNum.Location = new System.Drawing.Point(299, 12);
+            this.checkBoxSpaceNum.Location = new System.Drawing.Point(299, 10);
             this.checkBoxSpaceNum.Name = "checkBoxSpaceNum";
             this.checkBoxSpaceNum.Size = new System.Drawing.Size(88, 22);
             this.checkBoxSpaceNum.TabIndex = 72;
@@ -273,7 +360,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxCardNum
             // 
             this.checkBoxCardNum.AutoSize = true;
-            this.checkBoxCardNum.Location = new System.Drawing.Point(425, 15);
+            this.checkBoxCardNum.Location = new System.Drawing.Point(425, 10);
             this.checkBoxCardNum.Name = "checkBoxCardNum";
             this.checkBoxCardNum.Size = new System.Drawing.Size(70, 22);
             this.checkBoxCardNum.TabIndex = 73;
@@ -293,7 +380,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxPitPath
             // 
             this.checkBoxPitPath.AutoSize = true;
-            this.checkBoxPitPath.Location = new System.Drawing.Point(155, 83);
+            this.checkBoxPitPath.Location = new System.Drawing.Point(155, 85);
             this.checkBoxPitPath.Name = "checkBoxPitPath";
             this.checkBoxPitPath.Size = new System.Drawing.Size(106, 22);
             this.checkBoxPitPath.TabIndex = 75;
@@ -303,7 +390,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxMoneyIn
             // 
             this.checkBoxMoneyIn.AutoSize = true;
-            this.checkBoxMoneyIn.Location = new System.Drawing.Point(299, 90);
+            this.checkBoxMoneyIn.Location = new System.Drawing.Point(299, 85);
             this.checkBoxMoneyIn.Name = "checkBoxMoneyIn";
             this.checkBoxMoneyIn.Size = new System.Drawing.Size(106, 22);
             this.checkBoxMoneyIn.TabIndex = 76;
@@ -323,7 +410,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxCarPlate
             // 
             this.checkBoxCarPlate.AutoSize = true;
-            this.checkBoxCarPlate.Location = new System.Drawing.Point(12, 83);
+            this.checkBoxCarPlate.Location = new System.Drawing.Point(12, 85);
             this.checkBoxCarPlate.Name = "checkBoxCarPlate";
             this.checkBoxCarPlate.Size = new System.Drawing.Size(88, 22);
             this.checkBoxCarPlate.TabIndex = 78;
@@ -333,7 +420,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxPayMode
             // 
             this.checkBoxPayMode.AutoSize = true;
-            this.checkBoxPayMode.Location = new System.Drawing.Point(146, 157);
+            this.checkBoxPayMode.Location = new System.Drawing.Point(155, 159);
             this.checkBoxPayMode.Name = "checkBoxPayMode";
             this.checkBoxPayMode.Size = new System.Drawing.Size(106, 22);
             this.checkBoxPayMode.TabIndex = 79;
@@ -343,7 +430,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxDBAName
             // 
             this.checkBoxDBAName.AutoSize = true;
-            this.checkBoxDBAName.Location = new System.Drawing.Point(299, 163);
+            this.checkBoxDBAName.Location = new System.Drawing.Point(299, 159);
             this.checkBoxDBAName.Name = "checkBoxDBAName";
             this.checkBoxDBAName.Size = new System.Drawing.Size(124, 22);
             this.checkBoxDBAName.TabIndex = 80;
@@ -353,7 +440,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxDBAType
             // 
             this.checkBoxDBAType.AutoSize = true;
-            this.checkBoxDBAType.Location = new System.Drawing.Point(416, 164);
+            this.checkBoxDBAType.Location = new System.Drawing.Point(429, 159);
             this.checkBoxDBAType.Name = "checkBoxDBAType";
             this.checkBoxDBAType.Size = new System.Drawing.Size(124, 22);
             this.checkBoxDBAType.TabIndex = 81;
@@ -363,7 +450,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxCarInTime
             // 
             this.checkBoxCarInTime.AutoSize = true;
-            this.checkBoxCarInTime.Location = new System.Drawing.Point(600, 15);
+            this.checkBoxCarInTime.Location = new System.Drawing.Point(600, 11);
             this.checkBoxCarInTime.Name = "checkBoxCarInTime";
             this.checkBoxCarInTime.Size = new System.Drawing.Size(106, 22);
             this.checkBoxCarInTime.TabIndex = 82;
@@ -373,7 +460,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxBillDate
             // 
             this.checkBoxBillDate.AutoSize = true;
-            this.checkBoxBillDate.Location = new System.Drawing.Point(609, 164);
+            this.checkBoxBillDate.Location = new System.Drawing.Point(600, 159);
             this.checkBoxBillDate.Name = "checkBoxBillDate";
             this.checkBoxBillDate.Size = new System.Drawing.Size(106, 22);
             this.checkBoxBillDate.TabIndex = 83;
@@ -383,7 +470,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // checkBoxCarOutTime
             // 
             this.checkBoxCarOutTime.AutoSize = true;
-            this.checkBoxCarOutTime.Location = new System.Drawing.Point(600, 84);
+            this.checkBoxCarOutTime.Location = new System.Drawing.Point(600, 86);
             this.checkBoxCarOutTime.Name = "checkBoxCarOutTime";
             this.checkBoxCarOutTime.Size = new System.Drawing.Size(106, 22);
             this.checkBoxCarOutTime.TabIndex = 84;
@@ -393,7 +480,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // ParkingRecordQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.ClientSize = new System.Drawing.Size(1133, 679);
+            this.ClientSize = new System.Drawing.Size(1112, 679);
             this.Controls.Add(this.checkBoxCarOutTime);
             this.Controls.Add(this.checkBoxBillDate);
             this.Controls.Add(this.checkBoxCarInTime);
@@ -412,7 +499,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.Controls.Add(this.dateTimePickerCarOutTimeEnd);
             this.Controls.Add(this.dateTimePickerCarInTimeEnd);
             this.Controls.Add(this.dateTimePickerBillDateEnd);
-            this.Controls.Add(this.dateTimePickerCarOutTime);
+            this.Controls.Add(this.dateTimePickerCarOutTimeStart);
             this.Controls.Add(this.dateTimePickerCarInTimeStart);
             this.Controls.Add(this.dateTimePickerBillDateStart);
             this.Controls.Add(this.comboBoxDBAType);
@@ -444,7 +531,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.Controls.SetChildIndex(this.comboBoxDBAType, 0);
             this.Controls.SetChildIndex(this.dateTimePickerBillDateStart, 0);
             this.Controls.SetChildIndex(this.dateTimePickerCarInTimeStart, 0);
-            this.Controls.SetChildIndex(this.dateTimePickerCarOutTime, 0);
+            this.Controls.SetChildIndex(this.dateTimePickerCarOutTimeStart, 0);
             this.Controls.SetChildIndex(this.dateTimePickerBillDateEnd, 0);
             this.Controls.SetChildIndex(this.dateTimePickerCarInTimeEnd, 0);
             this.Controls.SetChildIndex(this.dateTimePickerCarOutTimeEnd, 0);

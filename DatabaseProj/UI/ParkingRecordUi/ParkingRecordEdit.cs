@@ -44,12 +44,19 @@ namespace DatabaseProj.UI.ParkingRecordUi {
 
         public CParkingRecordDb.SParkingRecordStru sParkingRecordStru;
 
+        /// <summary>
+        /// 停车记录编辑界面 构造函数
+        /// </summary>
+        /// <param name="strTitle"></param>
         public ParkingRecordEdit (string strTitle = "Parking Record Edit") : base( strTitle )
         {
             InitializeComponent();
             dbUiInit();
         }
 
+        /// <summary>
+        /// 停车记录编辑界面 UI初始化
+        /// </summary>
         public override void dbUiInit ()
         {
             for ( int i=0; i<CDbBaseTable.strDbBasePayModeDesc.Length; i++  ) {
@@ -63,6 +70,10 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             textBoxId.Enabled = false;
         }
 
+        /// <summary>
+        /// 停车记录编辑界面 字符串转结构体
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Stru (ref List<string> listRecord)
         {
             int i = 0;
@@ -96,6 +107,10 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             }
         }
 
+        /// <summary>
+        /// 停车记录编辑界面 字符串转UI
+        /// </summary>
+        /// <param name="listRecord"></param>
         public override void dbString2Ui (ref List<string> listRecord)
         {
             int i = 0;
@@ -129,6 +144,9 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             textBoxRemarks.Text = listRecord[i++];
         }
 
+        /// <summary>
+        /// 停车记录编辑界面 结构体转UI
+        /// </summary>
         public override void dbStru2Ui ()
         {
             textBoxId.Text = sParkingRecordStru.iId.ToString();
@@ -163,6 +181,9 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             return sParkingRecordStru;
         }
 
+        /// <summary>
+        /// 停车记录编辑界面 UI转结构体
+        /// </summary>
         public override void dbUi2Stru ()
         {
             sParkingRecordStru.iId = int.Parse( textBoxId.Text );
