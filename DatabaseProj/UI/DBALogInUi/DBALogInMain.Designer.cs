@@ -1,5 +1,5 @@
 ﻿namespace DatabaseProj.UI {
-    partial class DBALogInUi {
+    partial class DBALogInMain {
         /// <summary>
         /// Required designer variable.
         /// </summary>

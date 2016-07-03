@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace DatabaseProj.UI.Base {
-    public partial class DbDataShowBase : Form {
+    public partial class DbDataShowBase : DevComponents.DotNetBar.Office2007Form {
 
         /// <summary>
         /// 数据库数据显示 状态枚举

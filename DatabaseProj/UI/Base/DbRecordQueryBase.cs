@@ -7,7 +7,7 @@ using DatabaseProj.Code.Debug;
 using DatabaseProj.Code.Database;
 
 namespace DatabaseProj.UI.Base {
-    public partial class DbRecordQueryBase : Form {
+    public partial class DbRecordQueryBase : DevComponents.DotNetBar.Office2007Form {
 
         protected CDatebaseBase hDbTable;
         protected DataTable hDataTable;

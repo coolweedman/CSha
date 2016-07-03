@@ -22,7 +22,7 @@ namespace DatabaseProj.Code.Database {
             public int iCardType;
             public int iCarType;
 
-            public SRegularCardUserStru (int Id, string UserName, string UserIdent, string UserPhone, string CarPlate, string CardNum, int CardType, int CarType, DateTime PayTime, double PayMoney, DateTime VaildTime )
+            public SRegularCardUserStru (int Id, string UserName, string UserIdent, string UserPhone, string CarPlate, string CardNum, int CardType, int CarType, DateTime PayTime, double PayMoney, DateTime ValidTime )
             {
                 iId = Id;
                 strUserName = UserName;
@@ -44,7 +44,7 @@ namespace DatabaseProj.Code.Database {
             public bool bUserIdent;
             public bool bUserPhone;
             public bool bCarPlate;
-            public bool bCarNum;
+            public bool bCardNum;
             public bool bCardType;
             public bool bCarType;
 
@@ -170,7 +170,7 @@ namespace DatabaseProj.Code.Database {
         {
             SRegularCardUserQueryStru sQueryStru = (SRegularCardUserQueryStru)sCond;
 
-            if ( !sQueryStru.bIdEn && !sQueryStru.bUserNameEn && !sQueryStru.bUserIdent && !sQueryStru.bUserPhone && !sQueryStru.bCarPlate && !sQueryStru.bCarNum && !sQueryStru.bCardType && !sQueryStru.bCarType ) {
+            if ( !sQueryStru.bIdEn && !sQueryStru.bUserNameEn && !sQueryStru.bUserIdent && !sQueryStru.bUserPhone && !sQueryStru.bCarPlate && !sQueryStru.bCardNum && !sQueryStru.bCardType && !sQueryStru.bCarType ) {
                 return dataBaseBaseCommRead();
             }
 
@@ -217,7 +217,7 @@ namespace DatabaseProj.Code.Database {
 
                 hCmd.CommandText += "CarPlate=@CarPlate";
             }
-            if ( sQueryStru.bCarNum ) {
+            if ( sQueryStru.bCardNum ) {
                 if ( !bFirstFlag ) {
                     hCmd.CommandText += " AND ";
                 }
@@ -257,7 +257,7 @@ namespace DatabaseProj.Code.Database {
             if ( sQueryStru.bCarPlate ) {
                 hCmd.Parameters.Add( new SQLiteParameter( "CarPlate", sQueryStru.strCarPlate ) );
             }
-            if ( sQueryStru.bCarNum ) {
+            if ( sQueryStru.bCardNum ) {
                 hCmd.Parameters.Add( new SQLiteParameter( "CardNum", sQueryStru.strCardNum ) );
             }
             if ( sQueryStru.bCardType ) {

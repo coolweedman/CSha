@@ -8,10 +8,10 @@ using System.Windows.Forms;
 namespace DatabaseProj.UI.Base {
     public class DbTableMainBase : DbDataShowBase {
 
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonQuery;
-        private System.Windows.Forms.Button buttonFeFlash;
-        private System.Windows.Forms.Button buttonClose;
+        private DevComponents.DotNetBar.ButtonX buttonAdd;
+        private DevComponents.DotNetBar.ButtonX buttonQuery;
+        private DevComponents.DotNetBar.ButtonX buttonFeFlash;
+        private DevComponents.DotNetBar.ButtonX buttonClose;
 
         protected CDatebaseBase hDbTable;
         protected DbRecordEditBase hEditUi;
@@ -158,10 +158,10 @@ namespace DatabaseProj.UI.Base {
 
         private new void InitializeComponent ()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonQuery = new System.Windows.Forms.Button();
-            this.buttonFeFlash = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonAdd = new DevComponents.DotNetBar.ButtonX();
+            this.buttonQuery = new DevComponents.DotNetBar.ButtonX();
+            this.buttonFeFlash = new DevComponents.DotNetBar.ButtonX();
+            this.buttonClose = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,7 +174,7 @@ namespace DatabaseProj.UI.Base {
             this.buttonAdd.Size = new System.Drawing.Size(108, 36);
             this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "添加";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            //this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonQuery
@@ -185,7 +185,7 @@ namespace DatabaseProj.UI.Base {
             this.buttonQuery.Size = new System.Drawing.Size(105, 36);
             this.buttonQuery.TabIndex = 4;
             this.buttonQuery.Text = "查询";
-            this.buttonQuery.UseVisualStyleBackColor = true;
+            //this.buttonQuery.UseVisualStyleBackColor = true;
             this.buttonQuery.Click += new System.EventHandler(this.buttonQuery_Click);
             // 
             // buttonFeFlash
@@ -197,7 +197,7 @@ namespace DatabaseProj.UI.Base {
             this.buttonFeFlash.Size = new System.Drawing.Size(102, 36);
             this.buttonFeFlash.TabIndex = 5;
             this.buttonFeFlash.Text = "刷新";
-            this.buttonFeFlash.UseVisualStyleBackColor = true;
+            //this.buttonFeFlash.UseVisualStyleBackColor = true;
             this.buttonFeFlash.Click += new System.EventHandler(this.buttonFeFlash_Click);
             // 
             // buttonClose
@@ -209,7 +209,7 @@ namespace DatabaseProj.UI.Base {
             this.buttonClose.Size = new System.Drawing.Size(96, 36);
             this.buttonClose.TabIndex = 6;
             this.buttonClose.Text = "关闭";
-            this.buttonClose.UseVisualStyleBackColor = true;
+            //this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // DbTableMainBase

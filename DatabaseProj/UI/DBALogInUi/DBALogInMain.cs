@@ -8,8 +8,8 @@ using System.Windows.Forms;
 using DatabaseProj.Code.Database;
 
 namespace DatabaseProj.UI {
-    public partial class DBALogInUi : Form {
-        public DBALogInUi ()
+    public partial class DBALogInMain : Form {
+        public DBALogInMain ()
         {
             InitializeComponent();
         }

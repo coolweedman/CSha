@@ -26,8 +26,8 @@
         private void InitializeComponent ()
         {
             this.dataGridViewDb = new System.Windows.Forms.DataGridView();
-            this.buttonOk = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonOk = new DevComponents.DotNetBar.ButtonX();
+            this.buttonCancel = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.buttonOk.Size = new System.Drawing.Size(93, 35);
             this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "OK";
-            this.buttonOk.UseVisualStyleBackColor = true;
+            //this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
@@ -62,7 +62,7 @@
             this.buttonCancel.Size = new System.Drawing.Size(90, 35);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            //this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // DbRecordQueryBase
@@ -75,6 +75,8 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.dataGridViewDb);
+            this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.Name = "DbRecordQueryBase";
             this.Text = "DbRecordQueryBase";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).EndInit();
@@ -85,7 +87,7 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dataGridViewDb;
-        public System.Windows.Forms.Button buttonOk;
-        public System.Windows.Forms.Button buttonCancel;
+        public DevComponents.DotNetBar.ButtonX buttonOk;
+        public DevComponents.DotNetBar.ButtonX buttonCancel;
     }
 }

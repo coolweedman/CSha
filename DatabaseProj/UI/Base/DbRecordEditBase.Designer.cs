@@ -25,8 +25,8 @@
         /// </summary>
         protected void InitializeComponent ()
         {
-            this.buttonOk = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonOk = new DevComponents.DotNetBar.ButtonX();
+            this.buttonCancel = new DevComponents.DotNetBar.ButtonX();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip.SuspendLayout();
@@ -39,7 +39,7 @@
             this.buttonOk.Size = new System.Drawing.Size(81, 38);
             this.buttonOk.TabIndex = 0;
             this.buttonOk.Text = "OK";
-            this.buttonOk.UseVisualStyleBackColor = true;
+            //this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
@@ -50,7 +50,7 @@
             this.buttonCancel.Size = new System.Drawing.Size(87, 38);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            //this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // statusStrip
@@ -80,6 +80,8 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
+            this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.Name = "DbRecordEditBase";
             this.Text = "DbRecordEditBase";
             this.statusStrip.ResumeLayout(false);
@@ -90,8 +92,10 @@
         }
 
         #endregion
-        protected System.Windows.Forms.Button buttonCancel;
-        protected System.Windows.Forms.Button buttonOk;
+        //protected System.Windows.Forms.Button buttonCancel;
+        //protected System.Windows.Forms.Button buttonOk;
+        protected DevComponents.DotNetBar.ButtonX buttonCancel;
+        protected DevComponents.DotNetBar.ButtonX buttonOk;
         protected System.Windows.Forms.StatusStrip statusStrip;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }

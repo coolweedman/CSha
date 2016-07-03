@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace DatabaseProj.UI.Base {
-    public partial class DbRecordEditBase : Form {
+    public partial class DbRecordEditBase : DevComponents.DotNetBar.Office2007Form {
 
         public enum EDbEditUiStat {
             DBEDITUISTAT_OK = 0,

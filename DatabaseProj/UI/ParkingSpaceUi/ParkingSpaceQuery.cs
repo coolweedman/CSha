@@ -116,10 +116,6 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(1142, 595);
-            // 
             // comboBoxSpaceAera
             // 
             this.comboBoxSpaceAera.FormattingEnabled = true;
@@ -280,8 +276,6 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             this.Controls.Add(this.comboBoxLockStat);
             this.Controls.Add(this.checkBoxLockStat);
             this.Name = "ParkingSpaceQuery";
-            this.Controls.SetChildIndex(this.buttonOk, 0);
-            this.Controls.SetChildIndex(this.buttonCancel, 0);
             this.Controls.SetChildIndex(this.checkBoxLockStat, 0);
             this.Controls.SetChildIndex(this.comboBoxLockStat, 0);
             this.Controls.SetChildIndex(this.checkBoxSpaceType, 0);

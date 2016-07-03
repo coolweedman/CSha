@@ -157,7 +157,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
 
         /// <summary>
         /// 停车卡用户编辑 UI输入检查
-        /// </summary>
+        /// </summary>wwww
         /// <returns></returns>
         public override EDbEditUiStat dbUiStatChk ()
         {

@@ -61,7 +61,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             sQueryStru.bUserIdent = checkBoxUserIdent.Checked;
             sQueryStru.bUserPhone = checkBoxUserPhone.Checked;
             sQueryStru.bCarPlate = checkBoxCarPlate.Checked;
-            sQueryStru.bCarNum = checkBoxCardNum.Checked;
+            sQueryStru.bCardNum = checkBoxCardNum.Checked;
             sQueryStru.bCardType = checkBoxCardType.Checked;
             sQueryStru.bCarType = checkBoxCarType.Checked;
 
@@ -80,7 +80,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             if ( sQueryStru.bCarPlate ) {
                 sQueryStru.strCarPlate = textBoxCarPlate.Text;
             }
-            if ( sQueryStru.bCarNum ) {
+            if ( sQueryStru.bCardNum ) {
                 sQueryStru.strCardNum = textBoxCardNum.Text;
             }
             if ( sQueryStru.bCardType ) {
@@ -113,10 +113,6 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.checkBoxCarType = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(1154, 595);
             // 
             // comboBoxCarType
             // 
@@ -277,8 +273,6 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.textBoxId);
             this.Name = "RegularCardUserQuery";
-            this.Controls.SetChildIndex(this.buttonOk, 0);
-            this.Controls.SetChildIndex(this.buttonCancel, 0);
             this.Controls.SetChildIndex(this.textBoxId, 0);
             this.Controls.SetChildIndex(this.textBoxUserName, 0);
             this.Controls.SetChildIndex(this.textBoxUserIdent, 0);
