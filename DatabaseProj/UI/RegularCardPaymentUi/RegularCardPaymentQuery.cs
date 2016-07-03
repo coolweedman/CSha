@@ -8,7 +8,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
 
     public class RegularCardPaymentQuery : DbRecordQueryBase {
 
-        private System.Windows.Forms.DateTimePicker dateTimePickerVaildTimeStart;
+        private System.Windows.Forms.DateTimePicker dateTimePickerValidTimeStart;
         private System.Windows.Forms.DateTimePicker dateTimePickerPayTimeStart;
         private System.Windows.Forms.TextBox textBoxPayMoney;
         private System.Windows.Forms.TextBox textBoxRcuId;
@@ -17,7 +17,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         private System.Windows.Forms.CheckBox checkBoxRcuId;
         private System.Windows.Forms.CheckBox checkBoxPayTime;
         private System.Windows.Forms.DateTimePicker dateTimePickerPayTimeEnd;
-        private System.Windows.Forms.DateTimePicker dateTimePickerVaildTimeEnd;
+        private System.Windows.Forms.DateTimePicker dateTimePickerValidTimeEnd;
         private System.Windows.Forms.CheckBox checkBoxValidTime;
         private System.Windows.Forms.CheckBox checkBoxPayMoney;
 
@@ -40,7 +40,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         protected override void dbRecordQueryUiInit ()
         {
             DateTime sDateTime = new DateTime( 2020, 12, 31 );
-            dateTimePickerVaildTimeEnd.Value = sDateTime;
+            dateTimePickerValidTimeEnd.Value = sDateTime;
         }
 
         /// <summary>
@@ -75,9 +75,9 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             if ( sQueryStru .bValidTimeEn ) {
                 DateTime sDateTime;
 
-                sDateTime = dateTimePickerVaildTimeStart.Value;
+                sDateTime = dateTimePickerValidTimeStart.Value;
                 sQueryStru.sValidTimeStart = sDateTime;
-                sDateTime = dateTimePickerVaildTimeEnd.Value;
+                sDateTime = dateTimePickerValidTimeEnd.Value;
                 sQueryStru.sValidTimeStop = sDateTime;
             }
 
@@ -86,7 +86,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
 
         private void InitializeComponent ()
         {
-            this.dateTimePickerVaildTimeStart = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerValidTimeStart = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerPayTimeStart = new System.Windows.Forms.DateTimePicker();
             this.textBoxPayMoney = new System.Windows.Forms.TextBox();
             this.textBoxRcuId = new System.Windows.Forms.TextBox();
@@ -96,21 +96,17 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.checkBoxPayMoney = new System.Windows.Forms.CheckBox();
             this.checkBoxPayTime = new System.Windows.Forms.CheckBox();
             this.dateTimePickerPayTimeEnd = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerVaildTimeEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerValidTimeEnd = new System.Windows.Forms.DateTimePicker();
             this.checkBoxValidTime = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCancel
+            // dateTimePickerValidTimeStart
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(1145, 595);
-            // 
-            // dateTimePickerVaildTimeStart
-            // 
-            this.dateTimePickerVaildTimeStart.Location = new System.Drawing.Point(400, 170);
-            this.dateTimePickerVaildTimeStart.Name = "dateTimePickerVaildTimeStart";
-            this.dateTimePickerVaildTimeStart.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePickerVaildTimeStart.TabIndex = 29;
+            this.dateTimePickerValidTimeStart.Location = new System.Drawing.Point(400, 170);
+            this.dateTimePickerValidTimeStart.Name = "dateTimePickerValidTimeStart";
+            this.dateTimePickerValidTimeStart.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePickerValidTimeStart.TabIndex = 29;
             // 
             // dateTimePickerPayTimeStart
             // 
@@ -187,12 +183,12 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.dateTimePickerPayTimeEnd.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerPayTimeEnd.TabIndex = 34;
             // 
-            // dateTimePickerVaildTimeEnd
+            // dateTimePickerValidTimeEnd
             // 
-            this.dateTimePickerVaildTimeEnd.Location = new System.Drawing.Point(805, 170);
-            this.dateTimePickerVaildTimeEnd.Name = "dateTimePickerVaildTimeEnd";
-            this.dateTimePickerVaildTimeEnd.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePickerVaildTimeEnd.TabIndex = 35;
+            this.dateTimePickerValidTimeEnd.Location = new System.Drawing.Point(805, 170);
+            this.dateTimePickerValidTimeEnd.Name = "dateTimePickerValidTimeEnd";
+            this.dateTimePickerValidTimeEnd.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePickerValidTimeEnd.TabIndex = 35;
             // 
             // checkBoxValidTime
             // 
@@ -209,31 +205,29 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.ClientSize = new System.Drawing.Size(1106, 667);
             this.Controls.Add(this.checkBoxValidTime);
-            this.Controls.Add(this.dateTimePickerVaildTimeEnd);
+            this.Controls.Add(this.dateTimePickerValidTimeEnd);
             this.Controls.Add(this.dateTimePickerPayTimeEnd);
             this.Controls.Add(this.checkBoxPayTime);
             this.Controls.Add(this.checkBoxPayMoney);
             this.Controls.Add(this.checkBoxRcuId);
             this.Controls.Add(this.checkBoxId);
-            this.Controls.Add(this.dateTimePickerVaildTimeStart);
+            this.Controls.Add(this.dateTimePickerValidTimeStart);
             this.Controls.Add(this.dateTimePickerPayTimeStart);
             this.Controls.Add(this.textBoxPayMoney);
             this.Controls.Add(this.textBoxRcuId);
             this.Controls.Add(this.textBoxId);
             this.Name = "RegularCardPaymentQuery";
-            this.Controls.SetChildIndex(this.buttonOk, 0);
-            this.Controls.SetChildIndex(this.buttonCancel, 0);
             this.Controls.SetChildIndex(this.textBoxId, 0);
             this.Controls.SetChildIndex(this.textBoxRcuId, 0);
             this.Controls.SetChildIndex(this.textBoxPayMoney, 0);
             this.Controls.SetChildIndex(this.dateTimePickerPayTimeStart, 0);
-            this.Controls.SetChildIndex(this.dateTimePickerVaildTimeStart, 0);
+            this.Controls.SetChildIndex(this.dateTimePickerValidTimeStart, 0);
             this.Controls.SetChildIndex(this.checkBoxId, 0);
             this.Controls.SetChildIndex(this.checkBoxRcuId, 0);
             this.Controls.SetChildIndex(this.checkBoxPayMoney, 0);
             this.Controls.SetChildIndex(this.checkBoxPayTime, 0);
             this.Controls.SetChildIndex(this.dateTimePickerPayTimeEnd, 0);
-            this.Controls.SetChildIndex(this.dateTimePickerVaildTimeEnd, 0);
+            this.Controls.SetChildIndex(this.dateTimePickerValidTimeEnd, 0);
             this.Controls.SetChildIndex(this.checkBoxValidTime, 0);
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).EndInit();
             this.ResumeLayout(false);

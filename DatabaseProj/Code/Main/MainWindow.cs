@@ -12,6 +12,7 @@ using DatabaseProj.UI.RegularCardUserUi;
 using DatabaseProj.UI.RegularCardPaymentUi;
 using DatabaseProj.UI.ParkingSpaceUi;
 using DatabaseProj.UI.ParkingRecordUi;
+using DatabaseProj.UI.RegularCardViewUi;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -129,6 +130,13 @@ namespace DatabaseProj.Code.Main {
         private void buttonClose_Click (object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void regularCardToolStripMenuItem1_Click (object sender, EventArgs e)
+        {
+            CRegularCardView hRegularCardView = new CRegularCardView();
+            RegularCardViewQuery hRegularCardViewQuery = new RegularCardViewQuery( hRegularCardView  );
+            hRegularCardViewQuery.Show();
         }
     }
 }

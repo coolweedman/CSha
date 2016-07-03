@@ -137,6 +137,7 @@
             this.regularCardToolStripMenuItem1.Name = "regularCardToolStripMenuItem1";
             this.regularCardToolStripMenuItem1.Size = new System.Drawing.Size(211, 30);
             this.regularCardToolStripMenuItem1.Text = "RegularCard";
+            this.regularCardToolStripMenuItem1.Click += new System.EventHandler(this.regularCardToolStripMenuItem1_Click);
             // 
             // buttonClose
             // 

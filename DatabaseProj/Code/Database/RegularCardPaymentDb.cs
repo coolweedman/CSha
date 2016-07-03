@@ -14,15 +14,15 @@ namespace DatabaseProj.Code.Database {
             public int iRcuId;
             public DateTime sPayTime;
             public double dPayMoney;
-            public DateTime sVaildTime;
+            public DateTime sValidTime;
 
-            public SRegularCardPaymentStru (int Id, int RcuId, DateTime PayTime, double PayMoney, DateTime VaildTime)
+            public SRegularCardPaymentStru (int Id, int RcuId, DateTime PayTime, double PayMoney, DateTime ValidTime)
             {
                 iId = Id;
                 iRcuId = RcuId;
                 sPayTime = PayTime;
                 dPayMoney = PayMoney;
-                sVaildTime = VaildTime;
+                sValidTime = ValidTime;
             }
         }
 
@@ -75,7 +75,7 @@ namespace DatabaseProj.Code.Database {
                                     "RcuId      INT, " +
                                     "PayTime    DATETIME, " +
                                     "PayMoney   REAL, " +
-                                    "VaildTime  DATETIME, " +
+                                    "ValidTime  DATETIME, " +
                                     "FOREIGN    KEY(RcuId)  REFERENCES  RegularCardUser(Id) )";
 
             base.dataBaseBaseTableCreate( strCreateTable );
@@ -157,7 +157,7 @@ namespace DatabaseProj.Code.Database {
                 }
                 bFirstFlag = false;
 
-                hCmd.CommandText += "VaildTime>=@VaildTimeStart AND VaildTime<=@VaildTimeEnd";
+                hCmd.CommandText += "ValidTime>=@ValidTimeStart AND ValidTime<=@ValidTimeEnd";
             }
 
             if ( sQueryStru.bIdEn ) {
@@ -174,8 +174,8 @@ namespace DatabaseProj.Code.Database {
                 hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", sQueryStru.dPayMoney ) );
             }
             if ( sQueryStru.bValidTimeEn ) {
-                hCmd.Parameters.Add( new SQLiteParameter( "VaildTimeStart", sQueryStru.sValidTimeStart ) );
-                hCmd.Parameters.Add( new SQLiteParameter( "VaildTimeEnd", sQueryStru.sValidTimeStop ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "ValidTimeStart", sQueryStru.sValidTimeStart ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "ValidTimeEnd", sQueryStru.sValidTimeStop ) );
             }
 
             base.dataBaseBaseRecordRead();
@@ -192,13 +192,13 @@ namespace DatabaseProj.Code.Database {
         {
             SRegularCardPaymentStru sRcpStru = (SRegularCardPaymentStru)sRecord;
 
-            hCmd.CommandText = "INSERT INTO RegularCardPayment(RcuId, PayTime, PayMoney, VaildTime) " +
-                               "VALUES(@RcuId, @PayTime, @PayMoney, @VaildTime)";
+            hCmd.CommandText = "INSERT INTO RegularCardPayment(RcuId, PayTime, PayMoney, ValidTime) " +
+                               "VALUES(@RcuId, @PayTime, @PayMoney, @ValidTime)";
 
             hCmd.Parameters.Add( new SQLiteParameter( "RcuId", sRcpStru.iRcuId ) );
             hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sRcpStru.sPayTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", sRcpStru.dPayMoney ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sRcpStru.sVaildTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "ValidTime", sRcpStru.sValidTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
 
             return base.dataBaseBaseCommCmdExec();
         }
@@ -231,13 +231,13 @@ namespace DatabaseProj.Code.Database {
                                "RcuId=@RcuId, " +
                                "PayTime=@PayTime, " +
                                "PayMoney=@PayMoney, " +
-                               "VaildTime=@VaildTime " +
+                               "ValidTime=@ValidTime " +
                                "WHERE Id=@Id";
 
             hCmd.Parameters.Add( new SQLiteParameter( "RcuId", sRcpStru.iRcuId ) );
             hCmd.Parameters.Add( new SQLiteParameter( "PayTime", sRcpStru.sPayTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter( "PayMoney", sRcpStru.dPayMoney ) );
-            hCmd.Parameters.Add( new SQLiteParameter( "VaildTime", sRcpStru.sVaildTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
+            hCmd.Parameters.Add( new SQLiteParameter( "ValidTime", sRcpStru.sValidTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter( "Id", sRcpStru.iId ) );
 
             return base.dataBaseBaseCommCmdExec();

@@ -10,7 +10,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
 
     public class RegularCardPaymentEdit : DbRecordEditBase {
 
-        private System.Windows.Forms.DateTimePicker dateTimePickerVaildTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerValidTime;
         private System.Windows.Forms.DateTimePicker dateTimePickerPayTime;
         private System.Windows.Forms.TextBox textBoxPayMoney;
         private System.Windows.Forms.TextBox textBoxRcuId;
@@ -55,7 +55,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
                 sRcpStru.iRcuId = int.Parse( listRecord[i++] );
                 sRcpStru.sPayTime = Convert.ToDateTime( listRecord[i++] );
                 sRcpStru.dPayMoney = double.Parse( listRecord[i++] );
-                sRcpStru.sVaildTime = Convert.ToDateTime( listRecord[i++] );
+                sRcpStru.sValidTime = Convert.ToDateTime( listRecord[i++] );
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbString2Stru..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -82,7 +82,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
                 sDataTimeValid = DateTime.Parse( listRecord[i++] );
 
                 dateTimePickerPayTime.Value = sDataTimePay;
-                dateTimePickerVaildTime.Value = sDataTimeValid;
+                dateTimePickerValidTime.Value = sDataTimeValid;
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -100,7 +100,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
                 textBoxRcuId.Text = sRcpStru.iRcuId.ToString();
                 textBoxPayMoney.Text = sRcpStru.dPayMoney.ToString();
                 dateTimePickerPayTime.Value = sRcpStru.sPayTime;
-                dateTimePickerVaildTime.Value = sRcpStru.sVaildTime;
+                dateTimePickerValidTime.Value = sRcpStru.sValidTime;
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -127,7 +127,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
                 sRcpStru.iRcuId = int.Parse( textBoxRcuId.Text );
                 sRcpStru.sPayTime = dateTimePickerPayTime.Value;
                 sRcpStru.dPayMoney = double.Parse( textBoxPayMoney.Text );
-                sRcpStru.sVaildTime = dateTimePickerVaildTime.Value;
+                sRcpStru.sValidTime = dateTimePickerValidTime.Value;
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
@@ -157,7 +157,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
 
         private new void InitializeComponent ()
         {
-            this.dateTimePickerVaildTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerValidTime = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerPayTime = new System.Windows.Forms.DateTimePicker();
             this.textBoxPayMoney = new System.Windows.Forms.TextBox();
             this.textBoxRcuId = new System.Windows.Forms.TextBox();
@@ -177,12 +177,12 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             // 
             this.buttonOk.Location = new System.Drawing.Point( 143, 238 );
             // 
-            // dateTimePickerVaildTime
+            // dateTimePickerValidTime
             // 
-            this.dateTimePickerVaildTime.Location = new System.Drawing.Point( 336, 170 );
-            this.dateTimePickerVaildTime.Name = "dateTimePickerVaildTime";
-            this.dateTimePickerVaildTime.Size = new System.Drawing.Size( 200, 28 );
-            this.dateTimePickerVaildTime.TabIndex = 19;
+            this.dateTimePickerValidTime.Location = new System.Drawing.Point( 336, 170 );
+            this.dateTimePickerValidTime.Name = "dateTimePickerValidTime";
+            this.dateTimePickerValidTime.Size = new System.Drawing.Size( 200, 28 );
+            this.dateTimePickerValidTime.TabIndex = 19;
             // 
             // dateTimePickerPayTime
             // 
@@ -261,7 +261,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF( 9F, 18F );
             this.ClientSize = new System.Drawing.Size( 569, 307 );
-            this.Controls.Add( this.dateTimePickerVaildTime );
+            this.Controls.Add( this.dateTimePickerValidTime );
             this.Controls.Add( this.dateTimePickerPayTime );
             this.Controls.Add( this.textBoxPayMoney );
             this.Controls.Add( this.textBoxRcuId );
@@ -283,7 +283,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.Controls.SetChildIndex( this.textBoxRcuId, 0 );
             this.Controls.SetChildIndex( this.textBoxPayMoney, 0 );
             this.Controls.SetChildIndex( this.dateTimePickerPayTime, 0 );
-            this.Controls.SetChildIndex( this.dateTimePickerVaildTime, 0 );
+            this.Controls.SetChildIndex( this.dateTimePickerValidTime, 0 );
             this.ResumeLayout( false );
             this.PerformLayout();
 

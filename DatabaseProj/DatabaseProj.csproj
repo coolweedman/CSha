@@ -134,6 +134,9 @@
     <Compile Include="UI\RegularCardUserUi\RegularCardUserQuery.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\RegularCardViewUi\RegularCardViewQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Code\Main\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegularCardUserUi\RegularCardUserQuery.resx">
       <DependentUpon>RegularCardUserQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegularCardViewUi\RegularCardViewQuery.resx">
+      <DependentUpon>RegularCardViewQuery.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
