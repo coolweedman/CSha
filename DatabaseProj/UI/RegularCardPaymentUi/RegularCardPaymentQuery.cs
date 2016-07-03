@@ -101,30 +101,34 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(1145, 595);
+            // 
             // dateTimePickerVaildTimeStart
             // 
-            this.dateTimePickerVaildTimeStart.Location = new System.Drawing.Point(250, 170);
+            this.dateTimePickerVaildTimeStart.Location = new System.Drawing.Point(400, 170);
             this.dateTimePickerVaildTimeStart.Name = "dateTimePickerVaildTimeStart";
             this.dateTimePickerVaildTimeStart.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerVaildTimeStart.TabIndex = 29;
             // 
             // dateTimePickerPayTimeStart
             // 
-            this.dateTimePickerPayTimeStart.Location = new System.Drawing.Point(250, 110);
+            this.dateTimePickerPayTimeStart.Location = new System.Drawing.Point(400, 110);
             this.dateTimePickerPayTimeStart.Name = "dateTimePickerPayTimeStart";
             this.dateTimePickerPayTimeStart.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerPayTimeStart.TabIndex = 28;
             // 
             // textBoxPayMoney
             // 
-            this.textBoxPayMoney.Location = new System.Drawing.Point(523, 57);
+            this.textBoxPayMoney.Location = new System.Drawing.Point(805, 57);
             this.textBoxPayMoney.Name = "textBoxPayMoney";
             this.textBoxPayMoney.Size = new System.Drawing.Size(100, 28);
             this.textBoxPayMoney.TabIndex = 27;
             // 
             // textBoxRcuId
             // 
-            this.textBoxRcuId.Location = new System.Drawing.Point(250, 57);
+            this.textBoxRcuId.Location = new System.Drawing.Point(400, 57);
             this.textBoxRcuId.Name = "textBoxRcuId";
             this.textBoxRcuId.Size = new System.Drawing.Size(100, 28);
             this.textBoxRcuId.TabIndex = 26;
@@ -149,7 +153,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             // checkBoxRcuId
             // 
             this.checkBoxRcuId.AutoSize = true;
-            this.checkBoxRcuId.Location = new System.Drawing.Point(250, 20);
+            this.checkBoxRcuId.Location = new System.Drawing.Point(400, 20);
             this.checkBoxRcuId.Name = "checkBoxRcuId";
             this.checkBoxRcuId.Size = new System.Drawing.Size(106, 22);
             this.checkBoxRcuId.TabIndex = 31;
@@ -159,7 +163,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             // checkBoxPayMoney
             // 
             this.checkBoxPayMoney.AutoSize = true;
-            this.checkBoxPayMoney.Location = new System.Drawing.Point(523, 20);
+            this.checkBoxPayMoney.Location = new System.Drawing.Point(805, 20);
             this.checkBoxPayMoney.Name = "checkBoxPayMoney";
             this.checkBoxPayMoney.Size = new System.Drawing.Size(106, 22);
             this.checkBoxPayMoney.TabIndex = 32;
@@ -178,14 +182,14 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             // 
             // dateTimePickerPayTimeEnd
             // 
-            this.dateTimePickerPayTimeEnd.Location = new System.Drawing.Point(523, 110);
+            this.dateTimePickerPayTimeEnd.Location = new System.Drawing.Point(805, 110);
             this.dateTimePickerPayTimeEnd.Name = "dateTimePickerPayTimeEnd";
             this.dateTimePickerPayTimeEnd.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerPayTimeEnd.TabIndex = 34;
             // 
             // dateTimePickerVaildTimeEnd
             // 
-            this.dateTimePickerVaildTimeEnd.Location = new System.Drawing.Point(523, 170);
+            this.dateTimePickerVaildTimeEnd.Location = new System.Drawing.Point(805, 170);
             this.dateTimePickerVaildTimeEnd.Name = "dateTimePickerVaildTimeEnd";
             this.dateTimePickerVaildTimeEnd.Size = new System.Drawing.Size(200, 28);
             this.dateTimePickerVaildTimeEnd.TabIndex = 35;
@@ -203,7 +207,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             // RegularCardPaymentQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.ClientSize = new System.Drawing.Size(737, 667);
+            this.ClientSize = new System.Drawing.Size(1106, 667);
             this.Controls.Add(this.checkBoxValidTime);
             this.Controls.Add(this.dateTimePickerVaildTimeEnd);
             this.Controls.Add(this.dateTimePickerPayTimeEnd);

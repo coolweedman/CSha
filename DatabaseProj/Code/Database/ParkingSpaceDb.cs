@@ -50,6 +50,9 @@ namespace DatabaseProj.Code.Database {
             }
         };
 
+        /// <summary>
+        /// 停车位数据库 查询结构体
+        /// </summary>
         public struct SParkingSpaceQueryStru {
             public bool bIdEn;
             public bool bGarageNumEn;

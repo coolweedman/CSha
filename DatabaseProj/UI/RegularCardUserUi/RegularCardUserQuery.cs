@@ -114,10 +114,14 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(1154, 595);
+            // 
             // comboBoxCarType
             // 
             this.comboBoxCarType.FormattingEnabled = true;
-            this.comboBoxCarType.Location = new System.Drawing.Point(516, 171);
+            this.comboBoxCarType.Location = new System.Drawing.Point(924, 173);
             this.comboBoxCarType.Name = "comboBoxCarType";
             this.comboBoxCarType.Size = new System.Drawing.Size(136, 26);
             this.comboBoxCarType.TabIndex = 39;
@@ -125,14 +129,14 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // comboBoxCardType
             // 
             this.comboBoxCardType.FormattingEnabled = true;
-            this.comboBoxCardType.Location = new System.Drawing.Point(351, 171);
+            this.comboBoxCardType.Location = new System.Drawing.Point(654, 170);
             this.comboBoxCardType.Name = "comboBoxCardType";
             this.comboBoxCardType.Size = new System.Drawing.Size(140, 26);
             this.comboBoxCardType.TabIndex = 38;
             // 
             // textBoxCardNum
             // 
-            this.textBoxCardNum.Location = new System.Drawing.Point(192, 170);
+            this.textBoxCardNum.Location = new System.Drawing.Point(324, 168);
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(145, 28);
             this.textBoxCardNum.TabIndex = 37;
@@ -146,21 +150,21 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // 
             // textBoxUserPhone
             // 
-            this.textBoxUserPhone.Location = new System.Drawing.Point(516, 62);
+            this.textBoxUserPhone.Location = new System.Drawing.Point(924, 64);
             this.textBoxUserPhone.Name = "textBoxUserPhone";
             this.textBoxUserPhone.Size = new System.Drawing.Size(136, 28);
             this.textBoxUserPhone.TabIndex = 35;
             // 
             // textBoxUserIdent
             // 
-            this.textBoxUserIdent.Location = new System.Drawing.Point(351, 63);
+            this.textBoxUserIdent.Location = new System.Drawing.Point(654, 62);
             this.textBoxUserIdent.Name = "textBoxUserIdent";
             this.textBoxUserIdent.Size = new System.Drawing.Size(140, 28);
             this.textBoxUserIdent.TabIndex = 34;
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(192, 62);
+            this.textBoxUserName.Location = new System.Drawing.Point(324, 60);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(145, 28);
             this.textBoxUserName.TabIndex = 33;
@@ -185,7 +189,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // checkBoxUserName
             // 
             this.checkBoxUserName.AutoSize = true;
-            this.checkBoxUserName.Location = new System.Drawing.Point(192, 24);
+            this.checkBoxUserName.Location = new System.Drawing.Point(324, 22);
             this.checkBoxUserName.Name = "checkBoxUserName";
             this.checkBoxUserName.Size = new System.Drawing.Size(70, 22);
             this.checkBoxUserName.TabIndex = 41;
@@ -195,7 +199,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // checkBoxUserIdent
             // 
             this.checkBoxUserIdent.AutoSize = true;
-            this.checkBoxUserIdent.Location = new System.Drawing.Point(351, 24);
+            this.checkBoxUserIdent.Location = new System.Drawing.Point(654, 23);
             this.checkBoxUserIdent.Name = "checkBoxUserIdent";
             this.checkBoxUserIdent.Size = new System.Drawing.Size(88, 22);
             this.checkBoxUserIdent.TabIndex = 42;
@@ -205,7 +209,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // checkBoxUserPhone
             // 
             this.checkBoxUserPhone.AutoSize = true;
-            this.checkBoxUserPhone.Location = new System.Drawing.Point(516, 24);
+            this.checkBoxUserPhone.Location = new System.Drawing.Point(924, 26);
             this.checkBoxUserPhone.Name = "checkBoxUserPhone";
             this.checkBoxUserPhone.Size = new System.Drawing.Size(70, 22);
             this.checkBoxUserPhone.TabIndex = 43;
@@ -225,7 +229,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // checkBoxCardNum
             // 
             this.checkBoxCardNum.AutoSize = true;
-            this.checkBoxCardNum.Location = new System.Drawing.Point(192, 124);
+            this.checkBoxCardNum.Location = new System.Drawing.Point(324, 122);
             this.checkBoxCardNum.Name = "checkBoxCardNum";
             this.checkBoxCardNum.Size = new System.Drawing.Size(70, 22);
             this.checkBoxCardNum.TabIndex = 45;
@@ -235,7 +239,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // checkBoxCardType
             // 
             this.checkBoxCardType.AutoSize = true;
-            this.checkBoxCardType.Location = new System.Drawing.Point(351, 124);
+            this.checkBoxCardType.Location = new System.Drawing.Point(654, 123);
             this.checkBoxCardType.Name = "checkBoxCardType";
             this.checkBoxCardType.Size = new System.Drawing.Size(88, 22);
             this.checkBoxCardType.TabIndex = 46;
@@ -245,7 +249,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // checkBoxCarType
             // 
             this.checkBoxCarType.AutoSize = true;
-            this.checkBoxCarType.Location = new System.Drawing.Point(516, 124);
+            this.checkBoxCarType.Location = new System.Drawing.Point(924, 126);
             this.checkBoxCarType.Name = "checkBoxCarType";
             this.checkBoxCarType.Size = new System.Drawing.Size(106, 22);
             this.checkBoxCarType.TabIndex = 47;
@@ -255,7 +259,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             // RegularCardUserQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.ClientSize = new System.Drawing.Size(737, 667);
+            this.ClientSize = new System.Drawing.Size(1115, 667);
             this.Controls.Add(this.checkBoxCarType);
             this.Controls.Add(this.checkBoxCardType);
             this.Controls.Add(this.checkBoxCardNum);

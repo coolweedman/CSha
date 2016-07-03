@@ -84,15 +84,15 @@ namespace DatabaseProj.Code.Database {
             { strDbBaseParkingSpacePosiDesc[0], 0 },
             { strDbBaseParkingSpacePosiDesc[1], 1 },
         };
+        /// <summary>
+        /// 停车位区域描述
+        /// </summary>
         public static string[] strDbBaseParkingSpaceAeraDesc = {
             "A区",
             "B区",
             "C区",
             "D区",
         };
-        /// <summary>
-        /// 停车位区域描述
-        /// </summary>
         public static Dictionary<string, int> dicDbBaseParkingSpaceAeraDesc = new Dictionary<string, int>
         {
             { strDbBaseParkingSpaceAeraDesc[0], 0 },
@@ -100,11 +100,6 @@ namespace DatabaseProj.Code.Database {
             { strDbBaseParkingSpaceAeraDesc[2], 2 },
             { strDbBaseParkingSpaceAeraDesc[3], 3 },
         };
-
-        public static explicit operator CDbBaseTable (CDBAccountDb v)
-        {
-            throw new NotImplementedException();
-        }
 
         /// <summary>
         /// 付款方式描述
@@ -138,6 +133,9 @@ namespace DatabaseProj.Code.Database {
             { strDbBaseDBATypeDesc[2], 2 },
             { strDbBaseDBATypeDesc[3], 3 },
         };
+        /// <summary>
+        /// 数据库管理员权限
+        /// </summary>
         public static string[] strDbBaseAuthorityDesc = {
             "ROOT",
             "高",
@@ -381,7 +379,6 @@ namespace DatabaseProj.Code.Database {
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
         }
-
 
         /// <summary>
         /// 付款方式表

@@ -78,6 +78,18 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
 
             textBoxId.Text = "0";
             textBoxId.Enabled = false;
+            textBoxRearrange1.Text = "0";
+            textBoxRearrange2.Text = "0";
+            textBoxAttr1.Text = "null";
+            textBoxAttr2.Text = "null";
+            textBoxAttr3.Text = "null";
+            textBoxCarPlate.Text = "null";
+            textBoxPicPath.Text = "null";
+
+            comboBoxLockStat.SelectedIndex = (int)CParkingSpaceDb.EPsLockStat.PARKINGSPACE_LOCKSTATIDLE;
+            comboBoxSpaceType.SelectedIndex = (int)CParkingSpaceDb.EPsCarType.PARKINGSPACE_CARTYPESMALL;
+            comboBoxSpacePosi.SelectedIndex = (int)CParkingSpaceDb.EPsSpacePosi.PARKINGSPACE_POSIFORWARD;
+            comboBoxSpaceAera.SelectedIndex = (int)CParkingSpaceDb.EPsSpaceAera.PARKINGSPACE_AREAA;
         }
 
         /// <summary>
@@ -121,23 +133,29 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
         {
             int i = 0;
 
-            textBoxId.Text = listRecord[i++];
-            textBoxGarageNum.Text = listRecord[i++];
-            textBoxSpaceNum.Text = listRecord[i++];
-            textBoxCardNum.Text = listRecord[i++];
-            textBoxAxisX.Text = listRecord[i++];
-            textBoxAxisY.Text = listRecord[i++];
-            textBoxRearrange1.Text = listRecord[i++];
-            textBoxRearrange2.Text = listRecord[i++];
-            comboBoxLockStat.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpaceLockStatDesc[listRecord[i++]];
-            comboBoxSpaceType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
-            comboBoxSpacePosi.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpacePosiDesc[listRecord[i++]];
-            comboBoxSpaceAera.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpaceAeraDesc[listRecord[i++]];
-            textBoxAttr1.Text = listRecord[i++];
-            textBoxAttr2.Text = listRecord[i++];
-            textBoxAttr3.Text = listRecord[i++];
-            textBoxCarPlate.Text = listRecord[i++];
-            textBoxPicPath.Text = listRecord[i++];
+            try {
+                textBoxId.Text = listRecord[i++];
+                textBoxGarageNum.Text = listRecord[i++];
+                textBoxSpaceNum.Text = listRecord[i++];
+                textBoxCardNum.Text = listRecord[i++];
+                textBoxAxisX.Text = listRecord[i++];
+                textBoxAxisY.Text = listRecord[i++];
+                textBoxRearrange1.Text = listRecord[i++];
+                textBoxRearrange2.Text = listRecord[i++];
+                comboBoxLockStat.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpaceLockStatDesc[listRecord[i++]];
+                comboBoxSpaceType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
+                comboBoxSpacePosi.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpacePosiDesc[listRecord[i++]];
+                comboBoxSpaceAera.SelectedIndex = CDbBaseTable.dicDbBaseParkingSpaceAeraDesc[listRecord[i++]];
+                textBoxAttr1.Text = listRecord[i++];
+                textBoxAttr2.Text = listRecord[i++];
+                textBoxAttr3.Text = listRecord[i++];
+                textBoxCarPlate.Text = listRecord[i++];
+                textBoxPicPath.Text = listRecord[i++];
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -145,23 +163,29 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
         /// </summary>
         public override void dbStru2Ui ()
         {
-            textBoxId.Text = sPsStru.iId.ToString();
-            textBoxGarageNum.Text = sPsStru.iGarageNum.ToString();
-            textBoxSpaceNum.Text = sPsStru.iSpaceNum.ToString();
-            textBoxCardNum.Text = sPsStru.strCardNum; ;
-            textBoxAxisX.Text = sPsStru.dAxisX.ToString();
-            textBoxAxisY.Text = sPsStru.dAxisY.ToString();
-            textBoxRearrange1.Text = sPsStru.iRearrange1.ToString();
-            textBoxRearrange2.Text = sPsStru.iRearrange2.ToString();
-            comboBoxLockStat.SelectedIndex = sPsStru.iLockStat;
-            comboBoxSpaceType.SelectedIndex = sPsStru.iSpaceType;
-            comboBoxSpacePosi.SelectedIndex = sPsStru.iSpacePosi;
-            comboBoxSpaceAera.SelectedIndex = sPsStru.iSpaceAera;
-            textBoxAttr1.Text = sPsStru.strAttr1;
-            textBoxAttr2.Text = sPsStru.strAttr2;
-            textBoxAttr3.Text = sPsStru.strAttr3;
-            textBoxCarPlate.Text = sPsStru.strCarPlate;
-            textBoxPicPath.Text = sPsStru.strPicPath;
+            try {
+                textBoxId.Text = sPsStru.iId.ToString();
+                textBoxGarageNum.Text = sPsStru.iGarageNum.ToString();
+                textBoxSpaceNum.Text = sPsStru.iSpaceNum.ToString();
+                textBoxCardNum.Text = sPsStru.strCardNum; ;
+                textBoxAxisX.Text = sPsStru.dAxisX.ToString();
+                textBoxAxisY.Text = sPsStru.dAxisY.ToString();
+                textBoxRearrange1.Text = sPsStru.iRearrange1.ToString();
+                textBoxRearrange2.Text = sPsStru.iRearrange2.ToString();
+                comboBoxLockStat.SelectedIndex = sPsStru.iLockStat;
+                comboBoxSpaceType.SelectedIndex = sPsStru.iSpaceType;
+                comboBoxSpacePosi.SelectedIndex = sPsStru.iSpacePosi;
+                comboBoxSpaceAera.SelectedIndex = sPsStru.iSpaceAera;
+                textBoxAttr1.Text = sPsStru.strAttr1;
+                textBoxAttr2.Text = sPsStru.strAttr2;
+                textBoxAttr3.Text = sPsStru.strAttr3;
+                textBoxCarPlate.Text = sPsStru.strCarPlate;
+                textBoxPicPath.Text = sPsStru.strPicPath;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -201,6 +225,41 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
                 CDebugPrint.dbgExpectionMsgPrint( ex );
             }
+        }
+
+        /// <summary>
+        /// 停车位编辑界面 输入检查
+        /// </summary>
+        /// <returns></returns>
+        public override EDbEditUiStat dbUiStatChk ()
+        {
+            if ( "" == textBoxGarageNum.Text ) {
+                textBoxGarageNum.Select();
+                dbUiStatSet( "车库号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxSpaceNum.Text ) {
+                textBoxSpaceNum.Select();
+                dbUiStatSet( "车位号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxCardNum.Text ) {
+                textBoxCardNum.Select();
+                dbUiStatSet( "卡号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxAxisX.Text ) {
+                textBoxAxisX.Select();
+                dbUiStatSet( "X轴未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxAxisY.Text ) {
+                textBoxAxisY.Select();
+                dbUiStatSet( "Y轴未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            return EDbEditUiStat.DBEDITUISTAT_OK;
         }
 
         private new void InitializeComponent ()

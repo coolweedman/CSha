@@ -139,22 +139,39 @@ namespace DatabaseProj.UI.Base {
             }
         }
 
+        /// <summary>
+        /// 数据库数据显示 编辑处理
+        /// </summary>
+        /// <returns></returns>
         protected virtual EDbDataShowStat dbRecordEditProc ()
         {
             return EDbDataShowStat.DBDATASHOW_FAILED;
         }
 
+        /// <summary>
+        /// 数据库数据显示 删除处理
+        /// </summary>
+        /// <returns></returns>
         protected virtual EDbDataShowStat dbRecordDeleteProc ()
         {
             return EDbDataShowStat.DBDATASHOW_FAILED;
         }
 
-
+        /// <summary>
+        /// 数据库数据显示 编辑事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 编辑ToolStripMenuItem_Click (object sender, EventArgs e)
         {
             dbDataShowStatSet( dbRecordEditProc () );
         }
 
+        /// <summary>
+        /// 数据库数据显示 删除事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 删除ToolStripMenuItem_Click (object sender, EventArgs e)
         {
             dbDataShowStatSet( dbRecordDeleteProc() );

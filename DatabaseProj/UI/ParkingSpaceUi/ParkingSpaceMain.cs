@@ -9,7 +9,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
 
         public ParkingSpaceMain (CDatebaseBase hDbBase, string strTitle = "Parking Space Main Window") : base( hDbBase, strTitle )
         {
-            
+            dbDataShowHeadSet( hDbTable.dataBaseBaseHeadDescGet() );
         }
 
         /// <summary>

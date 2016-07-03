@@ -116,10 +116,14 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(1142, 595);
+            // 
             // comboBoxSpaceAera
             // 
             this.comboBoxSpaceAera.FormattingEnabled = true;
-            this.comboBoxSpaceAera.Location = new System.Drawing.Point(392, 171);
+            this.comboBoxSpaceAera.Location = new System.Drawing.Point(620, 173);
             this.comboBoxSpaceAera.Name = "comboBoxSpaceAera";
             this.comboBoxSpaceAera.Size = new System.Drawing.Size(121, 26);
             this.comboBoxSpaceAera.TabIndex = 12;
@@ -127,7 +131,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // checkBoxSpaceAera
             // 
             this.checkBoxSpaceAera.AutoSize = true;
-            this.checkBoxSpaceAera.Location = new System.Drawing.Point(392, 126);
+            this.checkBoxSpaceAera.Location = new System.Drawing.Point(620, 128);
             this.checkBoxSpaceAera.Name = "checkBoxSpaceAera";
             this.checkBoxSpaceAera.Size = new System.Drawing.Size(106, 22);
             this.checkBoxSpaceAera.TabIndex = 11;
@@ -137,7 +141,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // comboBoxSpaceType
             // 
             this.comboBoxSpaceType.FormattingEnabled = true;
-            this.comboBoxSpaceType.Location = new System.Drawing.Point(201, 171);
+            this.comboBoxSpaceType.Location = new System.Drawing.Point(300, 173);
             this.comboBoxSpaceType.Name = "comboBoxSpaceType";
             this.comboBoxSpaceType.Size = new System.Drawing.Size(121, 26);
             this.comboBoxSpaceType.TabIndex = 10;
@@ -145,7 +149,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // checkBoxSpaceType
             // 
             this.checkBoxSpaceType.AutoSize = true;
-            this.checkBoxSpaceType.Location = new System.Drawing.Point(201, 126);
+            this.checkBoxSpaceType.Location = new System.Drawing.Point(300, 128);
             this.checkBoxSpaceType.Name = "checkBoxSpaceType";
             this.checkBoxSpaceType.Size = new System.Drawing.Size(106, 22);
             this.checkBoxSpaceType.TabIndex = 9;
@@ -190,7 +194,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // checkBoxCarPlate
             // 
             this.checkBoxCarPlate.AutoSize = true;
-            this.checkBoxCarPlate.Location = new System.Drawing.Point(576, 126);
+            this.checkBoxCarPlate.Location = new System.Drawing.Point(933, 129);
             this.checkBoxCarPlate.Name = "checkBoxCarPlate";
             this.checkBoxCarPlate.Size = new System.Drawing.Size(88, 22);
             this.checkBoxCarPlate.TabIndex = 43;
@@ -200,7 +204,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // checkBoxCardNum
             // 
             this.checkBoxCardNum.AutoSize = true;
-            this.checkBoxCardNum.Location = new System.Drawing.Point(576, 21);
+            this.checkBoxCardNum.Location = new System.Drawing.Point(933, 24);
             this.checkBoxCardNum.Name = "checkBoxCardNum";
             this.checkBoxCardNum.Size = new System.Drawing.Size(70, 22);
             this.checkBoxCardNum.TabIndex = 44;
@@ -210,7 +214,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // checkBoxSpaceNum
             // 
             this.checkBoxSpaceNum.AutoSize = true;
-            this.checkBoxSpaceNum.Location = new System.Drawing.Point(392, 21);
+            this.checkBoxSpaceNum.Location = new System.Drawing.Point(620, 23);
             this.checkBoxSpaceNum.Name = "checkBoxSpaceNum";
             this.checkBoxSpaceNum.Size = new System.Drawing.Size(88, 22);
             this.checkBoxSpaceNum.TabIndex = 45;
@@ -220,7 +224,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // checkBoxGarageNum
             // 
             this.checkBoxGarageNum.AutoSize = true;
-            this.checkBoxGarageNum.Location = new System.Drawing.Point(201, 21);
+            this.checkBoxGarageNum.Location = new System.Drawing.Point(300, 23);
             this.checkBoxGarageNum.Name = "checkBoxGarageNum";
             this.checkBoxGarageNum.Size = new System.Drawing.Size(88, 22);
             this.checkBoxGarageNum.TabIndex = 46;
@@ -229,28 +233,28 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // 
             // textBoxGarageNum
             // 
-            this.textBoxGarageNum.Location = new System.Drawing.Point(201, 62);
+            this.textBoxGarageNum.Location = new System.Drawing.Point(300, 64);
             this.textBoxGarageNum.Name = "textBoxGarageNum";
             this.textBoxGarageNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxGarageNum.TabIndex = 47;
             // 
             // textBoxSpaceNum
             // 
-            this.textBoxSpaceNum.Location = new System.Drawing.Point(392, 62);
+            this.textBoxSpaceNum.Location = new System.Drawing.Point(620, 64);
             this.textBoxSpaceNum.Name = "textBoxSpaceNum";
             this.textBoxSpaceNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxSpaceNum.TabIndex = 48;
             // 
             // textBoxCardNum
             // 
-            this.textBoxCardNum.Location = new System.Drawing.Point(576, 61);
+            this.textBoxCardNum.Location = new System.Drawing.Point(933, 64);
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxCardNum.TabIndex = 49;
             // 
             // textBoxCarPlate
             // 
-            this.textBoxCarPlate.Location = new System.Drawing.Point(576, 168);
+            this.textBoxCarPlate.Location = new System.Drawing.Point(933, 171);
             this.textBoxCarPlate.Name = "textBoxCarPlate";
             this.textBoxCarPlate.Size = new System.Drawing.Size(100, 28);
             this.textBoxCarPlate.TabIndex = 50;
@@ -258,7 +262,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             // ParkingSpaceQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.ClientSize = new System.Drawing.Size(737, 667);
+            this.ClientSize = new System.Drawing.Size(1103, 667);
             this.Controls.Add(this.textBoxCarPlate);
             this.Controls.Add(this.textBoxCardNum);
             this.Controls.Add(this.textBoxSpaceNum);

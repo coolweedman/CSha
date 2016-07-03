@@ -39,7 +39,7 @@
             this.dataGridViewDb.Location = new System.Drawing.Point(12, 230);
             this.dataGridViewDb.Name = "dataGridViewDb";
             this.dataGridViewDb.RowTemplate.Height = 30;
-            this.dataGridViewDb.Size = new System.Drawing.Size(713, 341);
+            this.dataGridViewDb.Size = new System.Drawing.Size(1079, 341);
             this.dataGridViewDb.TabIndex = 0;
             // 
             // buttonOk
@@ -57,7 +57,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(410, 595);
+            this.buttonCancel.Location = new System.Drawing.Point(776, 595);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(90, 35);
             this.buttonCancel.TabIndex = 2;
@@ -71,7 +71,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(737, 667);
+            this.ClientSize = new System.Drawing.Size(1103, 667);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.dataGridViewDb);

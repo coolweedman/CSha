@@ -11,7 +11,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
 
         public RegularCardUserMain(CDatebaseBase hDbBase, string strTitle = "DBA Main Window") : base( hDbBase, strTitle )
         {
-
+            dbDataShowHeadSet( hDbTable.dataBaseBaseHeadDescGet() );
         }
 
         /// <summary>

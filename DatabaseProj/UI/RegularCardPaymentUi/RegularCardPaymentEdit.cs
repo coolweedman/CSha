@@ -74,14 +74,20 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             DateTime sDataTimePay = new DateTime();
             DateTime sDataTimeValid = new DateTime();
 
-            textBoxId.Text = listRecord[i++];
-            textBoxRcuId.Text = listRecord[i++];
-            sDataTimePay = DateTime.Parse( listRecord[i++] );
-            textBoxPayMoney.Text = listRecord[i++];
-            sDataTimeValid = DateTime.Parse( listRecord[i++] );
+            try {
+                textBoxId.Text = listRecord[i++];
+                textBoxRcuId.Text = listRecord[i++];
+                sDataTimePay = DateTime.Parse( listRecord[i++] );
+                textBoxPayMoney.Text = listRecord[i++];
+                sDataTimeValid = DateTime.Parse( listRecord[i++] );
 
-            dateTimePickerPayTime.Value = sDataTimePay;
-            dateTimePickerVaildTime.Value = sDataTimeValid;
+                dateTimePickerPayTime.Value = sDataTimePay;
+                dateTimePickerVaildTime.Value = sDataTimeValid;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -89,11 +95,17 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         /// </summary>
         public override void dbStru2Ui ()
         {
-            textBoxId.Text = sRcpStru.iId.ToString();
-            textBoxRcuId.Text = sRcpStru.iRcuId.ToString();
-            textBoxPayMoney.Text = sRcpStru.dPayMoney.ToString();
-            dateTimePickerPayTime.Value = sRcpStru.sPayTime;
-            dateTimePickerVaildTime.Value = sRcpStru.sVaildTime;
+            try {
+                textBoxId.Text = sRcpStru.iId.ToString();
+                textBoxRcuId.Text = sRcpStru.iRcuId.ToString();
+                textBoxPayMoney.Text = sRcpStru.dPayMoney.ToString();
+                dateTimePickerPayTime.Value = sRcpStru.sPayTime;
+                dateTimePickerVaildTime.Value = sRcpStru.sVaildTime;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -110,11 +122,37 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         /// </summary>
         public override void dbUi2Stru ()
         {
-            sRcpStru.iId = int.Parse( textBoxId.Text );
-            sRcpStru.iRcuId = int.Parse( textBoxRcuId.Text );
-            sRcpStru.sPayTime = dateTimePickerPayTime.Value;
-            sRcpStru.dPayMoney = double.Parse( textBoxPayMoney.Text );
-            sRcpStru.sVaildTime = dateTimePickerVaildTime.Value;
+            try {
+                sRcpStru.iId = int.Parse( textBoxId.Text );
+                sRcpStru.iRcuId = int.Parse( textBoxRcuId.Text );
+                sRcpStru.sPayTime = dateTimePickerPayTime.Value;
+                sRcpStru.dPayMoney = double.Parse( textBoxPayMoney.Text );
+                sRcpStru.sVaildTime = dateTimePickerVaildTime.Value;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 固定卡收费编辑 UI输入检查
+        /// </summary>
+        /// <returns></returns>
+        public override EDbEditUiStat dbUiStatChk ()
+        {
+            if ( "" == textBoxRcuId.Text ) {
+                textBoxRcuId.Select();
+                dbUiStatSet( "固定卡ID未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxPayMoney.Text ) {
+                textBoxPayMoney.Select();
+                dbUiStatSet( "付款金额未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            return EDbEditUiStat.DBEDITUISTAT_OK;
         }
 
         private new void InitializeComponent ()

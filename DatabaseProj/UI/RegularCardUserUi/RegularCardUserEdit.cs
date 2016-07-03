@@ -45,15 +45,15 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             for ( int i=0; i<CDbBaseTable.strDbBaseParkingCardTypeDesc.Length; i++ ) {
                 comboBoxCardType.Items.Add( CDbBaseTable.strDbBaseParkingCardTypeDesc[i] );
             }
-            comboBoxCardType.SelectedIndex = 0;
 
             for ( int i=0; i< CDbBaseTable.strDbBaseParkingCarTypeDesc.Length; i++  ) {
                 comboBoxCarType.Items.Add( CDbBaseTable.strDbBaseParkingCarTypeDesc[i] );
             }
-            comboBoxCarType.SelectedIndex = CDbBaseTable.strDbBaseParkingCarTypeDesc.Length - 2;
 
             textBoxId.Text = "0";
             textBoxId.Enabled = false;
+            comboBoxCardType.SelectedIndex = (int)CRegularCardUserDb.ERcuCardType.RCUCARDTYPE_MONTH;
+            comboBoxCarType.SelectedIndex = (int)CRegularCardUserDb.ERcuCarType.RCUCARTYPE_SMALL;
         }
 
         /// <summary>
@@ -88,14 +88,20 @@ namespace DatabaseProj.UI.RegularCardUserUi {
         {
             int i = 0;
 
-            textBoxId.Text = listRecord[i++];
-            textBoxUserName.Text = listRecord[i++];
-            textBoxUserIdent.Text = listRecord[i++];
-            textBoxUserPhone.Text = listRecord[i++];
-            textBoxCarPlate.Text = listRecord[i++];
-            textBoxCardNum.Text = listRecord[i++];
-            comboBoxCardType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCardTypeDesc[listRecord[i++]];
-            comboBoxCarType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
+            try {
+                textBoxId.Text = listRecord[i++];
+                textBoxUserName.Text = listRecord[i++];
+                textBoxUserIdent.Text = listRecord[i++];
+                textBoxUserPhone.Text = listRecord[i++];
+                textBoxCarPlate.Text = listRecord[i++];
+                textBoxCardNum.Text = listRecord[i++];
+                comboBoxCardType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCardTypeDesc[listRecord[i++]];
+                comboBoxCarType.SelectedIndex = CDbBaseTable.dicDbBaseParkingCarTypeDesc[listRecord[i++]];
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -103,14 +109,20 @@ namespace DatabaseProj.UI.RegularCardUserUi {
         /// </summary>
         public override void dbStru2Ui ()
         {
-            textBoxId.Text = sRcuStru.iId.ToString();
-            textBoxUserName.Text = sRcuStru.strUserName;
-            textBoxUserIdent.Text = sRcuStru.strUserIdent;
-            textBoxUserPhone.Text = sRcuStru.strUserPhone;
-            textBoxCarPlate.Text = sRcuStru.strCarPlate;
-            textBoxCardNum.Text = sRcuStru.strCardNum;
-            comboBoxCardType.SelectedIndex = sRcuStru.iCardType;
-            comboBoxCarType.SelectedIndex = sRcuStru.iCarType;
+            try {
+                textBoxId.Text = sRcuStru.iId.ToString();
+                textBoxUserName.Text = sRcuStru.strUserName;
+                textBoxUserIdent.Text = sRcuStru.strUserIdent;
+                textBoxUserPhone.Text = sRcuStru.strUserPhone;
+                textBoxCarPlate.Text = sRcuStru.strCarPlate;
+                textBoxCardNum.Text = sRcuStru.strCardNum;
+                comboBoxCardType.SelectedIndex = sRcuStru.iCardType;
+                comboBoxCarType.SelectedIndex = sRcuStru.iCarType;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -127,14 +139,55 @@ namespace DatabaseProj.UI.RegularCardUserUi {
         /// </summary>
         public override void dbUi2Stru ()
         {
-            sRcuStru.iId = int.Parse( textBoxId.Text );
-            sRcuStru.strUserName = textBoxUserName.Text;
-            sRcuStru.strUserIdent = textBoxUserIdent.Text;
-            sRcuStru.strUserPhone = textBoxUserPhone.Text;
-            sRcuStru.strCarPlate = textBoxCarPlate.Text;
-            sRcuStru.strCardNum = textBoxCardNum.Text;
-            sRcuStru.iCardType = comboBoxCardType.SelectedIndex;
-            sRcuStru.iCarType = comboBoxCarType.SelectedIndex;
+            try {
+                sRcuStru.iId = int.Parse( textBoxId.Text );
+                sRcuStru.strUserName = textBoxUserName.Text;
+                sRcuStru.strUserIdent = textBoxUserIdent.Text;
+                sRcuStru.strUserPhone = textBoxUserPhone.Text;
+                sRcuStru.strCarPlate = textBoxCarPlate.Text;
+                sRcuStru.strCardNum = textBoxCardNum.Text;
+                sRcuStru.iCardType = comboBoxCardType.SelectedIndex;
+                sRcuStru.iCarType = comboBoxCarType.SelectedIndex;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 停车卡用户编辑 UI输入检查
+        /// </summary>
+        /// <returns></returns>
+        public override EDbEditUiStat dbUiStatChk ()
+        {
+            if ( "" == textBoxUserName.Text ) {
+                textBoxUserName.Select();
+                dbUiStatSet( "用户姓名未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxUserIdent.Text ) {
+                textBoxUserIdent.Select();
+                dbUiStatSet( "身份证未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxUserPhone.Text ) {
+                textBoxUserPhone.Select();
+                dbUiStatSet( "手机号码未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxCarPlate.Text ) {
+                textBoxCarPlate.Select();
+                dbUiStatSet( "车牌未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxCardNum.Text ) {
+                textBoxCardNum.Select();
+                dbUiStatSet( "卡号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            return EDbEditUiStat.DBEDITUISTAT_OK;
         }
 
         private new void InitializeComponent ()

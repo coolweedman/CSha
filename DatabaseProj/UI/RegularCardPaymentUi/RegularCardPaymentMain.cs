@@ -10,7 +10,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
 
         public RegularCardPaymentMain (CDatebaseBase hDbBase, string strTitle = "Regular Card Payment Main Window") : base( hDbBase, strTitle )
         {
-            
+            dbDataShowHeadSet( hDbTable.dataBaseBaseHeadDescGet() );
         }
 
         /// <summary>

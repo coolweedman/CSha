@@ -62,6 +62,7 @@ namespace DatabaseProj.UI.Base {
                 hDataTable.Clear();
                 hDataTable.Load( hReader );
                 dataGridViewDb.DataSource = hDataTable;
+                dbRecordQueryHeadSet( hDbTable.dataBaseBaseHeadDescGet() );
             } catch ( Exception ex ) {
                 CDebugPrint.dbgUserMsgPrint( "dbRecordQuery: Reflash fail..." );
                 CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
