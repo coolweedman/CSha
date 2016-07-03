@@ -42,6 +42,8 @@ namespace DatabaseProj.Code.Database {
                                     "RegularCardUser.CardNum, " +
                                     "RegularCardUser.CardType, " +
                                     "RegularCardUser.CarType, " +
+                                    "RegularCardPayment.Id, " +
+                                    "RegularCardPayment.RcuId, " +
                                     "RegularCardPayment.PayTime, " +
                                     "RegularCardPayment.PayMoney, " +
                                     "RegularCardPayment.VaildTime " +

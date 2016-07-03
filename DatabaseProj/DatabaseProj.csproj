@@ -85,10 +85,10 @@
     <Compile Include="UI\Base\DbTableMainBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DBALogInUi.cs">
+    <Compile Include="UI\DBALogInUi\DBALogInMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DBALogInUi.Designer.cs" />
+    <Compile Include="UI\DBALogInUi\DBALogInMain.Designer.cs" />
     <Compile Include="UI\DBAUi\DbDBAEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,7 +158,7 @@
     <EmbeddedResource Include="UI\Base\DbTableMainBase.resx">
       <DependentUpon>DbTableMainBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\DBALogInUi.resx" />
+    <EmbeddedResource Include="UI\DBALogInUi\DBALogInMain.resx" />
     <EmbeddedResource Include="UI\DBAUi\DbDBAEdit.resx">
       <DependentUpon>DbDBAEdit.cs</DependentUpon>
     </EmbeddedResource>

@@ -46,6 +46,9 @@ namespace DatabaseProj.Code.Main {
             CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
             hParkingRecordDb.dataBaseBaseDeRecordInsert();
 
+            CRegularCardView hRegularCardView = new CRegularCardView();
+            hRegularCardView.rcvViewCreate();
+
             MessageBox.Show( "Default Table Created" );
         }
 
@@ -56,7 +59,7 @@ namespace DatabaseProj.Code.Main {
         /// <param name="e"></param>
         private void logInToolStripMenuItem_Click (object sender, EventArgs e)
         {
-            DBALogInUi hDbaLogInUi = new DBALogInUi();
+            DBALogInMain hDbaLogInUi = new DBALogInMain();
             hDbaLogInUi.Show();
         }
 
