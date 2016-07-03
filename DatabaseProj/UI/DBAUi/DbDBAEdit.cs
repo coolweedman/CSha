@@ -44,15 +44,15 @@ namespace DatabaseProj.UI.DBAUi {
             foreach ( string str in CDbBaseTable.strDbBaseDBATypeDesc ) {
                 comboBoxType.Items.Add( str );
             }
-            comboBoxType.SelectedIndex = CDbBaseTable.strDbBaseDBATypeDesc.Length - 1;
 
             foreach ( string str in CDbBaseTable.strDbBaseAuthorityDesc ) {
                 comboBoxAuthority.Items.Add( str );
             }
-            comboBoxAuthority.SelectedIndex = CDbBaseTable.strDbBaseAuthorityDesc.Length - 1;
 
             textBoxId.Text = "0";
             textBoxId.Enabled = false;
+            comboBoxType.SelectedIndex = (int)CDBAccountDb.EDBAccountType.DBATYPE_USER;
+            comboBoxAuthority.SelectedIndex = (int)CDBAccountDb.EDBAccountAuthority.DBAAUTHORITY_READ;
         }
 
         /// <summary>
@@ -86,13 +86,19 @@ namespace DatabaseProj.UI.DBAUi {
         {
             int i = 0;
 
-            textBoxId.Text = listRecord[i++];
-            comboBoxType.SelectedIndex = CDbBaseTable.dicDbBaseDBATypeDesc[listRecord[i++]];
-            textBoxAccount.Text = listRecord[i++];
-            textBoxPassword.Text = listRecord[i++];
-            comboBoxAuthority.SelectedIndex = CDbBaseTable.dicDbBaseAuthorityDesc[listRecord[i++]];
-            textBoxName.Text = listRecord[i++];
-            textBoxJobNuym.Text = listRecord[i++];
+            try { 
+                textBoxId.Text = listRecord[i++];
+                comboBoxType.SelectedIndex = CDbBaseTable.dicDbBaseDBATypeDesc[listRecord[i++]];
+                textBoxAccount.Text = listRecord[i++];
+                textBoxPassword.Text = listRecord[i++];
+                comboBoxAuthority.SelectedIndex = CDbBaseTable.dicDbBaseAuthorityDesc[listRecord[i++]];
+                textBoxName.Text = listRecord[i++];
+                textBoxJobNuym.Text = listRecord[i++];
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -100,13 +106,19 @@ namespace DatabaseProj.UI.DBAUi {
         /// </summary>
         public override void dbStru2Ui ()
         {
-            textBoxId.Text = sDBAStru.iId.ToString();
-            comboBoxType.SelectedIndex = sDBAStru.iType;
-            textBoxAccount.Text = sDBAStru.strAccount;
-            textBoxPassword.Text = sDBAStru.strPassword;
-            comboBoxAuthority.SelectedIndex = sDBAStru.iAuthority;
-            textBoxName.Text = sDBAStru.strAccount;
-            textBoxJobNuym.Text = sDBAStru.strPassword;
+            try {
+                textBoxId.Text = sDBAStru.iId.ToString();
+                comboBoxType.SelectedIndex = sDBAStru.iType;
+                textBoxAccount.Text = sDBAStru.strAccount;
+                textBoxPassword.Text = sDBAStru.strPassword;
+                comboBoxAuthority.SelectedIndex = sDBAStru.iAuthority;
+                textBoxName.Text = sDBAStru.strAccount;
+                textBoxJobNuym.Text = sDBAStru.strPassword;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -123,13 +135,48 @@ namespace DatabaseProj.UI.DBAUi {
         /// </summary>
         public override void dbUi2Stru ()
         {
-            sDBAStru.iId = int.Parse( textBoxId.Text );
-            sDBAStru.iType = comboBoxType.SelectedIndex;
-            sDBAStru.strAccount = textBoxAccount.Text;
-            sDBAStru.strPassword = textBoxPassword.Text;
-            sDBAStru.iAuthority = comboBoxAuthority.SelectedIndex;
-            sDBAStru.strName = textBoxName.Text;
-            sDBAStru.strJobNum = textBoxJobNuym.Text;
+            try {
+                sDBAStru.iId = int.Parse( textBoxId.Text );
+                sDBAStru.iType = comboBoxType.SelectedIndex;
+                sDBAStru.strAccount = textBoxAccount.Text;
+                sDBAStru.strPassword = textBoxPassword.Text;
+                sDBAStru.iAuthority = comboBoxAuthority.SelectedIndex;
+                sDBAStru.strName = textBoxName.Text;
+                sDBAStru.strJobNum = textBoxJobNuym.Text;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 数据库管理员编辑 UI输入检测
+        /// </summary>
+        /// <returns></returns>
+        public override EDbEditUiStat dbUiStatChk ()
+        {
+            if ( -1 == comboBoxType.SelectedIndex　) {
+                dbUiStatSet( "管理员类型未选择..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxAccount.Text ) {
+                textBoxAccount.Select();
+                dbUiStatSet( "管理员登录账号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxPassword.Text ) {
+                textBoxPassword.Select();
+                dbUiStatSet( "管理员登录密码未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxName.Text ) {
+                textBoxName.Select();
+                dbUiStatSet( "管理员姓名未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            return EDbEditUiStat.DBEDITUISTAT_OK;
         }
 
         private new void InitializeComponent ()

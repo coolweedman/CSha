@@ -8,6 +8,9 @@ using System.Text;
 
 namespace DatabaseProj.UI.ParkingRecordUi {
 
+    /// <summary>
+    /// 停车记录编辑界面
+    /// </summary>
     public class ParkingRecordEdit : DbRecordEditBase {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -68,6 +71,14 @@ namespace DatabaseProj.UI.ParkingRecordUi {
 
             textBoxId.Text = "0";
             textBoxId.Enabled = false;
+            textBoxBillNum.Text = "null";
+            textBoxCarPlate.Text = "null";
+            textBoxPicPath.Text = "0";
+            textBoxMoneyIn.Text = "10";
+            textBoxPayMoney.Text = "10";
+            textBoxRemarks.Text = "null";
+            comboBoxDBAType.SelectedIndex = (int)CDBAccountDb.EDBAccountType.DBATYPE_USER;
+            comboBoxPayMode.SelectedIndex = (int)CParkingRecordDb.EParkingRecordPayMode.PARKINGRECORD_PAYCASH;
         }
 
         /// <summary>
@@ -119,29 +130,35 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             DateTime sDataTimeIn = new DateTime();
             DateTime sDataTimeOut = new DateTime();
 
-            textBoxId.Text = listRecord[i++];
-            textBoxGarageNum.Text = listRecord[i++];
-            textBoxSpaceNum.Text = listRecord[i++];
-            textBoxCardNum.Text = listRecord[i++];
-            textBoxBillNum.Text = listRecord[i++];
+            try {
+                textBoxId.Text = listRecord[i++];
+                textBoxGarageNum.Text = listRecord[i++];
+                textBoxSpaceNum.Text = listRecord[i++];
+                textBoxCardNum.Text = listRecord[i++];
+                textBoxBillNum.Text = listRecord[i++];
 
-            sDataBillDate = DateTime.Parse( listRecord[i++] );
-            sDataTimeIn = DateTime.Parse( listRecord[i++] );
-            sDataTimeOut = DateTime.Parse( listRecord[i++] );
-            dateTimePickerBillDate.Value = sDataBillDate;
-            dateTimePickerCarInTime.Value = sDataTimeIn;
-            dateTimePickerCarOutTime.Value = sDataTimeOut;
+                sDataBillDate = DateTime.Parse( listRecord[i++] );
+                sDataTimeIn = DateTime.Parse( listRecord[i++] );
+                sDataTimeOut = DateTime.Parse( listRecord[i++] );
+                dateTimePickerBillDate.Value = sDataBillDate;
+                dateTimePickerCarInTime.Value = sDataTimeIn;
+                dateTimePickerCarOutTime.Value = sDataTimeOut;
 
-            textBoxCarPlate.Text = listRecord[i++];
-            textBoxPicPath.Text = listRecord[i++];
+                textBoxCarPlate.Text = listRecord[i++];
+                textBoxPicPath.Text = listRecord[i++];
 
-            textBoxMoneyIn.Text = listRecord[i++];
-            textBoxPayMoney.Text = listRecord[i++];
+                textBoxMoneyIn.Text = listRecord[i++];
+                textBoxPayMoney.Text = listRecord[i++];
 
-            comboBoxPayMode.SelectedIndex = CDbBaseTable.dicDbBasePayModeDesc[listRecord[i++]];
-            textBoxDBAName.Text = listRecord[i++];
-            comboBoxDBAType.SelectedIndex = CDbBaseTable.dicDbBaseDBATypeDesc[listRecord[i++]];
-            textBoxRemarks.Text = listRecord[i++];
+                comboBoxPayMode.SelectedIndex = CDbBaseTable.dicDbBasePayModeDesc[listRecord[i++]];
+                textBoxDBAName.Text = listRecord[i++];
+                comboBoxDBAType.SelectedIndex = CDbBaseTable.dicDbBaseDBATypeDesc[listRecord[i++]];
+                textBoxRemarks.Text = listRecord[i++];
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
         /// <summary>
@@ -149,26 +166,32 @@ namespace DatabaseProj.UI.ParkingRecordUi {
         /// </summary>
         public override void dbStru2Ui ()
         {
-            textBoxId.Text = sParkingRecordStru.iId.ToString();
-            textBoxGarageNum.Text = sParkingRecordStru.iGarageNum.ToString();
-            textBoxSpaceNum.Text = sParkingRecordStru.iSpaceNum.ToString();
-            textBoxCardNum.Text = sParkingRecordStru.strCardNum.ToString();
-            textBoxBillNum.Text = sParkingRecordStru.strBillNum.ToString();
+            try {
+                textBoxId.Text = sParkingRecordStru.iId.ToString();
+                textBoxGarageNum.Text = sParkingRecordStru.iGarageNum.ToString();
+                textBoxSpaceNum.Text = sParkingRecordStru.iSpaceNum.ToString();
+                textBoxCardNum.Text = sParkingRecordStru.strCardNum.ToString();
+                textBoxBillNum.Text = sParkingRecordStru.strBillNum.ToString();
 
-            dateTimePickerBillDate.Value = sParkingRecordStru.sBillDate;
-            dateTimePickerCarInTime.Value = sParkingRecordStru.sCarInTime;
-            dateTimePickerCarOutTime.Value = sParkingRecordStru.sCarOutTime;
+                dateTimePickerBillDate.Value = sParkingRecordStru.sBillDate;
+                dateTimePickerCarInTime.Value = sParkingRecordStru.sCarInTime;
+                dateTimePickerCarOutTime.Value = sParkingRecordStru.sCarOutTime;
 
-            textBoxCarPlate.Text = sParkingRecordStru.strCarPlate;
-            textBoxPicPath.Text = sParkingRecordStru.strPicPath;
+                textBoxCarPlate.Text = sParkingRecordStru.strCarPlate;
+                textBoxPicPath.Text = sParkingRecordStru.strPicPath;
 
-            textBoxMoneyIn.Text = sParkingRecordStru.dMoneyIn.ToString();
-            textBoxPayMoney.Text = sParkingRecordStru.dMoneyPay.ToString();
+                textBoxMoneyIn.Text = sParkingRecordStru.dMoneyIn.ToString();
+                textBoxPayMoney.Text = sParkingRecordStru.dMoneyPay.ToString();
 
-            comboBoxPayMode.SelectedIndex = sParkingRecordStru.iPayMode;
-            textBoxDBAName.Text = sParkingRecordStru.strDBAName;
-            comboBoxDBAType.SelectedIndex = sParkingRecordStru.iDBAType;
-            textBoxRemarks.Text = sParkingRecordStru.strRemarks;
+                comboBoxPayMode.SelectedIndex = sParkingRecordStru.iPayMode;
+                textBoxDBAName.Text = sParkingRecordStru.strDBAName;
+                comboBoxDBAType.SelectedIndex = sParkingRecordStru.iDBAType;
+                textBoxRemarks.Text = sParkingRecordStru.strRemarks;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
 
 
@@ -186,26 +209,63 @@ namespace DatabaseProj.UI.ParkingRecordUi {
         /// </summary>
         public override void dbUi2Stru ()
         {
-            sParkingRecordStru.iId = int.Parse( textBoxId.Text );
-            sParkingRecordStru.iGarageNum = int.Parse( textBoxGarageNum.Text );
-            sParkingRecordStru.iSpaceNum = int.Parse( textBoxSpaceNum.Text );
-            sParkingRecordStru.strCardNum = textBoxCardNum.Text;
-            sParkingRecordStru.strBillNum = textBoxBillNum.Text;
+            try {
+                sParkingRecordStru.iId = int.Parse( textBoxId.Text );
+                sParkingRecordStru.iGarageNum = int.Parse( textBoxGarageNum.Text );
+                sParkingRecordStru.iSpaceNum = int.Parse( textBoxSpaceNum.Text );
+                sParkingRecordStru.strCardNum = textBoxCardNum.Text;
+                sParkingRecordStru.strBillNum = textBoxBillNum.Text;
 
-            sParkingRecordStru.sBillDate = dateTimePickerBillDate.Value;
-            sParkingRecordStru.sCarInTime = dateTimePickerCarInTime.Value;
-            sParkingRecordStru.sCarOutTime = dateTimePickerCarOutTime.Value;
+                sParkingRecordStru.sBillDate = dateTimePickerBillDate.Value;
+                sParkingRecordStru.sCarInTime = dateTimePickerCarInTime.Value;
+                sParkingRecordStru.sCarOutTime = dateTimePickerCarOutTime.Value;
 
-            sParkingRecordStru.strCarPlate = textBoxCarPlate.Text;
-            sParkingRecordStru.strPicPath = textBoxPicPath.Text;
+                sParkingRecordStru.strCarPlate = textBoxCarPlate.Text;
+                sParkingRecordStru.strPicPath = textBoxPicPath.Text;
 
-            sParkingRecordStru.dMoneyIn = double.Parse( textBoxMoneyIn.Text );
-            sParkingRecordStru.dMoneyPay = double.Parse( textBoxPayMoney.Text  );
+                sParkingRecordStru.dMoneyIn = double.Parse( textBoxMoneyIn.Text );
+                sParkingRecordStru.dMoneyPay = double.Parse( textBoxPayMoney.Text );
 
-            sParkingRecordStru.iPayMode = comboBoxPayMode.SelectedIndex;
-            sParkingRecordStru.strDBAName = textBoxDBAName.Text;
-            sParkingRecordStru.iDBAType = comboBoxDBAType.SelectedIndex;
-            sParkingRecordStru.strRemarks = textBoxRemarks.Text;
+                sParkingRecordStru.iPayMode = comboBoxPayMode.SelectedIndex;
+                sParkingRecordStru.strDBAName = textBoxDBAName.Text;
+                sParkingRecordStru.iDBAType = comboBoxDBAType.SelectedIndex;
+                sParkingRecordStru.strRemarks = textBoxRemarks.Text;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        /// <summary>
+        /// 停车记录编辑界面 UI输入检查
+        /// </summary>
+        /// <returns></returns>
+        public override EDbEditUiStat dbUiStatChk ()
+        {
+            if ( "" == textBoxGarageNum.Text ) {
+                textBoxGarageNum.Select();
+                dbUiStatSet( "车库号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxSpaceNum.Text ) {
+                textBoxSpaceNum.Select();
+                dbUiStatSet( "车位号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxCardNum.Text ) {
+                textBoxCardNum.Select();
+                dbUiStatSet( "卡号未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            if ( "" == textBoxDBAName.Text ) {
+                textBoxDBAName.Select();
+                dbUiStatSet( "操作员姓名未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            return EDbEditUiStat.DBEDITUISTAT_OK;
         }
 
         private new void InitializeComponent ()
@@ -374,9 +434,9 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(224, 376);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 18);
+            this.label14.Size = new System.Drawing.Size(98, 18);
             this.label14.TabIndex = 15;
-            this.label14.Text = "操作员";
+            this.label14.Text = "操作员姓名";
             // 
             // label15
             // 
