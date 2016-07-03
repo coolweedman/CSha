@@ -40,7 +40,7 @@
             this.dataGridViewDb.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewDb.Name = "dataGridViewDb";
             this.dataGridViewDb.RowTemplate.Height = 30;
-            this.dataGridViewDb.Size = new System.Drawing.Size(764, 421);
+            this.dataGridViewDb.Size = new System.Drawing.Size(986, 421);
             this.dataGridViewDb.TabIndex = 0;
             this.dataGridViewDb.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDb_CellMouseDown);
             // 
@@ -51,7 +51,7 @@
             this.toolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 449);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(788, 29);
+            this.statusStrip.Size = new System.Drawing.Size(1010, 29);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 478);
+            this.ClientSize = new System.Drawing.Size(1010, 478);
             this.ControlBox = false;
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.dataGridViewDb);

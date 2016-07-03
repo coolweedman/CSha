@@ -163,6 +163,16 @@ namespace DatabaseProj.Code.Database {
         }
 
         /// <summary>
+        /// 数据库按List读取
+        /// </summary>
+        /// <param name="sCond"></param>
+        /// <returns></returns>
+        public virtual List<object> dataBaseBaseListQuery (ref object sCond)
+        {
+            return null;
+        }
+
+        /// <summary>
         /// 数据库插入记录
         /// </summary>
         /// <param name="sRecord"></param>

@@ -329,5 +329,14 @@ namespace DatabaseProj.Code.Database {
 
             return true;
         }
+
+        /// <summary>
+        /// 数据库管理员表 清空
+        /// </summary>
+        /// <returns></returns>
+        public override int dataBaseBaseCommTableClr ()
+        {
+            return base.dataBaseBaseTableClr( "DBAccount" );
+        }
     }
 }

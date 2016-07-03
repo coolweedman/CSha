@@ -167,49 +167,49 @@ namespace DatabaseProj.UI.Base {
             // 
             // buttonAdd
             // 
+            this.buttonAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAdd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonAdd.Location = new System.Drawing.Point(76, 476);
+            this.buttonAdd.Location = new System.Drawing.Point(76, 521);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(108, 36);
             this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "添加";
-            //this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonQuery
             // 
+            this.buttonQuery.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonQuery.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonQuery.Location = new System.Drawing.Point(257, 476);
+            this.buttonQuery.Location = new System.Drawing.Point(362, 521);
             this.buttonQuery.Name = "buttonQuery";
             this.buttonQuery.Size = new System.Drawing.Size(105, 36);
             this.buttonQuery.TabIndex = 4;
             this.buttonQuery.Text = "查询";
-            //this.buttonQuery.UseVisualStyleBackColor = true;
             this.buttonQuery.Click += new System.EventHandler(this.buttonQuery_Click);
             // 
             // buttonFeFlash
             // 
+            this.buttonFeFlash.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonFeFlash.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonFeFlash.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonFeFlash.Location = new System.Drawing.Point(452, 476);
+            this.buttonFeFlash.Location = new System.Drawing.Point(557, 521);
             this.buttonFeFlash.Name = "buttonFeFlash";
             this.buttonFeFlash.Size = new System.Drawing.Size(102, 36);
             this.buttonFeFlash.TabIndex = 5;
             this.buttonFeFlash.Text = "刷新";
-            //this.buttonFeFlash.UseVisualStyleBackColor = true;
             this.buttonFeFlash.Click += new System.EventHandler(this.buttonFeFlash_Click);
             // 
             // buttonClose
             // 
+            this.buttonClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Location = new System.Drawing.Point(643, 476);
+            this.buttonClose.Location = new System.Drawing.Point(853, 521);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(96, 36);
             this.buttonClose.TabIndex = 6;
             this.buttonClose.Text = "关闭";
-            //this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // DbTableMainBase
@@ -217,7 +217,7 @@ namespace DatabaseProj.UI.Base {
             this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(815, 571);
+            this.ClientSize = new System.Drawing.Size(1025, 616);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonFeFlash);
             this.Controls.Add(this.buttonQuery);

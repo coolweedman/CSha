@@ -165,6 +165,9 @@
     <EmbeddedResource Include="UI\DBAUi\DbDBAEdit.resx">
       <DependentUpon>DbDBAEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DBAUi\DbDBAMain.resx">
+      <DependentUpon>DbDBAMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\DBAUi\DbDBAQuery.resx">
       <DependentUpon>DbDBAQuery.cs</DependentUpon>
     </EmbeddedResource>

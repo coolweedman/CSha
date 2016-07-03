@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using DatabaseProj.Code.Database;
 using System.Data.SQLite;
+using DatabaseProj.Code.Debug;
+using System.Diagnostics;
 
 namespace DatabaseProj.Code.Database {
     public class CParkingRecordDb : CDatebaseBase {
@@ -369,6 +371,65 @@ namespace DatabaseProj.Code.Database {
             base.dataBaseBaseRecordRead();
 
             return hReader;
+        }
+
+        /// <summary>
+        /// 停车记录 按照List读取
+        /// </summary>
+        /// <param name="sCond">null查询全部</param>
+        /// <returns></returns>
+        public override List<object> dataBaseBaseListQuery (ref object sCond)
+        {
+            if ( null == sCond ) {
+                dataBaseBaseCommRead();
+            } else {
+                dataBaseBaseCommQuery( ref sCond );
+            }
+
+            if ( null == hReader ) {
+                return null;
+            }
+
+            if ( !hReader.HasRows ) {
+                hReader.Close();
+
+                return null;
+            }
+
+            List<object> listStru = new List<object>();
+            SParkingRecordStru sStru;
+            
+            while ( hReader.Read() ) {
+                try {
+                    int i = 0;
+                    sStru.iId = hReader.GetInt32( i++ );
+                    sStru.iGarageNum = hReader.GetInt32( i++ );
+                    sStru.iSpaceNum = hReader.GetInt32( i++ );
+                    sStru.strCardNum = hReader.GetString( i++ );
+                    sStru.strBillNum = hReader.GetString( i++ );
+                    sStru.sBillDate = hReader.GetDateTime( i++ );
+                    sStru.sCarInTime = hReader.GetDateTime( i++ );
+                    sStru.sCarOutTime = hReader.GetDateTime( i++ );
+                    sStru.strCarPlate = hReader.GetString( i++ );
+                    sStru.strPicPath = hReader.GetString( i++ );
+                    sStru.dMoneyIn = hReader.GetDouble( i++ );
+                    sStru.dMoneyPay = hReader.GetDouble( i++ );
+                    sStru.iPayMode = hReader.GetInt32( i++ );
+                    sStru.strDBAName = hReader.GetString( i++ );
+                    sStru.iDBAType = hReader.GetInt32( i++ );
+                    sStru.strRemarks = hReader.GetString( i++ );
+
+                    listStru.Add( sStru );
+                } catch ( Exception ex ) {
+                    CDebugPrint.dbgUserMsgPrint( "dataBaseBaseListQuery fail..." );
+                    CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                    CDebugPrint.dbgExpectionMsgPrint( ex );
+                }
+            }
+
+            hReader.Close();
+
+            return listStru;
         }
 
         /// <summary>

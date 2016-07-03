@@ -273,6 +273,58 @@ namespace DatabaseProj.Code.Database {
         }
 
         /// <summary>
+        /// 停车卡数据库 按List读取
+        /// </summary>
+        /// <param name="sCond">null读取全部</param>
+        /// <returns></returns>
+        public override List<object> dataBaseBaseListQuery (ref object sCond)
+        {
+            if ( null == sCond ) {
+                dataBaseBaseCommRead();
+            } else {
+                dataBaseBaseCommQuery( ref sCond );
+            }
+
+            if ( null == hReader ) {
+                return null;
+            }
+
+            if ( !hReader.HasRows ) {
+                hReader.Close();
+
+                return null;
+            }
+
+            List<object> listStru = new List<object>();
+            SRegularCardUserStru sStru;
+
+            while ( hReader.Read() ) {
+                try {
+                    int i = 0;
+                    sStru.iId = hReader.GetInt32( i++ );
+                    sStru.strUserName = hReader.GetString( i++ );
+                    sStru.strUserIdent = hReader.GetString( i++ );
+                    sStru.strUserPhone = hReader.GetString( i++ );
+                    sStru.strCarPlate = hReader.GetString( i++ );
+                    sStru.strCardNum = hReader.GetString( i++ );
+                    sStru.iCardType = CDbBaseTable.dicDbBaseParkingCardTypeDesc[hReader.GetString( i++ )];
+                    sStru.iCarType = CDbBaseTable.dicDbBaseParkingCarTypeDesc[hReader.GetString( i++ )];
+
+                    listStru.Add( sStru );
+                } catch ( Exception ex ) {
+                    CDebugPrint.dbgUserMsgPrint( "dataBaseBaseListQuery fail..." );
+                    CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                    CDebugPrint.dbgExpectionMsgPrint( ex );
+                }
+            }
+
+            hReader.Close();
+
+            return listStru;
+        }
+
+
+        /// <summary>
         /// 停车卡数据库 删除一条记录
         /// </summary>
         /// <param name="sRecord"></param>

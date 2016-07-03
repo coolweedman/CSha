@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SQLite;
+using DatabaseProj.Code.Debug;
+using System.Diagnostics;
 
 namespace DatabaseProj.Code.Database {
     public class CParkingSpaceDb : CDatebaseBase {
@@ -295,6 +297,65 @@ namespace DatabaseProj.Code.Database {
 
             return hReader;
 
+        }
+        /// <summary>
+        /// 停车位数据库 按照List读取
+        /// </summary>
+        /// <param name="sCond">null读取全部</param>
+        /// <returns></returns>
+        public override List<object> dataBaseBaseListQuery (ref object sCond)
+        {
+            if ( null == sCond ) {
+                dataBaseBaseCommRead();
+            } else {
+                dataBaseBaseCommQuery( ref sCond );
+            }
+
+            if ( null == hReader ) {
+                return null;
+            }
+
+            if ( !hReader.HasRows ) {
+                hReader.Close();
+
+                return null;
+            }
+
+            List<object> listStru = new List<object>();
+            SParkingSpaceStru sStru;
+
+            while ( hReader.Read() ) {
+                try {
+                    int i = 0;
+                    sStru.iId = hReader.GetInt32( i++ );
+                    sStru.iGarageNum = hReader.GetInt32( i++ );
+                    sStru.iSpaceNum = hReader.GetInt32( i++ );
+                    sStru.strCardNum = hReader.GetString( i++ );
+                    sStru.dAxisX = hReader.GetDouble( i++ );
+                    sStru.dAxisY = hReader.GetDouble( i++ );
+                    sStru.iRearrange1 = hReader.GetInt32( i++ );
+                    sStru.iRearrange2 = hReader.GetInt32( i++ );
+                    sStru.iLockStat = CDbBaseTable.dicDbBaseParkingSpaceLockStatDesc[hReader.GetString( i++ )];
+                    sStru.iSpaceType = CDbBaseTable.dicDbBaseParkingCarTypeDesc[hReader.GetString( i++ )];
+                    sStru.iSpacePosi = CDbBaseTable.dicDbBaseParkingSpacePosiDesc[hReader.GetString( i++ )];
+                    sStru.iSpaceAera = CDbBaseTable.dicDbBaseParkingSpaceAeraDesc[hReader.GetString( i++ )];
+                    sStru.strAttr1 = hReader.GetString( i++ );
+                    sStru.strAttr2 = hReader.GetString( i++ );
+                    sStru.strAttr3 = hReader.GetString( i++ );
+                    sStru.strCarPlate = hReader.GetString( i++ );
+                    sStru.strPicPath = hReader.GetString( i++ );
+
+                    listStru.Add( sStru );
+                } catch ( Exception ex ) {
+                    CDebugPrint.dbgUserMsgPrint( "dataBaseBaseListQuery fail..." );
+                    CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                    CDebugPrint.dbgExpectionMsgPrint( ex );
+                }
+            }
+
+            hReader.Close();
+
+            return listStru;
         }
 
         /// <summary>

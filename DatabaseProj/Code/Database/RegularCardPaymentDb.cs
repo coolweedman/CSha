@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DatabaseProj.Code.Debug;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Text;
 
 namespace DatabaseProj.Code.Database {
@@ -181,6 +183,54 @@ namespace DatabaseProj.Code.Database {
             base.dataBaseBaseRecordRead();
 
             return hReader;
+        }
+
+        /// <summary>
+        /// 停车卡缴费 按List读取
+        /// </summary>
+        /// <param name="sCond">null读取全部</param>
+        /// <returns></returns>
+        public override List<object> dataBaseBaseListQuery (ref object sCond)
+        {
+            if ( null == sCond ) {
+                dataBaseBaseCommRead();
+            } else {
+                dataBaseBaseCommQuery( ref sCond );
+            }
+
+            if ( null == hReader ) {
+                return null;
+            }
+
+            if ( !hReader.HasRows ) {
+                hReader.Close();
+
+                return null;
+            }
+
+            List<object> listStru = new List<object>();
+            SRegularCardPaymentStru sStru;
+
+            while ( hReader.Read() ) {
+                try {
+                    int i = 0;
+                    sStru.iId = hReader.GetInt32( i++ );
+                    sStru.iRcuId = hReader.GetInt32( i++ );
+                    sStru.sPayTime = hReader.GetDateTime( i++ );
+                    sStru.dPayMoney = hReader.GetDouble( i++ );
+                    sStru.sValidTime = hReader.GetDateTime( i++ );
+
+                    listStru.Add( sStru );
+                } catch ( Exception ex ) {
+                    CDebugPrint.dbgUserMsgPrint( "dataBaseBaseListQuery fail..." );
+                    CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                    CDebugPrint.dbgExpectionMsgPrint( ex );
+                }
+            }
+
+            hReader.Close();
+
+            return listStru;
         }
 
         /// <summary>

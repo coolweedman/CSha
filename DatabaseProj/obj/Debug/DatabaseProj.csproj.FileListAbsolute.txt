@@ -35,3 +35,4 @@ C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\Data
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.ParkingRecordUi.ParkingRecordQuery.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.DBALogInUi.DBALogInMain.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardViewUi.RegularCardViewQuery.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabaseProj\DatabaseProj\obj\Debug\DatabaseProj.UI.DBAUi.DbDBAMain.resources
