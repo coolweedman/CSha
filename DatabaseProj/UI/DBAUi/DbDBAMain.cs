@@ -7,10 +7,7 @@ using System.Windows.Forms;
 
 namespace DatabaseProj.UI.DBAUi {
     public class DbDBAMain : DbTableMainBase {
-        private DevComponents.DotNetBar.ButtonX buttonAdd;
-        private DevComponents.DotNetBar.ButtonX buttonQuery;
-        private DevComponents.DotNetBar.ButtonX buttonFeFlash;
-        private DevComponents.DotNetBar.ButtonX buttonClose;
+
 
         /// <summary>
         /// 构造函数 待参数
@@ -76,10 +73,6 @@ namespace DatabaseProj.UI.DBAUi {
 
         private new void InitializeComponent ()
         {
-            this.buttonAdd = new DevComponents.DotNetBar.ButtonX();
-            this.buttonQuery = new DevComponents.DotNetBar.ButtonX();
-            this.buttonFeFlash = new DevComponents.DotNetBar.ButtonX();
-            this.buttonClose = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,10 +124,6 @@ namespace DatabaseProj.UI.DBAUi {
             this.AutoScaleDimensions = new System.Drawing.SizeF( 9F, 18F );
             this.ClientSize = new System.Drawing.Size( 983, 616 );
             this.Name = "DbDBAMain";
-            this.Controls.SetChildIndex( this.buttonAdd, 0 );
-            this.Controls.SetChildIndex( this.buttonQuery, 0 );
-            this.Controls.SetChildIndex( this.buttonFeFlash, 0 );
-            this.Controls.SetChildIndex( this.buttonClose, 0 );
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).EndInit();
             this.ResumeLayout( false );
             this.PerformLayout();

@@ -1,4 +1,5 @@
-﻿using DatabaseProj.Code.Database;
+﻿using DatabaseProj.Code.Comm;
+using DatabaseProj.Code.Database;
 using DatabaseProj.UI.Base;
 using System;
 using System.Collections.Generic;
@@ -134,8 +135,6 @@ namespace DatabaseProj.UI.RegularCardViewUi {
 
         private void InitializeComponent ()
         {
-            this.buttonOk = new DevComponents.DotNetBar.ButtonX();
-            this.buttonCancel = new DevComponents.DotNetBar.ButtonX();
             this.checkBoxCarType = new System.Windows.Forms.CheckBox();
             this.checkBoxCardType = new System.Windows.Forms.CheckBox();
             this.checkBoxCardNum = new System.Windows.Forms.CheckBox();
@@ -288,6 +287,7 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(145, 28);
             this.textBoxCardNum.TabIndex = 53;
+            this.textBoxCardNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCardNum_KeyPress);
             // 
             // textBoxCarPlate
             // 
@@ -302,6 +302,7 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.textBoxUserPhone.Name = "textBoxUserPhone";
             this.textBoxUserPhone.Size = new System.Drawing.Size(136, 28);
             this.textBoxUserPhone.TabIndex = 51;
+            this.textBoxUserPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserPhone_KeyPress);
             // 
             // textBoxUserIdent
             // 
@@ -309,6 +310,7 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.textBoxUserIdent.Name = "textBoxUserIdent";
             this.textBoxUserIdent.Size = new System.Drawing.Size(140, 28);
             this.textBoxUserIdent.TabIndex = 50;
+            this.textBoxUserIdent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserIdent_KeyPress);
             // 
             // textBoxUserName
             // 
@@ -323,6 +325,7 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.textBoxRcuId.Name = "textBoxRcuId";
             this.textBoxRcuId.Size = new System.Drawing.Size(127, 28);
             this.textBoxRcuId.TabIndex = 48;
+            this.textBoxRcuId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRcuId_KeyPress);
             // 
             // checkBoxValidTime
             // 
@@ -398,6 +401,7 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.textBoxPayMoney.Name = "textBoxPayMoney";
             this.textBoxPayMoney.Size = new System.Drawing.Size(100, 28);
             this.textBoxPayMoney.TabIndex = 66;
+            this.textBoxPayMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPayMoney_KeyPress);
             // 
             // textBoxRcpId
             // 
@@ -405,6 +409,7 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.textBoxRcpId.Name = "textBoxRcpId";
             this.textBoxRcpId.Size = new System.Drawing.Size(100, 28);
             this.textBoxRcpId.TabIndex = 64;
+            this.textBoxRcpId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRcpId_KeyPress);
             // 
             // RegularCardViewQuery
             // 
@@ -467,6 +472,36 @@ namespace DatabaseProj.UI.RegularCardViewUi {
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void textBoxRcuId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxUserIdent_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxUserPhone_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxCardNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxRcpId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxPayMoney_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
         }
     }
 }

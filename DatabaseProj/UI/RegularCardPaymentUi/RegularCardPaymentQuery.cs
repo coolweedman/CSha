@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DatabaseProj.UI.Base;
 using DatabaseProj.Code.Database;
+using DatabaseProj.Code.Comm;
 
 namespace DatabaseProj.UI.RegularCardPaymentUi {
 
@@ -20,7 +21,6 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         private System.Windows.Forms.DateTimePicker dateTimePickerValidTimeEnd;
         private System.Windows.Forms.CheckBox checkBoxValidTime;
         private System.Windows.Forms.CheckBox checkBoxPayMoney;
-
         protected CRegularCardPaymentDb.SRegularCardPaymentQueryStru sQueryStru;
 
         /// <summary>
@@ -101,6 +101,27 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
+            // buttonOk
+            // 
+            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonOk.Location = new System.Drawing.Point(206, 595);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(93, 35);
+            this.buttonOk.TabIndex = 1;
+            this.buttonOk.Text = "OK";
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(776, 595);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(90, 35);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            // 
             // dateTimePickerValidTimeStart
             // 
             this.dateTimePickerValidTimeStart.Location = new System.Drawing.Point(400, 170);
@@ -121,6 +142,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.textBoxPayMoney.Name = "textBoxPayMoney";
             this.textBoxPayMoney.Size = new System.Drawing.Size(100, 28);
             this.textBoxPayMoney.TabIndex = 27;
+            this.textBoxPayMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPayMoney_KeyPress);
             // 
             // textBoxRcuId
             // 
@@ -128,6 +150,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.textBoxRcuId.Name = "textBoxRcuId";
             this.textBoxRcuId.Size = new System.Drawing.Size(100, 28);
             this.textBoxRcuId.TabIndex = 26;
+            this.textBoxRcuId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRcuId_KeyPress);
             // 
             // textBoxId
             // 
@@ -135,6 +158,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 28);
             this.textBoxId.TabIndex = 25;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // checkBoxId
             // 
@@ -233,6 +257,21 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void textBoxId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxRcuId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxPayMoney_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
         }
     }
 }

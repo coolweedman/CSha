@@ -8,10 +8,10 @@ using System.Windows.Forms;
 namespace DatabaseProj.UI.Base {
     public class DbTableMainBase : DbDataShowBase {
 
-        private DevComponents.DotNetBar.ButtonX buttonAdd;
-        private DevComponents.DotNetBar.ButtonX buttonQuery;
-        private DevComponents.DotNetBar.ButtonX buttonFeFlash;
-        private DevComponents.DotNetBar.ButtonX buttonClose;
+        protected DevComponents.DotNetBar.ButtonX buttonAdd;
+        protected DevComponents.DotNetBar.ButtonX buttonQuery;
+        protected DevComponents.DotNetBar.ButtonX buttonFeFlash;
+        protected DevComponents.DotNetBar.ButtonX buttonClose;
 
         protected CDatebaseBase hDbTable;
         protected DbRecordEditBase hEditUi;

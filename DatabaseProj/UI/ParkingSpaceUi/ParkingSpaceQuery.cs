@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DatabaseProj.UI.Base;
 using DatabaseProj.Code.Database;
+using DatabaseProj.Code.Comm;
 
 namespace DatabaseProj.UI.ParkingSpaceUi {
     public class ParkingSpaceQuery : DbRecordQueryBase {
@@ -22,7 +23,6 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
         private System.Windows.Forms.TextBox textBoxCardNum;
         private System.Windows.Forms.TextBox textBoxCarPlate;
         private System.Windows.Forms.CheckBox checkBoxLockStat;
-
         protected CParkingSpaceDb.SParkingSpaceQueryStru sQueryStru;
 
         /// <summary>
@@ -116,6 +116,27 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
+            // buttonOk
+            // 
+            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonOk.Location = new System.Drawing.Point(206, 595);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(93, 35);
+            this.buttonOk.TabIndex = 1;
+            this.buttonOk.Text = "OK";
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(776, 595);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(90, 35);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            // 
             // comboBoxSpaceAera
             // 
             this.comboBoxSpaceAera.FormattingEnabled = true;
@@ -186,6 +207,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(127, 28);
             this.textBoxId.TabIndex = 41;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // checkBoxCarPlate
             // 
@@ -233,6 +255,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             this.textBoxGarageNum.Name = "textBoxGarageNum";
             this.textBoxGarageNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxGarageNum.TabIndex = 47;
+            this.textBoxGarageNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGarageNum_KeyPress);
             // 
             // textBoxSpaceNum
             // 
@@ -240,6 +263,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             this.textBoxSpaceNum.Name = "textBoxSpaceNum";
             this.textBoxSpaceNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxSpaceNum.TabIndex = 48;
+            this.textBoxSpaceNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSpaceNum_KeyPress);
             // 
             // textBoxCardNum
             // 
@@ -247,6 +271,7 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxCardNum.TabIndex = 49;
+            this.textBoxCardNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCardNum_KeyPress);
             // 
             // textBoxCarPlate
             // 
@@ -296,6 +321,26 @@ namespace DatabaseProj.UI.ParkingSpaceUi {
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void textBoxId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxGarageNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxSpaceNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxCardNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
         }
     }
 }
