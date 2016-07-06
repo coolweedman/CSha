@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DatabaseProj.UI.Base;
 using DatabaseProj.Code.Database;
-
+using DatabaseProj.Code.Comm;
 
 namespace DatabaseProj.UI.DBAUi {
     public class DbDBAQuery : DbRecordQueryBase {
@@ -61,11 +61,24 @@ namespace DatabaseProj.UI.DBAUi {
             // 
             // buttonOk
             // 
+            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonOk.Location = new System.Drawing.Point(206, 586);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(93, 35);
+            this.buttonOk.TabIndex = 1;
+            this.buttonOk.Text = "OK";
             // 
             // buttonCancel
             // 
+            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(797, 586);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(90, 35);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
             // 
             // checkBoxId
             // 
@@ -133,6 +146,7 @@ namespace DatabaseProj.UI.DBAUi {
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 28);
             this.textBoxId.TabIndex = 9;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // textBoxAccount
             // 
@@ -154,6 +168,7 @@ namespace DatabaseProj.UI.DBAUi {
             this.textBoxJobNum.Name = "textBoxJobNum";
             this.textBoxJobNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxJobNum.TabIndex = 12;
+            this.textBoxJobNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxJobNum_KeyPress);
             // 
             // comboBoxType
             // 
@@ -188,8 +203,6 @@ namespace DatabaseProj.UI.DBAUi {
             this.Controls.Add(this.checkBoxAccountEn);
             this.Controls.Add(this.checkBoxId);
             this.Name = "DbDBAQuery";
-            this.Controls.SetChildIndex(this.buttonOk, 0);
-            this.Controls.SetChildIndex(this.buttonCancel, 0);
             this.Controls.SetChildIndex(this.checkBoxId, 0);
             this.Controls.SetChildIndex(this.checkBoxAccountEn, 0);
             this.Controls.SetChildIndex(this.checkBoxTypeEn, 0);
@@ -254,6 +267,16 @@ namespace DatabaseProj.UI.DBAUi {
             }
 
             return sQueryStru;
+        }
+
+        private void textBoxId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxJobNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
         }
     }
 }
