@@ -1,4 +1,5 @@
-﻿using DatabaseProj.Code.Database;
+﻿using DatabaseProj.Code.Comm;
+using DatabaseProj.Code.Database;
 using DatabaseProj.UI.Base;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,6 @@ namespace DatabaseProj.UI.RegularCardUserUi {
         private System.Windows.Forms.CheckBox checkBoxCardType;
         private System.Windows.Forms.CheckBox checkBoxCarType;
         private System.Windows.Forms.TextBox textBoxId;
-
         protected CRegularCardUserDb.SRegularCardUserQueryStru sQueryStru;
 
         /// <summary>
@@ -114,6 +114,27 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
             // 
+            // buttonOk
+            // 
+            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonOk.Location = new System.Drawing.Point(206, 595);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(93, 35);
+            this.buttonOk.TabIndex = 1;
+            this.buttonOk.Text = "OK";
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(776, 595);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(90, 35);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            // 
             // comboBoxCarType
             // 
             this.comboBoxCarType.FormattingEnabled = true;
@@ -136,6 +157,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(145, 28);
             this.textBoxCardNum.TabIndex = 37;
+            this.textBoxCardNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCardNum_KeyPress);
             // 
             // textBoxCarPlate
             // 
@@ -150,6 +172,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.textBoxUserPhone.Name = "textBoxUserPhone";
             this.textBoxUserPhone.Size = new System.Drawing.Size(136, 28);
             this.textBoxUserPhone.TabIndex = 35;
+            this.textBoxUserPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserPhone_KeyPress);
             // 
             // textBoxUserIdent
             // 
@@ -171,6 +194,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(127, 28);
             this.textBoxId.TabIndex = 32;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // checkBoxId
             // 
@@ -293,6 +317,21 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void textBoxId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxUserPhone_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxCardNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
         }
     }
 }

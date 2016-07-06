@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DatabaseProj.UI.Base;
 using DatabaseProj.Code.Database;
+using DatabaseProj.Code.Comm;
 
 namespace DatabaseProj.UI.ParkingRecordUi {
 
@@ -40,7 +41,6 @@ namespace DatabaseProj.UI.ParkingRecordUi {
         private System.Windows.Forms.CheckBox checkBoxBillDate;
         private System.Windows.Forms.CheckBox checkBoxCarOutTime;
         private System.Windows.Forms.CheckBox checkBoxBillNum;
-
         protected CParkingRecordDb.SParkingRecordQueryStru sQueryStru;
 
         /// <summary>
@@ -193,11 +193,24 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             // 
             // buttonOk
             // 
+            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonOk.Location = new System.Drawing.Point(206, 607);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(93, 35);
+            this.buttonOk.TabIndex = 1;
+            this.buttonOk.Text = "OK";
             // 
             // buttonCancel
             // 
+            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(785, 607);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(90, 35);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
             // 
             // textBoxSpaceNum
             // 
@@ -205,6 +218,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxSpaceNum.Name = "textBoxSpaceNum";
             this.textBoxSpaceNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxSpaceNum.TabIndex = 44;
+            this.textBoxSpaceNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSpaceNum_KeyPress);
             // 
             // textBoxGarageNum
             // 
@@ -212,6 +226,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxGarageNum.Name = "textBoxGarageNum";
             this.textBoxGarageNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxGarageNum.TabIndex = 43;
+            this.textBoxGarageNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGarageNum_KeyPress);
             // 
             // textBoxCardNum
             // 
@@ -219,6 +234,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(100, 28);
             this.textBoxCardNum.TabIndex = 42;
+            this.textBoxCardNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCardNum_KeyPress);
             // 
             // textBoxId
             // 
@@ -226,6 +242,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 28);
             this.textBoxId.TabIndex = 41;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // textBoxBillNum
             // 
@@ -240,6 +257,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxPayMoney.Name = "textBoxPayMoney";
             this.textBoxPayMoney.Size = new System.Drawing.Size(100, 28);
             this.textBoxPayMoney.TabIndex = 54;
+            this.textBoxPayMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPayMoney_KeyPress);
             // 
             // textBoxMoneyIn
             // 
@@ -247,6 +265,7 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.textBoxMoneyIn.Name = "textBoxMoneyIn";
             this.textBoxMoneyIn.Size = new System.Drawing.Size(100, 28);
             this.textBoxMoneyIn.TabIndex = 53;
+            this.textBoxMoneyIn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMoneyIn_KeyPress);
             // 
             // textBoxPicPath
             // 
@@ -515,8 +534,6 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.Controls.Add(this.textBoxCardNum);
             this.Controls.Add(this.textBoxId);
             this.Name = "ParkingRecordQuery";
-            this.Controls.SetChildIndex(this.buttonOk, 0);
-            this.Controls.SetChildIndex(this.buttonCancel, 0);
             this.Controls.SetChildIndex(this.textBoxId, 0);
             this.Controls.SetChildIndex(this.textBoxCardNum, 0);
             this.Controls.SetChildIndex(this.textBoxGarageNum, 0);
@@ -555,5 +572,36 @@ namespace DatabaseProj.UI.ParkingRecordUi {
             this.PerformLayout();
 
         }
+
+        private void textBoxId_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxGarageNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxSpaceNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxCardNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxMoneyIn_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxPayMoney_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
     }
 }

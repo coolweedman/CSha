@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Comm\InputLimit.cs" />
     <Compile Include="Code\Comm\RegExpr.cs" />
     <Compile Include="Code\Database\DatebaseBase.cs" />
     <Compile Include="Code\Database\DBAccountDb.cs" />
