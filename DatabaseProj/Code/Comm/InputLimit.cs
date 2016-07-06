@@ -17,5 +17,17 @@ namespace DatabaseProj.Code.Comm {
                 e.KeyChar = (char)0;
             }
         }
+
+        public static void textBoxIdentLimitProc (ref object sender, ref System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ( '\b' == e.KeyChar ) {
+                return;
+            }
+
+            System.Windows.Forms.TextBox textBox = (System.Windows.Forms.TextBox)sender;
+            if ( !CRegExpr.regExIdentCHar.IsMatch( e.KeyChar.ToString() ) ) {
+                e.KeyChar = (char)0;
+            }
+        }
     }
 }

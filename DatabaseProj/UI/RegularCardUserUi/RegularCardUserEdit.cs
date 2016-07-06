@@ -171,6 +171,11 @@ namespace DatabaseProj.UI.RegularCardUserUi {
                 dbUiStatSet( "身份证未输入..." );
                 return EDbEditUiStat.DBEDITUISTAT_FAIL;
             }
+            if ( !CRegExpr.regExIdent.IsMatch(textBoxUserIdent.Text) ) {
+                textBoxUserIdent.Select();
+                dbUiStatSet( "身份证错误..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
             if ( "" == textBoxUserPhone.Text ) {
                 textBoxUserPhone.Select();
                 dbUiStatSet( "手机号码未输入..." );
@@ -406,7 +411,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
 
         private void textBoxUserIdent_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+            CInputLimit.textBoxIdentLimitProc( ref sender, ref e );
         }
 
         private void textBoxUserPhone_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
