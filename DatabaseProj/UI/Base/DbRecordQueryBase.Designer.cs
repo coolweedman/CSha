@@ -28,7 +28,7 @@
             this.dataGridViewDb = new System.Windows.Forms.DataGridView();
             this.buttonOk = new DevComponents.DotNetBar.ButtonX();
             this.buttonCancel = new DevComponents.DotNetBar.ButtonX();
-            this.Export = new System.Windows.Forms.Button();
+            this.Export = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +73,6 @@
             this.Export.Size = new System.Drawing.Size(96, 32);
             this.Export.TabIndex = 3;
             this.Export.Text = "Export";
-            this.Export.UseVisualStyleBackColor = true;
             this.Export.Click += new System.EventHandler(this.Export_Click);
             // 
             // DbRecordQueryBase
@@ -99,7 +98,7 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dataGridViewDb;
-        private System.Windows.Forms.Button Export;
+        private DevComponents.DotNetBar.ButtonX Export;
         private DevComponents.DotNetBar.ButtonX buttonOk;
         private DevComponents.DotNetBar.ButtonX buttonCancel;
     }
