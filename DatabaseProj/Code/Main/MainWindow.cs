@@ -25,50 +25,6 @@ namespace DatabaseProj.Code.Main {
         }
         
         /// <summary>
-        /// 创建默认数据库表
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void createDefaultTableToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            CDbBaseTable hDbBaseTable = new CDbBaseTable();
-
-            CDBAccountDb hDBAccountDb = new CDBAccountDb();
-            hDBAccountDb.dataBaseBaseDeRecordInsert();
-
-            CRegularCardUserDb hCRegularCardUserDb = new CRegularCardUserDb();
-            hCRegularCardUserDb.dataBaseBaseDeRecordInsert();
-
-            CRegularCardPaymentDb hCRegularCardPaymentDb = new CRegularCardPaymentDb();
-            hCRegularCardPaymentDb.dataBaseBaseDeRecordInsert();
-
-            CParkingSpaceDb hParkingSpaceDb = new CParkingSpaceDb();
-            hParkingSpaceDb.dataBaseBaseDeRecordInsert();
-
-            CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
-            hParkingRecordDb.dataBaseBaseDeRecordInsert();
-
-            CRegularCardView hRegularCardView = new CRegularCardView();
-            hRegularCardView.rcvViewCreate();
-
-            CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
-            hFaultRecordDb.dataBaseBaseDeRecordInsert();
-
-            MessageBox.Show( "Default Table Created" );
-        }
-
-        /// <summary>
-        /// 数据库登录界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void logInToolStripMenuItem_Click (object sender, EventArgs e)
-        {
-            DBALogInMain hDbaLogInUi = new DBALogInMain();
-            hDbaLogInUi.Show();
-        }
-
-         /// <summary>
         /// 数据库管理员界面
         /// </summary>
         /// <param name="sender"></param>
@@ -148,6 +104,72 @@ namespace DatabaseProj.Code.Main {
             CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
             FaultRecordMain hFaultRecordMain = new FaultRecordMain( hFaultRecordDb );
             hFaultRecordMain.Show();
+        }
+
+        private void 用户登录ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            DBALogInMain hDbaLogInUi = new DBALogInMain();
+            hDbaLogInUi.Show();
+        }
+
+        private void 创建默认表ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CDbBaseTable hDbBaseTable = new CDbBaseTable();
+
+            CDBAccountDb hDBAccountDb = new CDBAccountDb();
+            hDBAccountDb.dataBaseBaseDeRecordInsert();
+
+            CRegularCardUserDb hCRegularCardUserDb = new CRegularCardUserDb();
+            hCRegularCardUserDb.dataBaseBaseDeRecordInsert();
+
+            CRegularCardPaymentDb hCRegularCardPaymentDb = new CRegularCardPaymentDb();
+            hCRegularCardPaymentDb.dataBaseBaseDeRecordInsert();
+
+            CParkingSpaceDb hParkingSpaceDb = new CParkingSpaceDb();
+            hParkingSpaceDb.dataBaseBaseDeRecordInsert();
+
+            CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
+            hParkingRecordDb.dataBaseBaseDeRecordInsert();
+
+            CRegularCardView hRegularCardView = new CRegularCardView();
+            hRegularCardView.rcvViewCreate();
+
+            CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
+            hFaultRecordDb.dataBaseBaseDeRecordInsert();
+
+            MessageBox.Show( "Default Table Created" );
+        }
+
+        private void 退出系统ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void 出入库查询ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
+            ParkingRecordMain hParkingRecordMain = new ParkingRecordMain( hParkingRecordDb );
+            hParkingRecordMain.Show();
+        }
+
+        private void tableToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+
+        }
+
+        private void 计费查询ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CParkingRecordDb hParkingRecordDb = new CParkingRecordDb();
+            ParkingRecordMain hParkingRecordMain = new ParkingRecordMain( hParkingRecordDb );
+            hParkingRecordMain.Show();
+        }
+
+        private void 管理员编辑ToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CDatebaseBase hDBAccountDb = new CDBAccountDb();
+
+            DbDBAMain hDbDBAMain = new DbDBAMain( hDBAccountDb );
+            hDbDBAMain.Show();
         }
     }
 }
