@@ -149,6 +149,16 @@ namespace DatabaseProj.Code.Database {
             { strDbBaseAuthorityDesc[2], 2 },
             { strDbBaseAuthorityDesc[3], 3 },
         };
+        public static string[] strDbBaseFaultRecordDesc = {
+            "车位清洁中",
+            "设备故障",
+            "设备维修中",
+        };
+        public static Dictionary<string, int> dicDbBaseFaultRecordDesc = new Dictionary<string, int> {
+            { strDbBaseFaultRecordDesc[0], 0 },
+            { strDbBaseFaultRecordDesc[1], 1 },
+            { strDbBaseFaultRecordDesc[2], 2 },
+        };
         
         /// <summary>
         /// 基本表创建
