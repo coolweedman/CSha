@@ -51,6 +51,7 @@
     <Compile Include="Code\Database\DatebaseBase.cs" />
     <Compile Include="Code\Database\DBAccountDb.cs" />
     <Compile Include="Code\Database\DbBaseTable.cs" />
+    <Compile Include="Code\Database\FaultRecordDb.cs" />
     <Compile Include="Code\Database\ParkingRecordDb.cs" />
     <Compile Include="Code\Database\ParkingSpaceDb.cs" />
     <Compile Include="Code\Database\RegularCardPaymentDb.cs" />
@@ -97,6 +98,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\DBAUi\DbDBAQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FaultRecord\FaultRecordEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FaultRecord\FaultRecordMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FaultRecord\FaultRecordQuery.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ParkingRecordUi\ParkingRecordEdit.cs">
@@ -171,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DBAUi\DbDBAQuery.resx">
       <DependentUpon>DbDBAQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FaultRecord\FaultRecordEdit.resx">
+      <DependentUpon>FaultRecordEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FaultRecord\FaultRecordQuery.resx">
+      <DependentUpon>FaultRecordQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingRecordUi\ParkingRecordEdit.resx">
       <DependentUpon>ParkingRecordEdit.cs</DependentUpon>

@@ -28,7 +28,7 @@ namespace DatabaseProj.UI.RegularCardPaymentUi {
         /// </summary>
         /// <param name="hDbTableBase"></param>
         /// <param name="strTitle"></param>
-        public RegularCardPaymentQuery (CDatebaseBase hDbTableBase, string strTitle = "DBA Query Window") : base( hDbTableBase, strTitle )
+        public RegularCardPaymentQuery (CDatebaseBase hDbTableBase, string strTitle = "Regular Card Query Window") : base( hDbTableBase, strTitle )
         {
             InitializeComponent();
             dbRecordQueryUiInit();

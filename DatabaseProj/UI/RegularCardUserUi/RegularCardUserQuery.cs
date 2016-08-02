@@ -180,6 +180,7 @@ namespace DatabaseProj.UI.RegularCardUserUi {
             this.textBoxUserIdent.Name = "textBoxUserIdent";
             this.textBoxUserIdent.Size = new System.Drawing.Size(140, 28);
             this.textBoxUserIdent.TabIndex = 34;
+            this.textBoxUserIdent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserIdent_KeyPress);
             // 
             // textBoxUserName
             // 
@@ -332,6 +333,11 @@ namespace DatabaseProj.UI.RegularCardUserUi {
         private void textBoxCardNum_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             CInputLimit.textBoxNumLimitProc( ref sender, ref e );
+        }
+
+        private void textBoxUserIdent_KeyPress (object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            CInputLimit.textBoxIdentLimitProc( ref sender, ref e );
         }
     }
 }

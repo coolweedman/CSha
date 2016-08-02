@@ -13,6 +13,7 @@ using DatabaseProj.UI.RegularCardPaymentUi;
 using DatabaseProj.UI.ParkingSpaceUi;
 using DatabaseProj.UI.ParkingRecordUi;
 using DatabaseProj.UI.RegularCardViewUi;
+using DatabaseProj.UI.FaultRecord;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -49,6 +50,9 @@ namespace DatabaseProj.Code.Main {
 
             CRegularCardView hRegularCardView = new CRegularCardView();
             hRegularCardView.rcvViewCreate();
+
+            CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
+            hFaultRecordDb.dataBaseBaseDeRecordInsert();
 
             MessageBox.Show( "Default Table Created" );
         }
@@ -137,6 +141,13 @@ namespace DatabaseProj.Code.Main {
             CRegularCardView hRegularCardView = new CRegularCardView();
             RegularCardViewQuery hRegularCardViewQuery = new RegularCardViewQuery( hRegularCardView  );
             hRegularCardViewQuery.Show();
+        }
+
+        private void faultRecordToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
+            FaultRecordMain hFaultRecordMain = new FaultRecordMain( hFaultRecordDb );
+            hFaultRecordMain.Show();
         }
     }
 }

@@ -38,6 +38,7 @@
             this.dbViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regularCardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.faultRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +85,8 @@
             this.regularCardUserToolStripMenuItem1,
             this.regularCardPaymentToolStripMenuItem1,
             this.parkingSpaceToolStripMenuItem1,
-            this.parkingRecordToolStripMenuItem1});
+            this.parkingRecordToolStripMenuItem1,
+            this.faultRecordToolStripMenuItem});
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
             this.tableToolStripMenuItem.Size = new System.Drawing.Size(69, 28);
             this.tableToolStripMenuItem.Text = "Table";
@@ -135,7 +137,7 @@
             // regularCardToolStripMenuItem1
             // 
             this.regularCardToolStripMenuItem1.Name = "regularCardToolStripMenuItem1";
-            this.regularCardToolStripMenuItem1.Size = new System.Drawing.Size(211, 30);
+            this.regularCardToolStripMenuItem1.Size = new System.Drawing.Size(201, 30);
             this.regularCardToolStripMenuItem1.Text = "RegularCard";
             this.regularCardToolStripMenuItem1.Click += new System.EventHandler(this.regularCardToolStripMenuItem1_Click);
             // 
@@ -149,6 +151,13 @@
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // faultRecordToolStripMenuItem
+            // 
+            this.faultRecordToolStripMenuItem.Name = "faultRecordToolStripMenuItem";
+            this.faultRecordToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.faultRecordToolStripMenuItem.Text = "FaultRecord";
+            this.faultRecordToolStripMenuItem.Click += new System.EventHandler(this.faultRecordToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -185,5 +194,6 @@
         private System.Windows.Forms.ToolStripMenuItem dbViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regularCardToolStripMenuItem1;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.ToolStripMenuItem faultRecordToolStripMenuItem;
     }
 }
