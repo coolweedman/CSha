@@ -28,6 +28,7 @@
             this.dataGridViewDb = new System.Windows.Forms.DataGridView();
             this.buttonOk = new DevComponents.DotNetBar.ButtonX();
             this.buttonCancel = new DevComponents.DotNetBar.ButtonX();
+            this.Export = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,17 +45,18 @@
             // 
             // buttonOk
             // 
+            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonOk.Location = new System.Drawing.Point(206, 595);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(93, 35);
             this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "OK";
-            //this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
+            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(776, 595);
@@ -62,8 +64,17 @@
             this.buttonCancel.Size = new System.Drawing.Size(90, 35);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
-            //this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // Export
+            // 
+            this.Export.Location = new System.Drawing.Point(478, 599);
+            this.Export.Name = "Export";
+            this.Export.Size = new System.Drawing.Size(96, 32);
+            this.Export.TabIndex = 3;
+            this.Export.Text = "Export";
+            this.Export.UseVisualStyleBackColor = true;
+            this.Export.Click += new System.EventHandler(this.Export_Click);
             // 
             // DbRecordQueryBase
             // 
@@ -72,6 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(1103, 667);
+            this.Controls.Add(this.Export);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.dataGridViewDb);
@@ -87,7 +99,8 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dataGridViewDb;
-        public DevComponents.DotNetBar.ButtonX buttonOk;
-        public DevComponents.DotNetBar.ButtonX buttonCancel;
+        private System.Windows.Forms.Button Export;
+        private DevComponents.DotNetBar.ButtonX buttonOk;
+        private DevComponents.DotNetBar.ButtonX buttonCancel;
     }
 }

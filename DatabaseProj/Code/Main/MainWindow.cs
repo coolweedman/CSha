@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DatabaseProj.UI;
 using DatabaseProj.Code.Database;
@@ -14,6 +9,7 @@ using DatabaseProj.UI.ParkingSpaceUi;
 using DatabaseProj.UI.ParkingRecordUi;
 using DatabaseProj.UI.RegularCardViewUi;
 using DatabaseProj.UI.FaultRecord;
+using DatabaseProj.Code.App;
 
 namespace DatabaseProj.Code.Main {
     public partial class MainWindow : DevComponents.DotNetBar.Office2007Form {
@@ -170,6 +166,12 @@ namespace DatabaseProj.Code.Main {
 
             DbDBAMain hDbDBAMain = new DbDBAMain( hDBAccountDb );
             hDbDBAMain.Show();
+        }
+
+        private void excelTestToolStripMenuItem_Click (object sender, EventArgs e)
+        {
+            CDataTable2Excel hExcel = new CDataTable2Excel();
+            hExcel.excelCreate();
         }
     }
 }

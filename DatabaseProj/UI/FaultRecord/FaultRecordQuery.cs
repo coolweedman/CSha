@@ -205,8 +205,6 @@ namespace DatabaseProj.UI.FaultRecord {
             this.Controls.Add(this.checkBoxId);
             this.Controls.Add(this.textBoxId);
             this.Name = "FaultRecordQuery";
-            this.Controls.SetChildIndex(this.buttonOk, 0);
-            this.Controls.SetChildIndex(this.buttonCancel, 0);
             this.Controls.SetChildIndex(this.textBoxId, 0);
             this.Controls.SetChildIndex(this.checkBoxId, 0);
             this.Controls.SetChildIndex(this.checkBoxParkingSpace, 0);
