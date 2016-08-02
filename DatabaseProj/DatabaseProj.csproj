@@ -106,6 +106,9 @@
     <Compile Include="UI\FaultRecord\FaultRecordMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\FaultRecord\FaultRecordQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\ParkingRecordUi\ParkingRecordEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FaultRecord\FaultRecordEdit.resx">
       <DependentUpon>FaultRecordEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FaultRecord\FaultRecordQuery.resx">
+      <DependentUpon>FaultRecordQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParkingRecordUi\ParkingRecordEdit.resx">
       <DependentUpon>ParkingRecordEdit.cs</DependentUpon>

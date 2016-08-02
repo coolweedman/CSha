@@ -35,6 +35,13 @@ namespace DatabaseProj.UI.FaultRecord {
             return base.dbRecordDeleteProc();
         }
 
+        protected override EDbDataShowStat dbTableQueryProc ()
+        {
+            FaultRecordQuery hFaultRecordQuery = new FaultRecordQuery( hDbTable );
+            hFaultRecordQuery.ShowDialog();
+
+            return EDbDataShowStat.DBDATASHOW_READY;
+        }
 
     }
 }

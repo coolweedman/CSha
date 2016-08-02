@@ -172,10 +172,10 @@ namespace DatabaseProj.Code.Database {
                 hCmd.Parameters.Add( new SQLiteParameter( "FaultCont", sQueryStru.strFaultCont ) );
             }
             if ( sQueryStru.bConfirmTime ) {
-                hCmd.Parameters.Add( new SQLiteParameter( "FaultCode", sQueryStru.sConfirmTime ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "ConfirmTime", sQueryStru.sConfirmTime ) );
             }
             if ( sQueryStru.bFaultIdEn ) {
-                hCmd.Parameters.Add( new SQLiteParameter( "ConfirmTime", sQueryStru.iFaultId ) );
+                hCmd.Parameters.Add( new SQLiteParameter( "FaultId", sQueryStru.iFaultId ) );
             }
 
             base.dataBaseBaseRecordRead();

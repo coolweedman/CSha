@@ -65,3 +65,4 @@ C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\Database
 C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.UI.RegularCardViewUi.RegularCardViewQuery.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.csproj.GenerateResource.Cache
 C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.UI.FaultRecord.FaultRecordEdit.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.UI.FaultRecord.FaultRecordQuery.resources
