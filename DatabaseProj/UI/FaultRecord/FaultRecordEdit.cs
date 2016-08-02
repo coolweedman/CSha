@@ -10,8 +10,6 @@ using DatabaseProj.Code.Comm;
 namespace DatabaseProj.UI.FaultRecord {
 
     public class FaultRecordEdit : DbRecordEditBase {
-        private DevComponents.DotNetBar.ButtonX buttonCancel;
-        private DevComponents.DotNetBar.ButtonX buttonOk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -49,13 +47,106 @@ namespace DatabaseProj.UI.FaultRecord {
 
         public override void dbString2Stru (ref List<string> listRecord)
         {
-            base.dbString2Stru( ref listRecord );
+            int i = 0;
+
+            try {
+                sFaultRecordStru.iId = int.Parse( listRecord[i++] );
+                sFaultRecordStru.iParkingSpaceId = int.Parse( listRecord[i++] );
+                sFaultRecordStru.sStartTime = Convert.ToDateTime( listRecord[i++] );
+                sFaultRecordStru.strFaultCont = listRecord[i++];
+                sFaultRecordStru.sConfirmTime = Convert.ToDateTime( listRecord[i++] );
+                sFaultRecordStru.iFaultId = int.Parse( listRecord[i++] );
+                sFaultRecordStru.strComment = listRecord[i++];
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Stru..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
         }
+
+        public override void dbString2Ui (ref List<string> listRecord)
+        {
+            int i = 0;
+
+            DateTime sDataTimeStart = new DateTime();
+            DateTime sDataTimeConfirm = new DateTime();
+
+            try {
+                textBoxId.Text = listRecord[i++];
+                textBoxParkingSpaceId.Text = listRecord[i++];
+                sDataTimeStart = DateTime.Parse( listRecord[i++] );
+                comboBoxFaultCont.SelectedIndex = CDbBaseTable.dicDbBaseFaultRecordDesc[listRecord[i++]];
+                textBoxFaultCode.Text = listRecord[i++];
+                sDataTimeConfirm = DateTime.Parse( listRecord[i++] );
+                textBoxComment.Text = listRecord[i++];
+
+                dateTimePickerStartTime.Value = sDataTimeStart;
+                dateTimePickerConfirmTime.Value = sDataTimeConfirm;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbString2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        public override void dbStru2Ui ()
+        {
+            try {
+                textBoxId.Text = sFaultRecordStru.iId.ToString();
+                textBoxParkingSpaceId.Text = sFaultRecordStru.iParkingSpaceId.ToString();
+                dateTimePickerStartTime.Value = sFaultRecordStru.sStartTime;
+                comboBoxFaultCont.SelectedIndex = CDbBaseTable.dicDbBaseFaultRecordDesc[ sFaultRecordStru.strFaultCont ];
+                textBoxFaultCode.Text = sFaultRecordStru.strFaultCont;
+                dateTimePickerConfirmTime.Value = sFaultRecordStru.sConfirmTime;
+                textBoxComment.Text = sFaultRecordStru.strComment;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbStru2Ui..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        public override object dbStruGet ()
+        {
+            return sFaultRecordStru;
+        }
+
+        public override void dbUi2Stru ()
+        {
+            try {
+                sFaultRecordStru.iId = int.Parse( textBoxId.Text );
+                sFaultRecordStru.iParkingSpaceId = int.Parse( textBoxParkingSpaceId.Text );
+                sFaultRecordStru.sStartTime = dateTimePickerStartTime.Value;
+                sFaultRecordStru.strFaultCont = CDbBaseTable.strDbBaseFaultRecordDesc[comboBoxFaultCont.SelectedIndex];
+                sFaultRecordStru.iFaultId = int.Parse( textBoxFaultCode.Text );
+                sFaultRecordStru.sConfirmTime = dateTimePickerConfirmTime.Value;
+                sFaultRecordStru.strComment = textBoxComment.Text;
+            } catch ( Exception ex ) {
+                CDebugPrint.dbgUserMsgPrint( "dbUi2Stru..." );
+                CDebugPrint.dbgMehtorMsgPrint( new StackTrace( new StackFrame( true ) ) );
+                CDebugPrint.dbgExpectionMsgPrint( ex );
+            }
+        }
+
+        public override EDbEditUiStat dbUiStatChk ()
+        {
+            if ( "" == textBoxId.Text ) {
+                textBoxId.Select();
+                dbUiStatSet( "ID未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+            if ( "" == textBoxParkingSpaceId.Text ) {
+                textBoxParkingSpaceId.Select();
+                dbUiStatSet( "停车位ID未输入..." );
+                return EDbEditUiStat.DBEDITUISTAT_FAIL;
+            }
+
+            return EDbEditUiStat.DBEDITUISTAT_OK;
+        }
+
 
         private new void InitializeComponent ()
         {
-            this.buttonCancel = new DevComponents.DotNetBar.ButtonX();
-            this.buttonOk = new DevComponents.DotNetBar.ButtonX();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,25 +162,6 @@ namespace DatabaseProj.UI.FaultRecord {
             this.dateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerConfirmTime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(271, 268);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(87, 38);
-            this.buttonCancel.TabIndex = 1;
-            this.buttonCancel.Text = "Cancel";
-            // 
-            // buttonOk
-            // 
-            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonOk.Location = new System.Drawing.Point(70, 268);
-            this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(81, 38);
-            this.buttonOk.TabIndex = 0;
-            this.buttonOk.Text = "OK";
             // 
             // label1
             // 

@@ -78,7 +78,7 @@ namespace DatabaseProj.Code.Database {
                                     "FaultId      INT, " +
                                     "ConfirmTime    DATETIME, " +
                                     "Comment        TEXT, " +
-                                    "FOREIGN        KEY(ParkingSpaceId)  REFERENCES  ParkingSpace(Id), " +
+                                    "FOREIGN        KEY(ParkingSpaceId)  REFERENCES  ParkingSpace(Id) " +
                                     ")";
 
             base.dataBaseBaseTableCreate( strCreateTable );
@@ -235,13 +235,13 @@ namespace DatabaseProj.Code.Database {
                                "VALUES(@ParkingSpaceId, @StartTime, @FaultCont, @FaultId, @ConfirmTime, @Comment)";
 
             hCmd.Parameters.Add( new SQLiteParameter ( "ParkingSpaceId", sFrStru.iParkingSpaceId ) );
-            hCmd.Parameters.Add( new SQLiteParameter ( "StartTime", sFrStru.sStartTime ) );
+            hCmd.Parameters.Add( new SQLiteParameter ( "StartTime", sFrStru.sStartTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter ( "FaultCont", sFrStru.strFaultCont ) );
-            hCmd.Parameters.Add( new SQLiteParameter ( "FaultId", sFrStru.sConfirmTime ) );
-            hCmd.Parameters.Add( new SQLiteParameter ( "ConfirmTime", sFrStru.iFaultId ) );
+            hCmd.Parameters.Add( new SQLiteParameter ( "FaultId", sFrStru.iFaultId ) );
+            hCmd.Parameters.Add( new SQLiteParameter ( "ConfirmTime", sFrStru.sConfirmTime.ToString( "yyyy-MM-dd HH:mm:ss" ) ) );
             hCmd.Parameters.Add( new SQLiteParameter ( "Comment", sFrStru.strComment ) );
 
-            return base.dataBaseBaseCommAdd ( ref sRecord );
+            return base.dataBaseBaseCommCmdExec();
         }
 
         public override int dataBaseBaseCommDelete (ref object sRecord)

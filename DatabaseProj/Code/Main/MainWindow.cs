@@ -51,6 +51,9 @@ namespace DatabaseProj.Code.Main {
             CRegularCardView hRegularCardView = new CRegularCardView();
             hRegularCardView.rcvViewCreate();
 
+            CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
+            hFaultRecordDb.dataBaseBaseDeRecordInsert();
+
             MessageBox.Show( "Default Table Created" );
         }
 
@@ -142,7 +145,9 @@ namespace DatabaseProj.Code.Main {
 
         private void faultRecordToolStripMenuItem_Click (object sender, EventArgs e)
         {
-
+            CFaultRecordDb hFaultRecordDb = new CFaultRecordDb();
+            FaultRecordMain hFaultRecordMain = new FaultRecordMain( hFaultRecordDb );
+            hFaultRecordMain.Show();
         }
     }
 }

@@ -14,5 +14,27 @@ namespace DatabaseProj.UI.FaultRecord {
             dbDataShowHeadSet( CFaultRecordDb.strFaultRecordHeadDesc );
         }
 
+        protected override EDbDataShowStat dbTableAddProc ()
+        {
+            hEditUi = new FaultRecordEdit();
+
+            return base.dbTableAddProc();
+        }
+
+        protected override EDbDataShowStat dbRecordEditProc ()
+        {
+            hEditUi = new FaultRecordEdit();
+
+            return base.dbRecordEditProc();
+        }
+
+        protected override EDbDataShowStat dbRecordDeleteProc ()
+        {
+            hEditUi = new FaultRecordEdit();
+
+            return base.dbRecordDeleteProc();
+        }
+
+
     }
 }
