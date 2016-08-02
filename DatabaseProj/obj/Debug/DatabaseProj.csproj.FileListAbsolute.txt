@@ -66,3 +66,5 @@ C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\Database
 C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.csproj.GenerateResource.Cache
 C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.UI.FaultRecord.FaultRecordEdit.resources
 C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\obj\Debug\DatabaseProj.UI.FaultRecord.FaultRecordQuery.resources
+C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\coolw\Documents\Proj\10. CSharpDatabase\DatabaseProj\bin\Debug\stdole.dll

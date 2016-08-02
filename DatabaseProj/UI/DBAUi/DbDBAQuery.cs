@@ -58,27 +58,7 @@ namespace DatabaseProj.UI.DBAUi {
             this.comboBoxAuthority = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.hDataTable)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonOk
-            // 
-            this.buttonOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOk.Location = new System.Drawing.Point(206, 586);
-            this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(93, 35);
-            this.buttonOk.TabIndex = 1;
-            this.buttonOk.Text = "OK";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(797, 586);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(90, 35);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Cancel";
+
             // 
             // checkBoxId
             // 

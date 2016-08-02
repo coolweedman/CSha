@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using DatabaseProj.Code.Debug;
 using DatabaseProj.Code.Database;
+using DatabaseProj.Code.App;
 
 namespace DatabaseProj.UI.Base {
     public partial class DbRecordQueryBase : DevComponents.DotNetBar.Office2007Form {
@@ -92,6 +93,11 @@ namespace DatabaseProj.UI.Base {
             return null;
         }
 
+        protected void dbQuery2Excel ()
+        {
+            CDataTable2Excel.dataTable2Excel( ref hDataTable );
+        }
+
         /// <summary>
         /// 数据库查询界面基类 查询按键
         /// </summary>
@@ -113,6 +119,11 @@ namespace DatabaseProj.UI.Base {
         private void buttonCancel_Click (object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Export_Click (object sender, EventArgs e)
+        {
+            dbQuery2Excel();
         }
     }
 }
